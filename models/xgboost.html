@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fieldstate | XGBoost</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell nav">
+      <div class="brand">
+        <img class="mark" src="../assets/fieldstate-mark.png" alt="Fieldstate mark" />
+        <div class="brand-copy">
+          <img class="wordmark" src="../assets/fieldstate-wordmark.png" alt="Fieldstate" />
+          <span>XGBoost</span>
+        </div>
+      </div>
+      <nav class="navlinks">
+        <a href="../index.html">Overview</a>
+        <a href="../comparison.html">Comparison</a>
+        <a href="../use-cases.html">Use Cases</a>
+        <a href="../market.html">Market</a>
+        <a href="../product-paths.html">Product Paths</a>
+        <a href="../selling.html">Selling</a>
+        <a href="../engineering.html">Engineering</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">ML model</div>
+      <h1>XGBoost helps rank football outcomes from structured features.</h1>
+      <p>
+        It is a good fit when you already know the match state in numbers: rating gap, form,
+        minute, score, home advantage, lineups, and other structured inputs.
+      </p>
+      <div class="subnav">
+        <a href="../engineering.html">Overview</a>
+        <a href="../engineering-models.html">Models</a>
+        <a href="../engineering-data.html">Data</a>
+        <a href="../engineering-roadmap.html">Roadmap</a>
+      </div>
+    </section>
+
+    <section class="section grid-2">
+      <div class="card">
+        <h3>How it works</h3>
+        <p>XGBoost builds many small decision trees. Each tree fixes mistakes from the last one.</p>
+        <p>The result is strong at learning non-linear patterns without needing perfect manual rules.</p>
+      </div>
+      <div class="card">
+        <h3>Where it helps</h3>
+        <p>Pre-match win/draw/loss, in-play win probability, scoreline classes, and market-style heads.</p>
+      </div>
+      <div class="card">
+        <h3>Good scenario fit</h3>
+        <p>Use it when the question is: given this state, what is the most likely football outcome?</p>
+      </div>
+      <div class="card">
+        <h3>How to test it</h3>
+        <p>Use time-based splits. Train on earlier matches, validate on later matches, and test on unseen periods.</p>
+        <p>Check log-loss, calibration, and stability across seasons or tournaments.</p>
+      </div>
+      <div class="card">
+        <h3>What it does not do well</h3>
+        <p>It does not naturally understand causal football structure. It predicts from features you give it.</p>
+      </div>
+      <div class="card">
+        <h3>Investor wording</h3>
+        <p>“This is a strong structured-data model for ranking likely football outcomes from a match state.”</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

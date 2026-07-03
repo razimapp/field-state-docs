@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fieldstate | Engineering Models</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell nav">
+      <div class="brand">
+        <img class="mark" src="assets/fieldstate-mark.png" alt="Fieldstate mark" />
+        <div class="brand-copy">
+          <img class="wordmark" src="assets/fieldstate-wordmark.png" alt="Fieldstate" />
+          <span>Models</span>
+        </div>
+      </div>
+      <nav class="navlinks">
+        <a href="index.html">Overview</a>
+        <a href="comparison.html">Comparison</a>
+        <a href="use-cases.html">Use Cases</a>
+        <a href="market.html">Market</a>
+        <a href="product-paths.html">Product Paths</a>
+        <a href="selling.html">Selling</a>
+        <a href="engineering.html">Engineering</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">Model guide</div>
+      <h1>Model by model, in plain English.</h1>
+      <p>
+        The goal is simple: explain what each model does, why it matters, and where it fits in the product.
+      </p>
+      <div class="subnav">
+        <a href="engineering.html">Overview</a>
+        <a class="active" href="engineering-models.html">Models</a>
+        <a href="engineering-data.html">Data</a>
+        <a href="engineering-roadmap.html">Roadmap</a>
+      </div>
+    </section>
+
+    <section class="section grid-2">
+      <div class="card">
+        <div class="tag">xG</div>
+        <h3>Expected Goals</h3>
+        <p>Estimates shot quality. Useful when the scenario ends in a shot.</p>
+        <p><a href="models/xg.html">Open page</a></p>
+      </div>
+      <div class="card">
+        <div class="tag blue">xT</div>
+        <h3>Expected Threat</h3>
+        <p>Values movement of the ball into more dangerous areas. Good for passes and carries.</p>
+        <p><a href="models/xt.html">Open page</a></p>
+      </div>
+      <div class="card">
+        <div class="tag">VAEP</div>
+        <h3>Action value</h3>
+        <p>Measures how much each action helps or hurts the team’s chance of scoring or conceding.</p>
+        <p><a href="models/vaep.html">Open page</a></p>
+      </div>
+      <div class="card">
+        <div class="tag blue">Transition</div>
+        <h3>Next action model</h3>
+        <p>Predicts what happens next after the edited event: pass, carry, shot, turnover, or foul.</p>
+        <p><a href="models/transition-model.html">Open page</a></p>
+      </div>
+      <div class="card">
+        <div class="tag">Simulation</div>
+        <h3>Monte Carlo</h3>
+        <p>Runs many possible branches. Useful when you want a range of likely outcomes, not one answer.</p>
+        <p><a href="models/monte-carlo.html">Open page</a></p>
+      </div>
+      <div class="card">
+        <div class="tag blue">Scoring</div>
+        <h3>Poisson / Dixon-Coles</h3>
+        <p>Good for scorelines, match results, and tournament-style predictions.</p>
+        <p><a href="models/poisson-dixon-coles.html">Open page</a></p>
+      </div>
+      <div class="card">
+        <div class="tag blue">ML</div>
+        <h3>XGBoost</h3>
+        <p>Strong for pre-match or in-play prediction when you have structured features.</p>
+        <p><a href="models/xgboost.html">Open page</a></p>
+      </div>
+    </section>
+
+    <section class="section callout">
+      <h2>How to explain it</h2>
+      <p class="lede">
+        The product does not need every model at once. It needs the right model for each question.
+      </p>
+      <p>
+        xT and VAEP help value the action. Transition models help simulate the next phase. xG helps
+        when a shot occurs. Monte Carlo helps show a range of branches. Poisson-style models help with
+        score and result prediction.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
