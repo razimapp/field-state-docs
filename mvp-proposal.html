@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Football What-If Simulation MVP | 30 Working Day Feasibility Build</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    :root {
+      --ink: #0d1b2a;
+      --muted: #5b6777;
+      --line: #d8e1ea;
+      --soft: #f5f8fb;
+      --green: #13a36b;
+      --blue: #16324f;
+    }
+
+    body {
+      margin: 0;
+      background: #e9eef3;
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.42;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .toolbar a,
+    .toolbar button {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--blue);
+      font: inherit;
+      font-weight: 700;
+      padding: 9px 14px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 16px auto;
+      background: #fff;
+      padding: 16mm;
+      box-shadow: 0 18px 50px rgba(13, 27, 42, 0.15);
+      page-break-after: always;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand .mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .brand .wordmark {
+      width: 150px;
+      height: auto;
+      display: block;
+    }
+
+    .doc-label {
+      color: var(--muted);
+      font-size: 12px;
+      text-align: right;
+    }
+
+    .hero {
+      padding: 22px 0 18px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 38px;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    h2 {
+      margin: 22px 0 10px;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      margin: 0 0 6px;
+      font-size: 14px;
+    }
+
+    p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+
+    .lede {
+      max-width: 86ch;
+      font-size: 15px;
+      color: #314155;
+    }
+
+    .name-note {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 9px 12px;
+      border-radius: 12px;
+      background: var(--soft);
+      color: #314155;
+      font-size: 12.5px;
+      border: 1px solid var(--line);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      background: #fff;
+    }
+
+    .card p:last-child { margin-bottom: 0; }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 7px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #e8f7f0;
+      color: #0b6b43;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .tag.blue {
+      background: #edf3f8;
+      color: var(--blue);
+    }
+
+    ul {
+      margin: 7px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    li { margin: 4px 0; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font-size: 12.5px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 9px 10px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--soft);
+      color: var(--blue);
+      font-size: 12px;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .week {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 11px;
+      background: linear-gradient(180deg, #fff 0%, #f9fbfd 100%);
+    }
+
+    .week strong {
+      display: block;
+      color: var(--blue);
+      margin-bottom: 5px;
+      font-size: 13px;
+    }
+
+    .callout {
+      margin-top: 14px;
+      padding: 13px;
+      border-radius: 14px;
+      border: 1px solid #d6eadf;
+      background: #f4fbf7;
+    }
+
+    .callout p {
+      color: #234739;
+      margin-bottom: 0;
+    }
+
+    .footer {
+      margin-top: 18px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    @media print {
+      body { background: #fff; }
+      .toolbar { display: none; }
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+      }
+      .page:last-child { page-break-after: auto; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar no-print">
+    <a href="index.html">Back to site</a>
+    <button onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
+  <section class="page">
+    <header class="header">
+      <div class="brand">
+        <img class="mark" src="assets/fieldstate-mark.png" alt="Fieldstate mark" />
+        <img class="wordmark" src="assets/fieldstate-wordmark.png" alt="Fieldstate" />
+      </div>
+      <div class="doc-label">
+        Proposal draft<br />30 working day feasibility build
+      </div>
+    </header>
+
+    <main>
+      <div class="hero">
+        <h1>Football What-If Simulation MVP</h1>
+        <p class="lede">
+          A first-pass MVP to test whether a football event can be adjusted and followed by a plausible
+          alternative next phase of play.
+        </p>
+        <div class="name-note">
+          Working title only. Candidate names include <strong>NextPhase</strong>, <strong>FieldState</strong>, and <strong>MatchMind</strong>.
+          Final naming to be decided by investors.
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <span class="tag">Objective</span>
+          <h3>Show what could happen next</h3>
+          <p>
+            The MVP lets a person select one event from a real football match, adjust it, and view a
+            plausible alternative next phase of play.
+          </p>
+        </div>
+        <div class="card">
+          <span class="tag blue">Scope</span>
+          <h3>Keep the first version narrow</h3>
+          <p>
+            The first version should simulate the next phase, not claim to replay the whole match or
+            predict a perfect alternate reality.
+          </p>
+        </div>
+      </div>
+
+      <h2>MVP Scope</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Included in the first pass</h3>
+          <ul>
+            <li>StatsBomb Open Data loading</li>
+            <li>Real match and event selection</li>
+            <li>Pass or carry edit flow</li>
+            <li>Original versus counterfactual comparison</li>
+            <li>Basic next-phase simulation</li>
+            <li>2D pitch visualisation</li>
+            <li>Action-value output using xT / VAEP-style logic</li>
+            <li>Short feasibility report</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Excluded from the first pass</h3>
+          <ul>
+            <li>Full-match alternate reality simulation</li>
+            <li>Paid data integration</li>
+            <li>Live betting product</li>
+            <li>Elite-club-grade player-style modelling</li>
+            <li>Full tracking-data realism</li>
+            <li>Large multi-user SaaS platform</li>
+            <li>Transformer training from day one</li>
+            <li>Commercial accuracy claims</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>30 Working Day Plan</h2>
+      <div class="timeline">
+        <div class="week">
+          <strong>Week 1</strong>
+          <p>Load data, show matches, browse sequences, and select events.</p>
+        </div>
+        <div class="week">
+          <strong>Week 2</strong>
+          <p>Convert events to SPADL, add action value, and support pass/carry edits.</p>
+        </div>
+        <div class="week">
+          <strong>Week 3</strong>
+          <p>Build baseline next-phase simulation and branch comparison.</p>
+        </div>
+        <div class="week">
+          <strong>Week 4-6</strong>
+          <p>Polish 2D visualisation, test plausibility, and prepare the investor demo.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p>
+          Success for the first pass means the output is understandable, plausible, and useful enough
+          to justify deeper data access and model investment.
+        </p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>Football What-If Simulation MVP</span>
+      <span>Page 1 of 2</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="header">
+      <div class="brand">
+        <img class="mark" src="assets/fieldstate-mark.png" alt="Fieldstate mark" />
+        <img class="wordmark" src="assets/fieldstate-wordmark.png" alt="Fieldstate" />
+      </div>
+      <div class="doc-label">
+        Cost and resource view<br />Initial MVP plus expansion path
+      </div>
+    </header>
+
+    <main>
+      <div class="hero">
+        <h1>Initial Cost and Resource View</h1>
+        <p class="lede">
+          The first MVP can be built by one technical founder using AI-assisted development, open data,
+          and a deliberately narrow scope.
+        </p>
+      </div>
+
+      <h2>Initial MVP Estimate</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Area</th>
+            <th>Initial MVP View</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Build time</td>
+            <td>30 working days</td>
+          </tr>
+          <tr>
+            <td>Builder</td>
+            <td>1 technical founder using AI-assisted development</td>
+          </tr>
+          <tr>
+            <td>Open data</td>
+            <td>£0 for the first pass using StatsBomb Open Data</td>
+          </tr>
+          <tr>
+            <td>Anthropic / Fable / API support</td>
+            <td>Indicative range: £500-£2,000 for MVP support, depending on usage</td>
+          </tr>
+          <tr>
+            <td>Cloud and dev tools</td>
+            <td>Indicative range: £100-£500 for MVP development</td>
+          </tr>
+          <tr>
+            <td>Paid football data</td>
+            <td>£0 initially. Paid data should be considered after the first demo.</td>
+          </tr>
+          <tr>
+            <td>Contractor reserve</td>
+            <td>Optional only if blocked. Indicative reserve: £0-£3,000.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Use of Anthropic Fable</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Where Fable helps</h3>
+          <p>
+            Fable is best used as a build accelerator for architecture, coding support, debugging,
+            evaluation design, documentation, and investor materials.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Where Fable should not sit</h3>
+          <p>
+            Fable should not be the core football simulation model. The football intelligence should
+            come from models trained on football event data.
+          </p>
+        </div>
+      </div>
+
+      <h2>Additional Resource Plan</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Blocker or Expansion Need</th>
+            <th>Optional Resource</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Data processing or model quality becomes the blocker</td>
+            <td>Data / ML engineer</td>
+          </tr>
+          <tr>
+            <td>Visual demo polish becomes the blocker</td>
+            <td>Frontend engineer</td>
+          </tr>
+          <tr>
+            <td>Scenario realism needs external validation</td>
+            <td>Football analyst</td>
+          </tr>
+          <tr>
+            <td>Paid data sourcing becomes urgent</td>
+            <td>Data vendor consultant</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Cost Growth After MVP</h2>
+      <div class="grid-3">
+        <div class="card">
+          <span class="tag">Pilot</span>
+          <h3>Improve the demo</h3>
+          <p>Better UI, more model testing, and stronger scenario output.</p>
+        </div>
+        <div class="card">
+          <span class="tag blue">Data upgrade</span>
+          <h3>Add licensed data</h3>
+          <p>Paid event or tracking data may be needed for commercial realism.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Commercial build</span>
+          <h3>Turn it into a product</h3>
+          <p>User accounts, deployment, reporting, and customer workflows.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p>
+          Main risk: data access. Open data is enough to prove feasibility, but serious commercial realism
+          will likely require licensed event and tracking data.
+        </p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>Recommendation: start with the 30 working day MVP, then decide on paid data and extra resources.</span>
+      <span>Page 2 of 2</span>
+    </footer>
+  </section>
+</body>
+</html>
