@@ -45,10 +45,40 @@
 
     <section class="section">
       <div class="grid-3">
-        <div class="card"><h3>Input</h3><p>Match state, action, location, pressure, time, and players.</p></div>
-        <div class="card"><h3>Model</h3><p>Estimate the value and next likely actions.</p></div>
-        <div class="card"><h3>Output</h3><p>Show a clear comparison of original versus alternative choices.</p></div>
+        <div class="card"><h3>Input</h3><p>Match state, action, location, time, players, and available event context.</p></div>
+        <div class="card"><h3>Model</h3><p>Use Python to estimate action value, plausibility, risk, and next-phase effects.</p></div>
+        <div class="card"><h3>Output</h3><p>Show a clear comparison of original versus alternative choices, with analyst-readable explanation.</p></div>
       </div>
+    </section>
+
+    <section class="section">
+      <h2>Architecture principle</h2>
+      <p class="lede">
+        Fieldstate should keep the football logic grounded in data and code, while using Claude/Fable
+        for research, documentation, candidate factor discovery, and explanation.
+      </p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Rust/open-football</h3>
+          <p>Best for the product shell, simulation integration, APIs, and deterministic match state.</p>
+        </div>
+        <div class="card">
+          <h3>Python models</h3>
+          <p>Best for StatsBomb/Open Data ingestion, feature engineering, xT / VAEP-style logic, and evaluation.</p>
+        </div>
+        <div class="card">
+          <h3>Claude/Fable</h3>
+          <p>Best for deep research, document refinement, factor suggestions, and structured scenario explanations.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section callout">
+      <h2>Guardrail</h2>
+      <p class="lede">
+        Fable can propose overlooked factors and explain the model output, but it should not invent the
+        counterfactual result. The outcome path should come from event data, statistical logic, and validation.
+      </p>
     </section>
   </main>
 </body>

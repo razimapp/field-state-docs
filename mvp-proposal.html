@@ -55,9 +55,13 @@
       min-height: 297mm;
       margin: 16px auto;
       background: #fff;
-      padding: 16mm;
+      padding: 12mm;
       box-shadow: 0 18px 50px rgba(13, 27, 42, 0.15);
       page-break-after: always;
+    }
+
+    .page.compact {
+      padding-top: 12mm;
     }
 
     .header {
@@ -67,6 +71,25 @@
       gap: 20px;
       padding-bottom: 16px;
       border-bottom: 1px solid var(--line);
+    }
+
+    .compact-header {
+      display: none;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .compact-header h1 {
+      font-size: 34px;
+      margin-bottom: 7px;
+    }
+
+    .compact-header p {
+      max-width: 78ch;
+      margin-bottom: 0;
     }
 
     .brand {
@@ -111,6 +134,11 @@
       letter-spacing: -0.02em;
     }
 
+    .compact h2 {
+      margin: 12px 0 7px;
+      font-size: 18px;
+    }
+
     h3 {
       margin: 0 0 6px;
       font-size: 14px;
@@ -120,6 +148,15 @@
       margin: 0 0 10px;
       color: var(--muted);
       font-size: 13.5px;
+    }
+
+    .compact p {
+      margin-bottom: 7px;
+      font-size: 12.8px;
+    }
+
+    .compact ul {
+      font-size: 12.2px;
     }
 
     .lede {
@@ -158,6 +195,15 @@
       background: #fff;
     }
 
+    .compact .card {
+      padding: 9px;
+      border-radius: 12px;
+    }
+
+    .mt-10 {
+      margin-top: 10px;
+    }
+
     .card p:last-child { margin-bottom: 0; }
 
     .tag {
@@ -185,6 +231,13 @@
 
     li { margin: 4px 0; }
 
+    .principles {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: #314155;
+      font-size: 12.5px;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -199,6 +252,12 @@
       padding: 9px 10px;
       border-bottom: 1px solid var(--line);
       vertical-align: top;
+    }
+
+    .compact th,
+    .compact td {
+      padding: 7px 9px;
+      font-size: 12px;
     }
 
     th {
@@ -266,6 +325,7 @@
         width: 210mm;
         min-height: 297mm;
         margin: 0;
+        padding: 12mm;
         box-shadow: none;
         page-break-after: always;
       }
@@ -276,7 +336,6 @@
 </head>
 <body>
   <div class="toolbar no-print">
-    <a href="index.html">Back to site</a>
     <button onclick="window.print()">Print / Save as PDF</button>
   </div>
 
@@ -299,8 +358,8 @@
           alternative next phase of play.
         </p>
         <div class="name-note">
-          Working title only. Candidate names include <strong>NextPhase</strong>, <strong>FieldState</strong>, and <strong>MatchMind</strong>.
-          Final naming to be decided by investors.
+          Working principle: use AI to accelerate research, explanation, and documentation, but keep the
+          football outcome grounded in data, code, and validation.
         </div>
       </div>
 
@@ -309,8 +368,8 @@
           <span class="tag">Objective</span>
           <h3>Show what could happen next</h3>
           <p>
-            The MVP lets a person select one event from a real football match, adjust it, and view a
-            plausible alternative next phase of play.
+            The MVP lets a person select one event from a real football match, adjust a pass or carry,
+            and compare the original decision against a plausible alternative.
           </p>
         </div>
         <div class="card">
@@ -335,6 +394,7 @@
             <li>Basic next-phase simulation</li>
             <li>2D pitch visualisation</li>
             <li>Action-value output using xT / VAEP-style logic</li>
+            <li>Claude/Fable explanation layer for analyst-readable summaries</li>
             <li>Short feasibility report</li>
           </ul>
         </div>
@@ -348,28 +408,37 @@
             <li>Full tracking-data realism</li>
             <li>Large multi-user SaaS platform</li>
             <li>Transformer training from day one</li>
+            <li>Fable-generated football outcomes treated as truth</li>
             <li>Commercial accuracy claims</li>
           </ul>
         </div>
       </div>
 
+      <h2>Build Principles</h2>
+      <ul class="principles">
+        <li><strong>Model first:</strong> metrics come from event data, xT / VAEP-style logic, and tested code.</li>
+        <li><strong>Fable second:</strong> Fable suggests factors, refines documents, and explains model output.</li>
+        <li><strong>Hybrid stack:</strong> Python handles data science; Rust/open-football can provide the product and simulation shell.</li>
+        <li><strong>Cost control:</strong> prompt caching keeps the stable project context reusable across research and explanation calls.</li>
+      </ul>
+
       <h2>30 Working Day Plan</h2>
       <div class="timeline">
         <div class="week">
           <strong>Week 1</strong>
-          <p>Load data, show matches, browse sequences, and select events.</p>
+          <p>Load data, expose a small Python API, show matches, and select events.</p>
         </div>
         <div class="week">
           <strong>Week 2</strong>
-          <p>Convert events to SPADL, add action value, and support pass/carry edits.</p>
+          <p>Add xT / possession-value proxies, plausibility checks, and pass/carry edits.</p>
         </div>
         <div class="week">
           <strong>Week 3</strong>
-          <p>Build baseline next-phase simulation and branch comparison.</p>
+          <p>Build baseline branch comparison and structured scenario outputs.</p>
         </div>
         <div class="week">
           <strong>Week 4-6</strong>
-          <p>Polish 2D visualisation, test plausibility, and prepare the investor demo.</p>
+          <p>Add Fable explanations, polish visualisation, test plausibility, and prepare the demo.</p>
         </div>
       </div>
 
@@ -387,26 +456,21 @@
     </footer>
   </section>
 
-  <section class="page">
-    <header class="header">
-      <div class="brand">
-        <img class="mark" src="assets/fieldstate-mark.png" alt="Fieldstate mark" />
-        <img class="wordmark" src="assets/fieldstate-wordmark.png" alt="Fieldstate" />
-      </div>
-      <div class="doc-label">
-        Cost and resource view<br />Initial MVP plus expansion path
-      </div>
-    </header>
-
-    <main>
-      <div class="hero">
+  <section class="page compact">
+    <header class="compact-header">
+      <div>
         <h1>Initial Cost and Resource View</h1>
         <p class="lede">
           The first MVP can be built by one technical founder using AI-assisted development, open data,
           and a deliberately narrow scope.
         </p>
       </div>
+      <div class="doc-label">
+        Page 2<br />Cost and resources
+      </div>
+    </header>
 
+    <main>
       <h2>Initial MVP Estimate</h2>
       <table>
         <thead>
@@ -422,7 +486,7 @@
           </tr>
           <tr>
             <td>Builder</td>
-            <td>1 technical founder using AI-assisted development</td>
+            <td>1 technical founder using AI-assisted development, with Python for models and Rust/open-football available for product integration</td>
           </tr>
           <tr>
             <td>Open data</td>
@@ -430,7 +494,7 @@
           </tr>
           <tr>
             <td>Anthropic / Fable / API support</td>
-            <td>Indicative range: £500-£2,000 for MVP support, depending on usage</td>
+            <td>Indicative range: £500-£2,000 for research, document refinement, factor discovery, and explanation support. Prompt caching should reduce repeated context cost and latency.</td>
           </tr>
           <tr>
             <td>Cloud and dev tools</td>
@@ -450,17 +514,34 @@
       <h2>Use of Anthropic Fable</h2>
       <div class="grid-2">
         <div class="card">
-          <h3>Where Fable helps</h3>
+          <h3>Where Fable belongs</h3>
           <p>
-            Fable is best used as a build accelerator for architecture, coding support, debugging,
-            evaluation design, documentation, and investor materials.
+            Fable is best used for deep research, document refinement, candidate factor generation,
+            evaluation design, and analyst-readable explanations of model output.
           </p>
         </div>
         <div class="card">
-          <h3>Where Fable should not sit</h3>
+          <h3>Where Fable does not belong</h3>
           <p>
-            Fable should not be the core football simulation model. The football intelligence should
-            come from models trained on football event data.
+            Fable should not be the core football simulation model. The outcome path should come from
+            event data, deterministic code, statistical models, and validation.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-2 mt-10">
+        <div class="card">
+          <h3>Prompt caching</h3>
+          <p>
+            Cache the stable project brief, modelling assumptions, schemas, and tone rules. Send only
+            the current event, document section, or research question as the changing input.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Output discipline</h3>
+          <p>
+            Use structured JSON for scenario explanations, factor libraries, and document refinements
+            so the product can parse, review, and audit AI output.
           </p>
         </div>
       </div>
@@ -476,7 +557,7 @@
         <tbody>
           <tr>
             <td>Data processing or model quality becomes the blocker</td>
-            <td>Data / ML engineer</td>
+            <td>Data / ML engineer, especially for StatsBomb ingestion, xT / VAEP features, and validation</td>
           </tr>
           <tr>
             <td>Visual demo polish becomes the blocker</td>
@@ -484,7 +565,7 @@
           </tr>
           <tr>
             <td>Scenario realism needs external validation</td>
-            <td>Football analyst</td>
+            <td>Football analyst to review plausibility, factor assumptions, and explanation quality</td>
           </tr>
           <tr>
             <td>Paid data sourcing becomes urgent</td>
@@ -514,8 +595,9 @@
 
       <div class="callout">
         <p>
-          Main risk: data access. Open data is enough to prove feasibility, but serious commercial realism
-          will likely require licensed event and tracking data.
+          Main risk: confusing a polished explanation with validated football truth. Open data is enough
+          to prove feasibility, but serious commercial realism will likely require licensed event/tracking
+          data and analyst validation.
         </p>
       </div>
     </main>
