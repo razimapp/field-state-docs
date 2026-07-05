@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Football What-If Simulation MVP | 30 Working Day Feasibility Build</title>
+  <title>Football What-If Simulation MVP | 30 Working Day Feasibility Sprint</title>
   <style>
     * { box-sizing: border-box; }
 
@@ -64,6 +64,14 @@
       padding-top: 12mm;
     }
 
+    .page.terms-page {
+      padding-top: 8mm;
+    }
+
+    .page.no-header .hero {
+      padding-top: 0;
+    }
+
     .header {
       display: flex;
       align-items: center;
@@ -90,6 +98,10 @@
     .compact-header p {
       max-width: 78ch;
       margin-bottom: 0;
+    }
+
+    .terms-page h1 {
+      font-size: 34px;
     }
 
     .brand {
@@ -119,6 +131,14 @@
 
     .hero {
       padding: 22px 0 18px;
+    }
+
+    .hero.split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      align-items: start;
+      padding-bottom: 14px;
     }
 
     h1 {
@@ -238,6 +258,17 @@
       font-size: 12.5px;
     }
 
+    .statement {
+      margin: 12px 0;
+      padding: 13px;
+      border: 1px solid #d6eadf;
+      border-radius: 14px;
+      background: #f4fbf7;
+      color: #234739;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -267,6 +298,11 @@
     }
 
     tr:last-child td { border-bottom: 0; }
+
+    .criteria th:first-child,
+    .criteria td:first-child {
+      width: 34%;
+    }
 
     .timeline {
       display: grid;
@@ -323,12 +359,51 @@
       .toolbar { display: none; }
       .page {
         width: 210mm;
-        min-height: 297mm;
+        height: 297mm;
+        min-height: auto;
         margin: 0;
-        padding: 12mm;
+        padding: 8mm 11mm;
         box-shadow: none;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
         page-break-after: always;
       }
+
+      main { flex: 1; }
+
+      h1 { font-size: 32px; }
+      h2 { margin: 13px 0 7px; font-size: 17px; }
+      p { font-size: 12.4px; }
+      ul { font-size: 12px; }
+
+      .hero { padding: 8px 0 8px; }
+      .page.no-header .hero { padding-top: 0; }
+      .compact .hero { padding: 0 0 6px; }
+      .compact h1 { font-size: 28px; }
+      .compact h2 { margin: 8px 0 5px; font-size: 16px; }
+      .terms-page { padding-top: 5mm; }
+      .terms-page h1 { font-size: 27px; }
+      .terms-page .lede { font-size: 12.5px; }
+
+      .grid-2,
+      .grid-3 { gap: 8px; }
+
+      .card { padding: 8px; }
+      .compact .card { padding: 7px; }
+      .callout { margin-top: 8px; padding: 8px; }
+      .footer { margin-top: auto; padding-top: 8px; }
+
+      th,
+      td { padding: 5px 7px; }
+
+      .compact th,
+      .compact td { padding: 4px 6px; }
+
+      .timeline { gap: 7px; margin-top: 7px; }
+      .week { padding: 7px; }
+      .week strong { margin-bottom: 3px; }
+
       .page:last-child { page-break-after: auto; }
       a { color: inherit; text-decoration: none; }
     }
@@ -346,10 +421,164 @@
         <img class="wordmark" src="assets/fieldstate-wordmark.png" alt="Fieldstate" />
       </div>
       <div class="doc-label">
-        Proposal draft<br />30 working day feasibility build
+        Customer view<br />MVP decision-intelligence product
       </div>
     </header>
 
+    <main>
+      <div class="hero split">
+        <div>
+          <h1>Fieldstate helps football people compare decisions.</h1>
+          <p class="lede">
+            The MVP answers one practical question: if this player made a different decision here,
+            what might the next phase of play look like?
+          </p>
+          <div class="statement">
+            Fieldstate turns real match moments into clear what-if decision analysis.
+          </div>
+        </div>
+        <div class="card">
+          <span class="tag blue">Brand principle</span>
+          <h3>Calm, practical, credible</h3>
+          <p>
+            The product should help analysts and coaches discuss decisions without pretending to
+            predict a perfect alternate reality.
+          </p>
+        </div>
+      </div>
+
+      <h2>What customers can do</h2>
+      <div class="grid-3">
+        <div class="card">
+          <span class="tag">1</span>
+          <h3>Pick a real event</h3>
+          <p>Select a pass or carry from a real match and see the original context.</p>
+        </div>
+        <div class="card">
+          <span class="tag blue">2</span>
+          <h3>Edit the action</h3>
+          <p>Change the pass target or carry endpoint to test a plausible alternative.</p>
+        </div>
+        <div class="card">
+          <span class="tag">3</span>
+          <h3>Compare the trade-off</h3>
+          <p>Review possession value, chance creation, turnover risk, plausibility, and explanation.</p>
+        </div>
+      </div>
+
+      <h2>Why it matters</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>For analysts</h3>
+          <ul>
+            <li>Review key decisions faster</li>
+            <li>Compare safe and progressive options</li>
+            <li>Turn match data into scenario analysis</li>
+            <li>Support coaching clips with clear evidence</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>For coaches and academies</h3>
+          <ul>
+            <li>Show players why one option may be better</li>
+            <li>Explain risk and reward in simple terms</li>
+            <li>Build a library of decision scenarios</li>
+            <li>Spot recurring decision-making patterns</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p>
+          The MVP does not replay the whole match or guarantee what would have happened. It helps
+          football people understand the trade-off between one decision and another.
+        </p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>Fieldstate customer MVP view</span>
+      <span>Page 1 of 4</span>
+    </footer>
+  </section>
+
+  <section class="page compact terms-page">
+    <main>
+      <div class="hero">
+        <h1>Pre-MVP Working Terms</h1>
+        <p class="lede">
+          This is a controlled feasibility sprint. It should test whether the concept is technically
+          useful before anyone treats it as a commercial product, assigned IP, or agreed company structure.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Status of the sprint</h3>
+          <p>This 30 working day period is a feasibility sprint, not a commitment to deliver a commercial-grade product.</p>
+        </div>
+        <div class="card">
+          <h3>Role</h3>
+          <p>Razim is contributing as a prospective technical co-founder / founding technical lead, not as a contractor, employee, or outsourced developer.</p>
+        </div>
+        <div class="card">
+          <h3>IP during sprint</h3>
+          <p>All code, models, architecture, documentation, prompts, workflows, and technical assets created during the sprint remain owned by their creator unless assigned under a separate written founder/shareholder agreement.</p>
+        </div>
+        <div class="card">
+          <h3>Source code access</h3>
+          <p>Source code remains in a private repository controlled by the technical founder during the feasibility sprint. Demos, screenshots, documentation, and recorded walkthroughs may be shared for review.</p>
+        </div>
+      </div>
+
+      <h2>Founder and investor guardrails</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Investor communication</h3>
+          <p>No party may represent that product IP, equity, company ownership, commercial rights, or technical ownership has been assigned or agreed without written agreement from all founding parties.</p>
+        </div>
+        <div class="card">
+          <h3>Post-MVP decision gate</h3>
+          <p>If the MVP is technically viable or receives investor/customer interest, the parties should pause and agree founder terms, equity, vesting, IP assignment, company structure, and decision rights before further development, fundraising, or commercial use.</p>
+        </div>
+      </div>
+
+      <h2>30-day success criteria</h2>
+      <table class="criteria">
+        <thead>
+          <tr>
+            <th>Success area</th>
+            <th>30-day target</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Technical feasibility</td><td>Load real StatsBomb events and generate one editable pass/carry scenario</td></tr>
+          <tr><td>Simulation output</td><td>Produce at least 2-3 plausible next-phase branches</td></tr>
+          <tr><td>Visualisation</td><td>Show original versus alternative event path on a 2D pitch</td></tr>
+          <tr><td>Valuation</td><td>Show basic xT / VAEP-style change or possession-value proxy</td></tr>
+          <tr><td>Explanation</td><td>Generate analyst-readable explanation from structured model output</td></tr>
+          <tr><td>Validation</td><td>Have at least one football analyst or domain person review plausibility</td></tr>
+          <tr><td>Investor readiness</td><td>Produce a demo walkthrough and short feasibility report</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Not Yet Proven</h2>
+      <div class="callout">
+        <p>
+          This sprint does not yet prove commercial accuracy, club-grade tactical realism, live-match
+          reliability, recruitment-grade player modelling, or production-grade probability calibration.
+          Those require deeper validation, richer data, and domain review.
+        </p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>Pre-MVP working terms and success criteria</span>
+      <span>Page 2 of 4</span>
+    </footer>
+  </section>
+
+  <section class="page no-header">
     <main>
       <div class="hero">
         <h1>Football What-If Simulation MVP</h1>
@@ -403,7 +632,6 @@
           <ul>
             <li>Full-match alternate reality simulation</li>
             <li>Paid data integration</li>
-            <li>Live betting product</li>
             <li>Elite-club-grade player-style modelling</li>
             <li>Full tracking-data realism</li>
             <li>Large multi-user SaaS platform</li>
@@ -418,7 +646,7 @@
       <ul class="principles">
         <li><strong>Model first:</strong> metrics come from event data, xT / VAEP-style logic, and tested code.</li>
         <li><strong>Fable second:</strong> Fable suggests factors, refines documents, and explains model output.</li>
-        <li><strong>Hybrid stack:</strong> Python handles data science; Rust/open-football can provide the product and simulation shell.</li>
+        <li><strong>Python first:</strong> data loading, model features, and feasibility should move quickly before heavier product infrastructure.</li>
         <li><strong>Cost control:</strong> prompt caching keeps the stable project context reusable across research and explanation calls.</li>
       </ul>
 
@@ -445,14 +673,17 @@
       <div class="callout">
         <p>
           Success for the first pass means the output is understandable, plausible, and useful enough
-          to justify deeper data access and model investment.
+          to justify deeper data access and model investment. If the core scope is completed in fewer
+          than 30 working days, remaining time will be used to improve the demo, add additional scenario
+          factors, refine model outputs, strengthen the visual experience, and iterate based on investor
+          or analyst feedback.
         </p>
       </div>
     </main>
 
     <footer class="footer">
       <span>Football What-If Simulation MVP</span>
-      <span>Page 1 of 2</span>
+      <span>Page 3 of 4</span>
     </footer>
   </section>
 
@@ -486,7 +717,7 @@
           </tr>
           <tr>
             <td>Builder</td>
-            <td>1 technical founder using AI-assisted development, with Python for models and Rust/open-football available for product integration</td>
+            <td>1 technical founder using AI-assisted development. Python first for modelling and feasibility; web or Rust/open-football components can be added only if required after feasibility is proven.</td>
           </tr>
           <tr>
             <td>Open data</td>
@@ -600,11 +831,12 @@
           data and analyst validation.
         </p>
       </div>
+
     </main>
 
     <footer class="footer">
       <span>Recommendation: start with the 30 working day MVP, then decide on paid data and extra resources.</span>
-      <span>Page 2 of 2</span>
+      <span>Page 4 of 4</span>
     </footer>
   </section>
 </body>
