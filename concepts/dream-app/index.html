@@ -1,0 +1,87 @@
+<!doctype html>
+<!-- FIELDSTATE dream-app clickable concept. static pages, link navigation only. sample values. -->
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CC — Command Centre · Fieldstate concept</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="concept-banner">Concept prototype. link navigation only · sample values · no live models</div>
+
+<div class="ticker" aria-label="Decision ticker">
+  <a class="tick" href="match-room.html"><span class="sym">BAR-ATM</span><span class="fig">14 lev. moments</span><span class="up">▲</span></a>
+  <a class="tick" href="lab.html"><span class="sym">71'34 SWITCH</span><span class="fig">P(retain) .62</span><span class="up">▲ high conf</span></a>
+  <a class="tick" href="scout.html"><span class="sym">#8 DECISIONS</span><span class="fig">84th pct</span><span class="up">▲ 6wk</span></a>
+  <a class="tick" href="match-room.html"><span class="sym">PRESS TRIG</span><span class="fig">missed ×3</span><span class="dn">▼ flag</span></a>
+  <a class="tick" href="evidence.html"><span class="sym">MODEL v0.9</span><span class="fig">gate</span><span class="dn">NOT PASSED</span></a>
+  <a class="tick" href="feed.html"><span class="sym">FEED</span><span class="fig">options.ranked</span><span class="up">LIVE</span></a>
+</div>
+
+<div class="frame-top">
+  <div class="crest"></div>
+  <div class="fixture">Command Centre<small>Week 31 · 3 matches processed · sample data</small></div>
+  <span class="crumbs"><b>CC</b></span>
+  <div class="modes" style="margin-left:auto"><span class="mode on">Analyst</span><span class="mode">Coach</span><span class="mode">Investor demo</span></div>
+</div>
+
+<div class="app-body no-panel">
+  <nav class="rail">
+    <div class="rail-tag">Rooms</div>
+    <a class="on" href="index.html"><span class="ic"></span>Command Centre<span class="kbd-hint">CC</span></a>
+    <a href="match-room.html"><span class="ic"></span>Match Room<span class="kbd-hint">MR</span></a>
+    <a href="moment.html"><span class="ic"></span>Moment Replay<span class="kbd-hint">MOM</span></a>
+    <a href="lab.html"><span class="ic"></span>Counterfactual Lab<span class="kbd-hint">LAB</span></a>
+    <a href="terminal.html"><span class="ic"></span>Terminal Desk<span class="kbd-hint">TRM</span></a>
+    <a href="scout.html"><span class="ic"></span>Scout Desk<span class="kbd-hint">SCT</span></a>
+    <a href="feed.html"><span class="ic"></span>Feed Desk<span class="kbd-hint">FEED</span></a>
+    <div class="rail-sep"></div>
+    <div class="rail-tag">Trust</div>
+    <a href="evidence.html"><span class="ic"></span>Evidence Centre<span class="kbd-hint">EVD</span></a>
+  </nav>
+
+  <div class="cc-grid">
+    <div class="journeys">
+      <h5>Four walkable journeys (this prototype is fully linked)</h5>
+      <ol>
+        <li><b>Analyst loop:</b> card below → <a href="moment.html">Moment Replay</a> → "Open in Lab" →
+          <a href="lab.html">Counterfactual Lab</a> → "running on v0.8" → <a href="evidence.html">Evidence Centre</a>.
+          Keyboard path: <span class="fs">MOM 71'34 → LAB → EVD</span></li>
+        <li><b>Terminal loop:</b> <a href="terminal.html">Terminal Desk</a> → any quad panel's OPEN → its room → cmdbar shows the code you could have typed.</li>
+        <li><b>Scout loop:</b> <a href="scout.html">Scout Desk</a> → click any percentile bar → the moments that produced it.</li>
+        <li><b>Partner loop:</b> <a href="feed.html">Feed Desk</a> → a GATED feed → <a href="evidence.html">the gate it must pass</a>. Trust is one click from the price list.</li>
+      </ol>
+    </div>
+
+    <div class="cc-wide"><span class="pulse"></span>
+      <p><b style="color:var(--rec)">Saturday vs Atlético processed.</b> 14 high-leverage decision moments queued for review, ranked by how much the game state could have swung. <span class="chip est">Estimate</span></p>
+    </div>
+
+    <a class="card" href="moment.html">
+      <div class="lv">Leverage 0.84 · sample</div>
+      <h5>71' — the switch not played</h5>
+      <p>Right side overloaded, far-side winger in 9m of space. Actual: recycle to centre-back.</p>
+      <div class="foot"><span class="chip rec">Recorded</span><span class="chip hyp">1 branch</span><span class="go">OPEN MOM ⏎</span></div>
+    </a>
+    <a class="card" href="match-room.html">
+      <div class="lv">Leverage 0.71 · sample</div>
+      <h5>34' — press trigger missed</h5>
+      <p>Their pivot received back-to-goal, unpressed, three times in four minutes.</p>
+      <div class="foot"><span class="chip rec">Recorded</span><span class="chip est">Pattern</span><span class="go">OPEN MR ⏎</span></div>
+    </a>
+    <a class="card" href="moment.html">
+      <div class="lv">Leverage 0.66 · sample</div>
+      <h5>58' — early cross vs cut-back</h5>
+      <p>Repeated choice under no pressure; cut-back lane open in 4 of 5 occurrences.</p>
+      <div class="foot"><span class="chip rec">Recorded</span><span class="chip hyp">2 branches</span><span class="go">OPEN MOM ⏎</span></div>
+    </a>
+  </div>
+</div>
+
+<div class="cmdbar">
+  <span class="ps">FS&gt;</span><span class="typed">CC</span><span class="caret"></span>
+  <span class="ghost">· command centre · every card is also a typed code</span>
+  <span class="keys"><a class="kbd" href="match-room.html">MR match</a><a class="kbd" href="terminal.html">TRM desk</a><a class="kbd" href="evidence.html">EVD evidence</a></span>
+</div>
+</body>
+</html>

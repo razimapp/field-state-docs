@@ -1,0 +1,78 @@
+<!doctype html>
+<!-- FIELDSTATE dream-app clickable concept. static pages, link navigation only. sample values. -->
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SCT #8 — Scout Desk · Fieldstate concept</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="concept-banner">Concept prototype. link navigation only · sample values · no live models</div>
+
+<div class="ticker" aria-label="Decision ticker">
+  <a class="tick" href="match-room.html"><span class="sym">BAR-ATM</span><span class="fig">14 lev. moments</span><span class="up">▲</span></a>
+  <a class="tick" href="lab.html"><span class="sym">71'34 SWITCH</span><span class="fig">P(retain) .62</span><span class="up">▲ high conf</span></a>
+  <a class="tick" href="scout.html"><span class="sym">#8 DECISIONS</span><span class="fig">84th pct</span><span class="up">▲ 6wk</span></a>
+  <a class="tick" href="evidence.html"><span class="sym">MODEL v0.9</span><span class="fig">gate</span><span class="dn">NOT PASSED</span></a>
+  <a class="tick" href="feed.html"><span class="sym">FEED</span><span class="fig">options.ranked</span><span class="up">LIVE</span></a>
+</div>
+
+<div class="frame-top">
+  <div class="crest"></div>
+  <div class="fixture">SCT — #8 · decision profile<small>central midfield · 2,140 decisions analysed · sample data</small></div>
+  <span class="crumbs"><a href="index.html">CC</a> / <b>SCT #8</b></span>
+  <div class="modes" style="margin-left:auto"><span class="mode on">Recruitment</span><span class="mode">Development</span></div>
+</div>
+
+<div class="app-body no-panel">
+  <nav class="rail">
+    <div class="rail-tag">Rooms</div>
+    <a href="index.html"><span class="ic"></span>Command Centre<span class="kbd-hint">CC</span></a>
+    <a href="match-room.html"><span class="ic"></span>Match Room<span class="kbd-hint">MR</span></a>
+    <a href="moment.html"><span class="ic"></span>Moment Replay<span class="kbd-hint">MOM</span></a>
+    <a href="lab.html"><span class="ic"></span>Counterfactual Lab<span class="kbd-hint">LAB</span></a>
+    <a href="terminal.html"><span class="ic"></span>Terminal Desk<span class="kbd-hint">TRM</span></a>
+    <a class="on" href="scout.html"><span class="ic"></span>Scout Desk<span class="kbd-hint">SCT</span></a>
+    <a href="feed.html"><span class="ic"></span>Feed Desk<span class="kbd-hint">FEED</span></a>
+    <div class="rail-sep"></div>
+    <div class="rail-tag">Trust</div>
+    <a href="evidence.html"><span class="ic"></span>Evidence Centre<span class="kbd-hint">EVD</span></a>
+  </nav>
+
+  <div class="pad">
+    <div class="scout">
+      <div class="ev-card">
+        <div class="player-head">
+          <div class="shirt">8</div>
+          <div><h5>Decision profile · percentile vs position peers</h5>
+            <p>EST · modelled from selection-likelihood + value divergence · illustrative</p></div>
+        </div>
+        <a class="profile-bar" href="moment.html" title="Open the moments behind this percentile"><span>Sees the forward option</span><div class="trk"><i style="width:84%"></i><span class="mark" style="left:50%"></span></div><span class="val">84th pct ⏎</span></a>
+        <a class="profile-bar" href="moment.html" title="Open the moments behind this percentile"><span>Chooses under pressure</span><div class="trk"><i style="width:78%"></i><span class="mark" style="left:50%"></span></div><span class="val">78th pct ⏎</span></a>
+        <a class="profile-bar" href="moment.html" title="Open the moments behind this percentile"><span>Switch recognition</span><div class="trk"><i style="width:91%"></i><span class="mark" style="left:50%"></span></div><span class="val">91st pct ⏎</span></a>
+        <a class="profile-bar" href="moment.html" title="Open the moments behind this percentile"><span>Risk calibration</span><div class="trk"><i style="width:57%"></i><span class="mark" style="left:50%"></span></div><span class="val">57th pct ⏎</span></a>
+        <a class="profile-bar" href="moment.html" title="Open the moments behind this percentile"><span>Press-escape choice</span><div class="trk"><i style="width:73%"></i><span class="mark" style="left:50%"></span></div><span class="val">73rd pct ⏎</span></a>
+        <p class="ev-note">Chalk tick = league median. <b style="color:var(--rec)">Every bar is a link</b>:
+        click it and get the actual recorded moments that produced the percentile.</p>
+      </div>
+      <div class="ev-card">
+        <h5>The claim this desk can make</h5>
+        <p style="font:400 13px/1.7 var(--disp);color:var(--ink-dim)">
+          "He chooses like a top-flight midfielder; his teammates don't make the runs."
+          Only a counterfactual engine grounds that sentence. decision quality measured
+          against the options that <em>existed</em>, not the outcomes that happened.
+          Execution, teammate movement and choice are scored separately.</p>
+        <div class="stat" style="margin-top:10px"><div class="k">Choice vs execution gap</div><div class="v est">+27 pct pts</div><div class="meta">EST · chooses far better than results show · sample</div></div>
+        <a class="stat hyp-card" style="margin-top:10px" href="evidence.html"><div class="k">Projected in your system</div><div class="v hyp">watchlist → model</div><div class="meta">HYP · projection stays dashed until decision-index v0.3 passes its gate · click for gate status</div><span class="go">EVD ⏎</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cmdbar">
+  <span class="ps">FS&gt;</span><span class="typed">SCT #8 DECISIONS</span><span class="caret"></span>
+  <span class="ghost">· percentile bars link to their moment evidence</span>
+  <span class="keys"><a class="kbd" href="moment.html">MOM evidence</a><a class="kbd" href="evidence.html">EVD</a><a class="kbd" href="index.html">CC</a></span>
+</div>
+</body>
+</html>

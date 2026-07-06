@@ -166,12 +166,62 @@ h1 .hyp-word{color:var(--hyp);text-decoration:underline;text-decoration-style:da
 .handoff h2{font:700 20px/1 var(--disp);font-stretch:125%;text-transform:uppercase;margin-bottom:18px}
 .handoff-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
 .handoff-grid .id-card li{font:400 12.5px/1.7 var(--disp);color:var(--ink-dim);margin-left:16px}
+/* ------- terminal layer. the Bloomberg move ------- */
+.ticker{display:flex;align-items:stretch;border-bottom:1px solid var(--line);background:var(--turf-950);overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,#000 92%,transparent);mask-image:linear-gradient(90deg,#000 92%,transparent)}
+.tick{flex:none;display:flex;gap:8px;align-items:baseline;padding:8px 14px;border-right:1px solid var(--line);font:500 10px/1.4 var(--mono)}
+.tick .sym{color:var(--rec);font-weight:600;letter-spacing:.08em}
+.tick .fig{color:var(--est)}
+.tick .up{color:var(--mint)} .tick .dn{color:#e05a5a}
+.cmdbar{display:flex;align-items:center;gap:10px;background:#04100a;border-top:1px solid var(--line);padding:11px 16px;font:500 13px/1 var(--mono)}
+.cmdbar .ps{color:var(--mint);font-weight:600}
+.cmdbar .typed{color:var(--rec)}
+.cmdbar .caret{display:inline-block;width:8px;height:14px;background:var(--mint);vertical-align:-2px}
+.cmdbar .ghost{color:var(--ink-faint)}
+.cmdbar .keys{margin-left:auto;display:flex;gap:6px}
+.kbd{font:500 9px/1 var(--mono);border:1px solid var(--line-strong);border-bottom-width:2px;border-radius:4px;padding:4px 6px;color:var(--ink-dim)}
+.fn-map{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.fn{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:6px;padding:8px 11px;font:500 11px/1.3 var(--mono);color:var(--ink-dim)}
+.fn b{color:var(--mint);font-weight:600;letter-spacing:.08em}
+.fn.trust b{color:#f0a0b0}
+/* quad terminal grid */
+.quad{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);flex:1}
+.q{background:var(--turf-900);padding:14px 16px;min-height:172px;display:flex;flex-direction:column}
+.q h6{font:600 10px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);display:flex;gap:10px;align-items:center;margin-bottom:10px}
+.q h6 .fncode{color:var(--mint)}
+.q h6 .chip{margin-left:auto}
+.trow{display:grid;grid-template-columns:1fr auto auto;gap:12px;font:500 11px/1.7 var(--mono);color:var(--ink-dim);border-bottom:1px dotted var(--line);padding:3px 0}
+.trow b{color:var(--rec);font-weight:600}
+.trow .est-v{color:var(--est)} .trow .hyp-v{color:var(--hyp)} .trow .up{color:var(--mint)} .trow .dn{color:#e05a5a}
+.sparkpitch{flex:1;min-height:96px;border-radius:8px;position:relative;overflow:hidden;margin-top:4px;
+  background:linear-gradient(180deg,var(--turf-700),var(--turf-800));border:1px solid var(--line)}
+.sparkpitch svg{position:absolute;inset:0;width:100%;height:100%}
+/* scout desk */
+.scout{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:22px}
+.player-head{display:flex;gap:14px;align-items:center;margin-bottom:14px}
+.player-head .shirt{width:44px;height:44px;border-radius:8px;background:var(--turf-700);display:flex;align-items:center;justify-content:center;font:700 18px/1 var(--mono);color:var(--rec);border:1px solid var(--line)}
+.player-head h5{font:700 17px/1.2 var(--disp)}
+.player-head p{font:500 10px/1.5 var(--mono);color:var(--ink-faint)}
+.profile-bar{display:grid;grid-template-columns:158px 1fr 84px;gap:10px;align-items:center;margin:9px 0;font:400 12px/1.3 var(--disp);color:var(--ink-dim)}
+.profile-bar .trk{height:10px;border-radius:5px;background:var(--turf-700);position:relative}
+.profile-bar .trk i{position:absolute;top:0;bottom:0;left:0;border-radius:5px;background:var(--est)}
+.profile-bar .trk .mark{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--rec);opacity:.75}
+.profile-bar .val{font:600 11px/1.3 var(--mono);text-align:right;color:var(--est)}
+/* feed desk */
+.feed-table{width:100%;border-collapse:collapse;font:500 11px/1.5 var(--mono)}
+.feed-table th{font:600 9px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);text-align:left;padding:6px 10px;border-bottom:1px solid var(--line-strong)}
+.feed-table td{padding:9px 10px;border-bottom:1px dotted var(--line);color:var(--ink-dim)}
+.feed-table td:first-child{color:var(--rec);font-weight:600}
+.pill{font:600 9px/1 var(--mono);padding:3px 8px;border-radius:999px;letter-spacing:.08em}
+.pill.live{background:#12331f;color:var(--mint)}
+.pill.gated{background:#3d1620;color:#f0a0b0}
 @media (max-width:980px){
   .frame-body{grid-template-columns:1fr}
   .rail{display:flex;overflow-x:auto;padding:6px}
   .rail .rail-sep,.rail .rail-tag{display:none}
-  .identity,.cc-grid,.ev-grid,.handoff-grid{grid-template-columns:1fr}
+  .identity,.cc-grid,.ev-grid,.handoff-grid,.quad,.scout{grid-template-columns:1fr}
   .cc-wide{flex-direction:column;align-items:flex-start}
+  .cmdbar .keys{display:none}
 }
 :focus-visible{outline:2px solid var(--mint);outline-offset:2px}
 </style>
@@ -190,6 +240,7 @@ h1 .hyp-word{color:var(--hyp);text-decoration:underline;text-decoration-style:da
        modelled estimates glow amber with confidence attached; anything hypothetical —
        an edited pass, a simulated press, an unplayed future. is violet and dashed,
        everywhere, always. The interface cannot overclaim because the language won't let it.</p>
+    <p style="margin-top:10px"><a href="dream-app/index.html" style="color:var(--mint);font:600 13px var(--mono)">→ Open the clickable multi-page prototype (dream-app/)</a></p>
 
     <div class="identity">
       <div class="id-card">
@@ -217,6 +268,32 @@ h1 .hyp-word{color:var(--hyp);text-decoration:underline;text-decoration-style:da
       <span class="chip est">Estimate</span>
       <span class="chip hyp">Hypothetical</span>
       <span class="rule">dash = dream. No exceptions, on any surface, ever.</span>
+    </div>
+
+    <!-- terminal grammar: what makes it Bloomberg, not dashboard -->
+    <div class="id-card" style="margin-top:20px">
+      <h3>The terminal grammar · why this is Bloomberg, not a dashboard</h3>
+      <p style="font:400 13px/1.7 var(--disp);color:var(--ink-dim);max-width:760px">
+        Dashboards are visited; terminals are inhabited. Fieldstate's power surface is a
+        command line: every room, fixture, moment and player has a code, and an analyst who
+        knows twelve codes never touches the mouse. The grammar is
+        <span style="font:600 12px var(--mono);color:var(--rec)">FUNCTION&nbsp;SUBJECT&nbsp;⏎</span>
+        — the subject is football (a match, a minute, a shirt), never a database id.</p>
+      <div class="fn-map">
+        <span class="fn"><b>CC</b> command centre</span>
+        <span class="fn"><b>MR</b> match room · <i>MR BAR-ATM</i></span>
+        <span class="fn"><b>MOM</b> moment replay · <i>MOM 71'34</i></span>
+        <span class="fn"><b>LAB</b> counterfactual lab · <i>LAB 71'34 SWITCH</i></span>
+        <span class="fn"><b>SCT</b> scout desk · <i>SCT #8 DECISIONS</i></span>
+        <span class="fn"><b>FEED</b> data &amp; API desk</span>
+        <span class="fn trust"><b>EVD</b> evidence centre · always one keystroke away</span>
+      </div>
+      <div class="cmdbar" style="margin-top:16px;border:1px solid var(--line);border-radius:8px">
+        <span class="ps">FS&gt;</span>
+        <span class="typed">LAB 71'34 SWITCH</span><span class="caret"></span>
+        <span class="ghost">· open counterfactual lab at 71'34, hypothesis: the switch</span>
+        <span class="keys"><span class="kbd">⏎ run</span><span class="kbd">TAB complete</span><span class="kbd">EVD evidence</span></span>
+      </div>
     </div>
   </header>
 
@@ -515,6 +592,174 @@ h1 .hyp-word{color:var(--hyp);text-decoration:underline;text-decoration-style:da
     </div>
   </section>
 
+  <!-- ============ SCREEN 6 · TERMINAL DESK ============ -->
+  <div class="screen-label"><span class="num">SCREEN 06</span><h2>Terminal Desk</h2>
+    <span class="note">The inhabited surface: ticker above, command line below, four function panels the analyst arranges and keeps all season.</span></div>
+  <section class="frame" aria-label="Terminal Desk mockup">
+    <div class="ticker" aria-label="Decision ticker (static concept)">
+      <span class="tick"><span class="sym">BAR-ATM</span><span class="fig">14 lev. moments</span><span class="up">+0.19 best branch</span></span>
+      <span class="tick"><span class="sym">71'34 SWITCH</span><span class="fig">P(retain) .62</span><span class="up">▲ high conf</span></span>
+      <span class="tick"><span class="sym">#8 DECISIONS</span><span class="fig">84th pct</span><span class="up">▲ 6wk trend</span></span>
+      <span class="tick"><span class="sym">PRESS TRIG</span><span class="fig">missed ×3</span><span class="dn">▼ pattern flag</span></span>
+      <span class="tick"><span class="sym">MODEL v0.9</span><span class="fig">gate</span><span class="dn">NOT PASSED</span></span>
+      <span class="tick"><span class="sym">NEXT OPP</span><span class="fig">out-ball: LB</span><span class="up">exploit q'd</span></span>
+    </div>
+    <div class="frame-top">
+      <div class="crest"></div>
+      <div class="fixture">Terminal Desk<small>analyst layout · saved as "matchday minus 3" · sample data</small></div>
+      <div class="clock">T−3</div>
+      <div class="modes"><span class="mode on">Analyst</span></div>
+    </div>
+    <div class="frame-body" style="grid-template-columns:184px 1fr">
+      <nav class="rail">
+        <div class="rail-tag">Rooms</div>
+        <a href="#"><span class="ic"></span>Command Centre</a>
+        <a href="#"><span class="ic"></span>Match Room</a>
+        <a href="#"><span class="ic"></span>Moment Replay</a>
+        <a href="#"><span class="ic"></span>Counterfactual Lab</a>
+        <a class="on" href="#"><span class="ic"></span>Terminal Desk</a>
+        <div class="rail-sep"></div>
+        <div class="rail-tag">Trust</div>
+        <a href="#"><span class="ic"></span>Evidence Centre</a>
+      </nav>
+      <div style="display:flex;flex-direction:column">
+        <div class="quad">
+          <div class="q">
+            <h6><span class="fncode">MR</span> Weekend leverage board <span class="chip est">Estimate</span></h6>
+            <div class="trow"><b>71'34 switch not played</b><span class="est-v">lev 0.84</span><span class="hyp-v">1 branch</span></div>
+            <div class="trow"><b>34'02 press trigger missed</b><span class="est-v">lev 0.71</span><span>pattern</span></div>
+            <div class="trow"><b>58'50 early cross chosen</b><span class="est-v">lev 0.66</span><span class="hyp-v">2 branches</span></div>
+            <div class="trow"><b>78'11 turnover conceded</b><span class="est-v">lev 0.61</span><span class="dn">counter</span></div>
+          </div>
+          <div class="q">
+            <h6><span class="fncode">SCT</span> Squad decision index · 6wk <span class="chip est">Estimate</span></h6>
+            <div class="trow"><b>#8 · central mid</b><span class="est-v">84th pct</span><span class="up">▲</span></div>
+            <div class="trow"><b>#19 · left wing</b><span class="est-v">71st pct</span><span class="up">▲</span></div>
+            <div class="trow"><b>#4 · centre back</b><span class="est-v">63rd pct</span><span>—</span></div>
+            <div class="trow"><b>#22 · right back</b><span class="est-v">44th pct</span><span class="dn">▼</span></div>
+          </div>
+          <div class="q">
+            <h6><span class="fncode">MOM</span> Pinned moment · 71'34 <span class="chip rec">Recorded</span></h6>
+            <div class="sparkpitch">
+              <svg viewBox="0 0 120 60" preserveAspectRatio="none" aria-label="Pinned moment mini pitch">
+                <g stroke="rgba(242,247,240,.3)" stroke-width=".35" fill="none">
+                  <rect x="1" y="1" width="118" height="58"/><line x1="60" y1="1" x2="60" y2="59"/><circle cx="60" cy="30" r="7"/>
+                </g>
+                <line x1="62" y1="42" x2="52" y2="33" stroke="#f2f7f0" stroke-width=".8"/>
+                <path class="hyp-line" d="M62 42 Q 78 18 88 10"/>
+                <circle cx="62" cy="42" r="1.4" fill="#f2f7f0"/><circle cx="88" cy="10" r="1.8" fill="none" stroke="#b98cff" stroke-width=".5" stroke-dasharray="1.4 1"/>
+              </svg>
+            </div>
+          </div>
+          <div class="q">
+            <h6><span class="fncode">EVD</span> Release board <span class="chip rec">Public</span></h6>
+            <div class="trow"><b>pass-selection v0.9</b><span>held-out ✓</span><span class="dn">GATE ✕</span></div>
+            <div class="trow"><b>pass-selection v0.8</b><span>held-out ✓</span><span class="up">LIVE</span></div>
+            <div class="trow"><b>turnover-danger v0.2</b><span>research</span><span class="dn">GATE ✕</span></div>
+            <div class="trow"><b>space-value v1.1</b><span>held-out ✓</span><span class="up">LIVE</span></div>
+          </div>
+        </div>
+        <div class="cmdbar">
+          <span class="ps">FS&gt;</span>
+          <span class="typed">MOM 71'34</span><span class="caret"></span>
+          <span class="ghost">· jump to moment replay</span>
+          <span class="keys"><span class="kbd">⏎ run</span><span class="kbd">F2 save layout</span><span class="kbd">EVD evidence</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 7 · SCOUT DESK ============ -->
+  <div class="screen-label"><span class="num">SCREEN 07</span><h2>Scout Desk</h2>
+    <span class="note">The new signal: decision quality separated from execution and teammates. Chalk marks = league median; amber = this player.</span></div>
+  <section class="frame" aria-label="Scout Desk mockup">
+    <div class="frame-top">
+      <div class="crest"></div>
+      <div class="fixture">SCT — #8 · decision profile<small>central midfield · 2,140 decisions analysed · sample data</small></div>
+      <div class="modes"><span class="mode on">Recruitment</span><span class="mode">Development</span></div>
+    </div>
+    <div class="frame-body" style="grid-template-columns:184px 1fr">
+      <nav class="rail">
+        <div class="rail-tag">Rooms</div>
+        <a href="#"><span class="ic"></span>Command Centre</a>
+        <a href="#"><span class="ic"></span>Match Room</a>
+        <a href="#"><span class="ic"></span>Moment Replay</a>
+        <a href="#"><span class="ic"></span>Counterfactual Lab</a>
+        <a class="on" href="#"><span class="ic"></span>Scout Desk</a>
+        <div class="rail-sep"></div>
+        <div class="rail-tag">Trust</div>
+        <a href="#"><span class="ic"></span>Evidence Centre</a>
+      </nav>
+      <div class="scout">
+        <div class="ev-card">
+          <div class="player-head">
+            <div class="shirt">8</div>
+            <div><h5>Decision profile · percentile vs position peers</h5>
+              <p>EST · modelled from selection-likelihood + value divergence · illustrative</p></div>
+          </div>
+          <div class="profile-bar"><span>Sees the forward option</span><div class="trk"><i style="width:84%"></i><span class="mark" style="left:50%"></span></div><span class="val">84th pct</span></div>
+          <div class="profile-bar"><span>Chooses under pressure</span><div class="trk"><i style="width:78%"></i><span class="mark" style="left:50%"></span></div><span class="val">78th pct</span></div>
+          <div class="profile-bar"><span>Switch recognition</span><div class="trk"><i style="width:91%"></i><span class="mark" style="left:50%"></span></div><span class="val">91st pct</span></div>
+          <div class="profile-bar"><span>Risk calibration</span><div class="trk"><i style="width:57%"></i><span class="mark" style="left:50%"></span></div><span class="val">57th pct</span></div>
+          <div class="profile-bar"><span>Press-escape choice</span><div class="trk"><i style="width:73%"></i><span class="mark" style="left:50%"></span></div><span class="val">73rd pct</span></div>
+          <p class="ev-note">Chalk tick = league median. Every percentile links to its moment
+          evidence: click any bar, get the actual situations that produced it.</p>
+        </div>
+        <div class="ev-card">
+          <h5>The claim this desk can make</h5>
+          <p style="font:400 13px/1.7 var(--disp);color:var(--ink-dim)">
+            "He chooses like a top-flight midfielder; his teammates don't make the runs."
+            Only a counterfactual engine grounds that sentence — decision quality measured
+            against the options that <em>existed</em>, not the outcomes that happened.
+            Execution, teammate movement and choice are scored separately.</p>
+          <div class="stat" style="margin-top:10px"><div class="k">Choice vs execution gap</div><div class="v est">+27 pct pts</div><div class="meta">EST · chooses far better than results show · sample</div></div>
+          <div class="stat hyp-card" style="margin-top:10px"><div class="k">Projected in your system</div><div class="v hyp">watchlist → model</div><div class="meta">HYP · projection stays dashed until the projection model passes its gate</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 8 · FEED DESK ============ -->
+  <div class="screen-label"><span class="num">SCREEN 08</span><h2>Feed Desk</h2>
+    <span class="note">The API customer's terminal. Every feed row shows its model release and gate state — trust is in the table, not the brochure.</span></div>
+  <section class="frame" aria-label="Feed Desk mockup">
+    <div class="frame-top">
+      <div class="crest"></div>
+      <div class="fixture">FEED — decision intelligence feeds<small>partner console · entitlements &amp; releases · sample data</small></div>
+      <div class="modes"><span class="mode on">Partner</span></div>
+    </div>
+    <div class="frame-body" style="grid-template-columns:184px 1fr">
+      <nav class="rail">
+        <div class="rail-tag">Rooms</div>
+        <a href="#"><span class="ic"></span>Command Centre</a>
+        <a href="#"><span class="ic"></span>Match Room</a>
+        <a class="on" href="#"><span class="ic"></span>Feed Desk</a>
+        <div class="rail-sep"></div>
+        <div class="rail-tag">Trust</div>
+        <a href="#"><span class="ic"></span>Evidence Centre</a>
+      </nav>
+      <div style="padding:22px">
+        <table class="feed-table">
+          <tr><th>Feed</th><th>Contents</th><th>Model release</th><th>Gate</th><th>Status</th></tr>
+          <tr><td>moments.leverage</td><td>high-leverage decision moments, ranked</td><td>space-value v1.1</td><td>passed</td><td><span class="pill live">LIVE</span></td></tr>
+          <tr><td>options.ranked</td><td>per-action option sets with selection likelihoods</td><td>pass-selection v0.8</td><td>passed</td><td><span class="pill live">LIVE</span></td></tr>
+          <tr><td>branches.dist</td><td>counterfactual outcome distributions</td><td>pass-selection v0.9</td><td>not passed</td><td><span class="pill gated">GATED</span></td></tr>
+          <tr><td>decisions.player</td><td>player decision-quality indices</td><td>decision-index v0.3</td><td>not passed</td><td><span class="pill gated">GATED</span></td></tr>
+          <tr><td>evidence.releases</td><td>public evidence artifacts per release</td><td>—</td><td>—</td><td><span class="pill live">PUBLIC</span></td></tr>
+        </table>
+        <p class="ev-note">A gated feed cannot be enabled at any price — the gate column is not
+        a sales tier, it is the evaluation state. Partners see exactly what club analysts see.
+        Every response carries release id + provenance class per field.</p>
+        <div class="cmdbar" style="margin-top:16px;border:1px solid var(--line);border-radius:8px">
+          <span class="ps">FS&gt;</span>
+          <span class="typed">FEED options.ranked SAMPLE</span><span class="caret"></span>
+          <span class="ghost">· pull a sample payload with provenance tags</span>
+          <span class="keys"><span class="kbd">⏎ run</span><span class="kbd">EVD evidence</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ HANDOFF ============ -->
   <section class="handoff">
     <h2>Handoff notes. for Codex / Sonnet</h2>
@@ -528,6 +773,9 @@ h1 .hyp-word{color:var(--hyp);text-decoration:underline;text-decoration-style:da
           <li>Timeline node (recorded vs hypothetical variants)</li>
           <li>Outcome-distribution bars · stat card (rec/est/hyp variants)</li>
           <li>Gate badge + gate flow · evidence bar chart</li>
+          <li>Command bar (prompt, ghost completion, key hints). visual first, router later</li>
+          <li>Decision ticker · terminal quad panel · saved-layout chrome</li>
+          <li>Scout profile bar (amber fill + chalk median mark) · feed table with gate pills</li>
         </ul>
       </div>
       <div class="id-card">
@@ -547,6 +795,9 @@ h1 .hyp-word{color:var(--hyp);text-decoration:underline;text-decoration-style:da
           <li>No outcome-distribution model. the Lab panel is a layout target</li>
           <li>No claim copy beyond what the real evidence pack supports</li>
           <li>Never restyle provenance colours for aesthetics. they are semantics</li>
+          <li>No keyboard router or command parsing. the cmdbar is a drawing of one</li>
+          <li>No ticker animation. it stays a static strip; the hyp dash remains the only motion</li>
+          <li>Gate pills in FEED are evaluation state, never a pricing tier. keep that copy</li>
         </ul>
       </div>
     </div>

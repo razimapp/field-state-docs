@@ -1,0 +1,89 @@
+<!doctype html>
+<!-- FIELDSTATE dream-app clickable concept. static pages, link navigation only. sample values. -->
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TRM — Terminal Desk · Fieldstate concept</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="concept-banner">Concept prototype. link navigation only · sample values · no live models</div>
+
+<div class="ticker" aria-label="Decision ticker">
+  <a class="tick" href="match-room.html"><span class="sym">BAR-ATM</span><span class="fig">14 lev. moments</span><span class="up">▲</span></a>
+  <a class="tick" href="lab.html"><span class="sym">71'34 SWITCH</span><span class="fig">P(retain) .62</span><span class="up">▲ high conf</span></a>
+  <a class="tick" href="scout.html"><span class="sym">#8 DECISIONS</span><span class="fig">84th pct</span><span class="up">▲ 6wk</span></a>
+  <a class="tick" href="match-room.html"><span class="sym">PRESS TRIG</span><span class="fig">missed ×3</span><span class="dn">▼ flag</span></a>
+  <a class="tick" href="evidence.html"><span class="sym">MODEL v0.9</span><span class="fig">gate</span><span class="dn">NOT PASSED</span></a>
+  <a class="tick" href="feed.html"><span class="sym">FEED</span><span class="fig">options.ranked</span><span class="up">LIVE</span></a>
+</div>
+
+<div class="frame-top">
+  <div class="crest"></div>
+  <div class="fixture">Terminal Desk<small>analyst layout · saved as "matchday minus 3" · sample data</small></div>
+  <span class="crumbs"><b>TRM</b></span>
+  <div class="clock">T−3</div>
+  <div class="modes"><span class="mode on">Analyst</span></div>
+</div>
+
+<div class="app-body no-panel">
+  <nav class="rail">
+    <div class="rail-tag">Rooms</div>
+    <a href="index.html"><span class="ic"></span>Command Centre<span class="kbd-hint">CC</span></a>
+    <a href="match-room.html"><span class="ic"></span>Match Room<span class="kbd-hint">MR</span></a>
+    <a href="moment.html"><span class="ic"></span>Moment Replay<span class="kbd-hint">MOM</span></a>
+    <a href="lab.html"><span class="ic"></span>Counterfactual Lab<span class="kbd-hint">LAB</span></a>
+    <a class="on" href="terminal.html"><span class="ic"></span>Terminal Desk<span class="kbd-hint">TRM</span></a>
+    <a href="scout.html"><span class="ic"></span>Scout Desk<span class="kbd-hint">SCT</span></a>
+    <a href="feed.html"><span class="ic"></span>Feed Desk<span class="kbd-hint">FEED</span></a>
+    <div class="rail-sep"></div>
+    <div class="rail-tag">Trust</div>
+    <a href="evidence.html"><span class="ic"></span>Evidence Centre<span class="kbd-hint">EVD</span></a>
+  </nav>
+
+  <div style="display:flex;flex-direction:column;min-width:0">
+    <div class="quad">
+      <div class="q">
+        <h6><span class="fncode">MR</span> Weekend leverage board <a class="open" href="match-room.html">OPEN ⏎</a></h6>
+        <a class="trow" href="moment.html"><b>71'34 switch not played</b><span class="est-v">lev 0.84</span><span class="hyp-v">1 branch</span></a>
+        <a class="trow" href="match-room.html"><b>34'02 press trigger missed</b><span class="est-v">lev 0.71</span><span>pattern</span></a>
+        <a class="trow" href="moment.html"><b>58'50 early cross chosen</b><span class="est-v">lev 0.66</span><span class="hyp-v">2 branches</span></a>
+        <a class="trow" href="match-room.html"><b>78'11 turnover conceded</b><span class="est-v">lev 0.61</span><span class="dn">counter</span></a>
+      </div>
+      <div class="q">
+        <h6><span class="fncode">SCT</span> Squad decision index · 6wk <a class="open" href="scout.html">OPEN ⏎</a></h6>
+        <a class="trow" href="scout.html"><b>#8 · central mid</b><span class="est-v">84th pct</span><span class="up">▲</span></a>
+        <a class="trow" href="scout.html"><b>#19 · left wing</b><span class="est-v">71st pct</span><span class="up">▲</span></a>
+        <a class="trow" href="scout.html"><b>#4 · centre back</b><span class="est-v">63rd pct</span><span>—</span></a>
+        <a class="trow" href="scout.html"><b>#22 · right back</b><span class="est-v">44th pct</span><span class="dn">▼</span></a>
+      </div>
+      <div class="q">
+        <h6><span class="fncode">MOM</span> Pinned moment · 71'34 <a class="open" href="moment.html">OPEN ⏎</a></h6>
+        <a href="moment.html" class="sparkpitch" aria-label="Pinned moment mini pitch, opens replay">
+          <svg viewBox="0 0 120 60" preserveAspectRatio="none">
+            <g stroke="rgba(242,247,240,.3)" stroke-width=".35" fill="none">
+              <rect x="1" y="1" width="118" height="58"/><line x1="60" y1="1" x2="60" y2="59"/><circle cx="60" cy="30" r="7"/>
+            </g>
+            <line x1="62" y1="42" x2="52" y2="33" stroke="#f2f7f0" stroke-width=".8"/>
+            <path class="hyp-line" d="M62 42 Q 78 18 88 10"/>
+            <circle cx="62" cy="42" r="1.4" fill="#f2f7f0"/><circle cx="88" cy="10" r="1.8" fill="none" stroke="#b98cff" stroke-width=".5" stroke-dasharray="1.4 1"/>
+          </svg>
+        </a>
+      </div>
+      <div class="q">
+        <h6><span class="fncode">EVD</span> Release board <a class="open" href="evidence.html">OPEN ⏎</a></h6>
+        <a class="trow" href="evidence.html"><b>pass-selection v0.9</b><span>held-out ✓</span><span class="dn">GATE ✕</span></a>
+        <a class="trow" href="evidence.html"><b>pass-selection v0.8</b><span>held-out ✓</span><span class="up">LIVE</span></a>
+        <a class="trow" href="evidence.html"><b>decision-index v0.3</b><span>research</span><span class="dn">GATE ✕</span></a>
+        <a class="trow" href="evidence.html"><b>space-value v1.1</b><span>held-out ✓</span><span class="up">LIVE</span></a>
+      </div>
+    </div>
+    <div class="cmdbar" style="border-top:1px solid var(--line)">
+      <span class="ps">FS&gt;</span><span class="typed">MOM 71'34</span><span class="caret"></span>
+      <span class="ghost">· every panel row is also a typed jump</span>
+      <span class="keys"><a class="kbd" href="moment.html">⏎ run</a><span class="kbd">F2 save layout</span><a class="kbd" href="evidence.html">EVD</a></span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

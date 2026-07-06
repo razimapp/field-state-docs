@@ -1,0 +1,89 @@
+<!doctype html>
+<!-- FIELDSTATE dream-app clickable concept. static pages, link navigation only. sample values. -->
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MR — Match Room · Fieldstate concept</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="concept-banner">Concept prototype. link navigation only · sample values · no live models</div>
+
+<div class="ticker" aria-label="Decision ticker">
+  <a class="tick" href="match-room.html"><span class="sym">BAR-ATM</span><span class="fig">14 lev. moments</span><span class="up">▲</span></a>
+  <a class="tick" href="lab.html"><span class="sym">71'34 SWITCH</span><span class="fig">P(retain) .62</span><span class="up">▲ high conf</span></a>
+  <a class="tick" href="scout.html"><span class="sym">#8 DECISIONS</span><span class="fig">84th pct</span><span class="up">▲ 6wk</span></a>
+  <a class="tick" href="evidence.html"><span class="sym">MODEL v0.9</span><span class="fig">gate</span><span class="dn">NOT PASSED</span></a>
+  <a class="tick" href="feed.html"><span class="sym">FEED</span><span class="fig">options.ranked</span><span class="up">LIVE</span></a>
+</div>
+
+<div class="frame-top">
+  <div class="crest"></div>
+  <div class="fixture">Barcelona 2 — 1 Atlético<small>La Liga · Matchday 31 · full 360 coverage</small></div>
+  <span class="crumbs"><a href="index.html">CC</a> / <b>MR BAR-ATM</b></span>
+  <div class="clock">FT</div>
+  <div class="modes"><span class="mode on">Analyst</span><span class="mode">Coach</span></div>
+</div>
+
+<div class="app-body">
+  <nav class="rail">
+    <div class="rail-tag">Rooms</div>
+    <a href="index.html"><span class="ic"></span>Command Centre<span class="kbd-hint">CC</span></a>
+    <a class="on" href="match-room.html"><span class="ic"></span>Match Room<span class="kbd-hint">MR</span></a>
+    <a href="moment.html"><span class="ic"></span>Moment Replay<span class="kbd-hint">MOM</span></a>
+    <a href="lab.html"><span class="ic"></span>Counterfactual Lab<span class="kbd-hint">LAB</span></a>
+    <a href="terminal.html"><span class="ic"></span>Terminal Desk<span class="kbd-hint">TRM</span></a>
+    <a href="scout.html"><span class="ic"></span>Scout Desk<span class="kbd-hint">SCT</span></a>
+    <a href="feed.html"><span class="ic"></span>Feed Desk<span class="kbd-hint">FEED</span></a>
+    <div class="rail-sep"></div>
+    <div class="rail-tag">Trust</div>
+    <a href="evidence.html"><span class="ic"></span>Evidence Centre<span class="kbd-hint">EVD</span></a>
+  </nav>
+
+  <div class="canvas">
+    <div class="pitch">
+      <div class="state-chip"><span class="chip rec">Recorded</span></div>
+      <svg viewBox="0 0 120 80" preserveAspectRatio="none" role="img" aria-label="Top-down pitch, recorded possession map">
+        <g stroke="rgba(242,247,240,.35)" stroke-width=".35" fill="none">
+          <rect x="1" y="1" width="118" height="78"/><line x1="60" y1="1" x2="60" y2="79"/>
+          <circle cx="60" cy="40" r="9.15"/><rect x="1" y="18" width="17" height="44"/><rect x="102" y="18" width="17" height="44"/>
+        </g>
+        <g stroke="#f2f7f0" stroke-width=".5" opacity=".8">
+          <line x1="24" y1="52" x2="41" y2="44"/><line x1="41" y1="44" x2="55" y2="58"/>
+          <line x1="55" y1="58" x2="72" y2="49"/><line x1="72" y1="49" x2="88" y2="31"/>
+        </g>
+        <g fill="#f2f7f0">
+          <circle cx="24" cy="52" r="1.3"/><circle cx="41" cy="44" r="1.3"/>
+          <circle cx="55" cy="58" r="1.3"/><circle cx="72" cy="49" r="1.3"/><circle cx="88" cy="31" r="1.6"/>
+        </g>
+        <ellipse cx="95" cy="27" rx="12" ry="8" fill="rgba(232,176,75,.13)"/>
+      </svg>
+      <div class="conf">amber shading = modelled space value<br>illustrative sample</div>
+    </div>
+  </div>
+
+  <aside class="panel">
+    <h4>Match signals</h4>
+    <a class="stat" href="moment.html"><div class="k">Top leverage moment</div><div class="v rec">71'34 switch</div><div class="meta">REC · open replay</div><span class="go">MOM 71'34 ⏎</span></a>
+    <div class="stat"><div class="k">High-leverage moments</div><div class="v rec">14</div><div class="meta">REC · extracted from event data (sample)</div></div>
+    <div class="stat"><div class="k">Avg. decision value lost</div><div class="v est">−0.031 xT</div><div class="meta">EST · modelled estimate · illustrative</div></div>
+    <a class="stat" href="scout.html"><div class="k">Squad decision index</div><div class="v est">#8 · 84th pct</div><div class="meta">EST · open scout desk</div><span class="go">SCT #8 ⏎</span></a>
+  </aside>
+</div>
+
+<div class="timeline">
+  <span class="t-scrub">1H ——</span>
+  <a class="t-node" href="moment.html"><b>12' Pass chain</b>build-up left</a>
+  <a class="t-node" href="moment.html"><b>34' Press moment</b>pivot free ×3</a>
+  <a class="t-node now" href="moment.html"><b>71' Switch moment</b>leverage 0.84 → open</a>
+  <a class="t-node" href="moment.html"><b>78' Turnover</b>counter conceded</a>
+  <span class="t-scrub">—— FT</span>
+</div>
+
+<div class="cmdbar">
+  <span class="ps">FS&gt;</span><span class="typed">MR BAR-ATM</span><span class="caret"></span>
+  <span class="ghost">· click any timeline node, or type MOM 71'34</span>
+  <span class="keys"><a class="kbd" href="moment.html">MOM 71'34</a><a class="kbd" href="index.html">CC back</a><a class="kbd" href="evidence.html">EVD</a></span>
+</div>
+</body>
+</html>

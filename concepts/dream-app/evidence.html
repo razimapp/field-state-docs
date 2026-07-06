@@ -1,0 +1,91 @@
+<!doctype html>
+<!-- FIELDSTATE dream-app clickable concept. static pages, link navigation only. sample values. -->
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EVD — Evidence Centre · Fieldstate concept</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="concept-banner">Concept prototype. link navigation only · sample values · no live models</div>
+
+<div class="ticker" aria-label="Decision ticker">
+  <a class="tick" href="match-room.html"><span class="sym">BAR-ATM</span><span class="fig">14 lev. moments</span><span class="up">▲</span></a>
+  <a class="tick" href="lab.html"><span class="sym">71'34 SWITCH</span><span class="fig">P(retain) .62</span><span class="up">▲ high conf</span></a>
+  <a class="tick" href="scout.html"><span class="sym">#8 DECISIONS</span><span class="fig">84th pct</span><span class="up">▲ 6wk</span></a>
+  <a class="tick" href="evidence.html"><span class="sym">MODEL v0.9</span><span class="fig">gate</span><span class="dn">NOT PASSED</span></a>
+  <a class="tick" href="feed.html"><span class="sym">FEED</span><span class="fig">options.ranked</span><span class="up">LIVE</span></a>
+</div>
+
+<div class="frame-top">
+  <div class="crest"></div>
+  <div class="fixture">Evidence Centre<small>model releases · gates · provenance · public by design</small></div>
+  <span class="crumbs"><b>EVD</b></span>
+  <div class="modes" style="margin-left:auto"><span class="mode on">Public view</span></div>
+</div>
+
+<div class="app-body no-panel">
+  <nav class="rail">
+    <div class="rail-tag">Rooms</div>
+    <a href="index.html"><span class="ic"></span>Command Centre<span class="kbd-hint">CC</span></a>
+    <a href="match-room.html"><span class="ic"></span>Match Room<span class="kbd-hint">MR</span></a>
+    <a href="moment.html"><span class="ic"></span>Moment Replay<span class="kbd-hint">MOM</span></a>
+    <a href="lab.html"><span class="ic"></span>Counterfactual Lab<span class="kbd-hint">LAB</span></a>
+    <a href="terminal.html"><span class="ic"></span>Terminal Desk<span class="kbd-hint">TRM</span></a>
+    <a href="scout.html"><span class="ic"></span>Scout Desk<span class="kbd-hint">SCT</span></a>
+    <a href="feed.html"><span class="ic"></span>Feed Desk<span class="kbd-hint">FEED</span></a>
+    <div class="rail-sep"></div>
+    <div class="rail-tag">Trust</div>
+    <a class="on" href="evidence.html"><span class="ic"></span>Evidence Centre<span class="kbd-hint">EVD</span></a>
+  </nav>
+
+  <div class="pad">
+    <div class="ev-grid">
+      <div class="ev-card">
+        <h5>Pass-selection ranking · held-out top-1 (sample layout)</h5>
+        <div class="bar-line"><span>Chance</span><div class="trk"><i style="width:14%;background:#8fa89a"></i></div><span class="val">14%</span></div>
+        <div class="bar-line"><span>Value heuristic</span><div class="trk"><i style="width:7%;background:#e8b04b"></i></div><span class="val">7%</span></div>
+        <div class="bar-line"><span>Strongest naive baseline</span><div class="trk"><i style="width:38%;background:#8fa89a"></i></div><span class="val">38%</span></div>
+        <div class="bar-line"><span>Learned model</span><div class="trk"><i style="width:45%;background:#b98cff"></i></div><span class="val">45%</span></div>
+        <p class="ev-note">Numbers shown are the layout sample. In product, this chart renders only
+        from the frozen evidence artifact of the pinned release. never live.
+        <a href="lab.html">↩ return to the Lab this evidence backs</a></p>
+      </div>
+      <div class="ev-card">
+        <h5>Release board</h5>
+        <div class="gate-flow">
+          <span class="gate-step">candidate model</span><span style="color:var(--ink-faint)">→</span>
+          <span class="gate-step">held-out matches</span><span style="color:var(--ink-faint)">→</span>
+          <span class="gate-step">pre-registered targets</span><span style="color:var(--ink-faint)">→</span>
+          <span class="gate-badge">v0.9 GATE: NOT PASSED</span>
+        </div>
+        <div class="trow"><b>pass-selection v0.8</b><span>held-out ✓</span><span class="up">LIVE</span></div>
+        <div class="trow"><b>pass-selection v0.9</b><span>held-out ✓</span><span class="dn">GATE ✕</span></div>
+        <div class="trow"><b>decision-index v0.3</b><span>research</span><span class="dn">GATE ✕</span></div>
+        <div class="trow"><b>space-value v1.1</b><span>held-out ✓</span><span class="up">LIVE</span></div>
+        <p class="ev-note">Until a gate passes, its model appears nowhere else in the app.
+        The <a href="lab.html">Lab</a> and the <a href="feed.html">feeds</a> run on the last
+        release that passed. That sentence is the product's spine.</p>
+      </div>
+      <div class="ev-card" style="grid-column:1/-1">
+        <h5>Provenance ledger</h5>
+        <p style="font:400 13px/1.7 var(--disp);color:var(--ink-dim)">
+          Every number in every room resolves to a row here: source data → transformation →
+          model version → evidence artifact → commit. <span class="chip rec">Recorded</span>
+          <span class="chip der">Derived</span> <span class="chip est">Estimate</span>
+          <span class="chip hyp">Hypothetical</span> are not styling. they are ledger classes,
+          and the UI reads them from the data contract. Arrived here from a
+          <a href="feed.html">gated feed</a> or a <a href="lab.html">Lab estimate</a>?
+          This page is the answer to "prove it."</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cmdbar">
+  <span class="ps">FS&gt;</span><span class="typed">EVD</span><span class="caret"></span>
+  <span class="ghost">· evidence is one keystroke from anywhere. that is the brand</span>
+  <span class="keys"><a class="kbd" href="lab.html">◀ LAB back</a><a class="kbd" href="feed.html">FEED</a><a class="kbd" href="index.html">CC</a></span>
+</div>
+</body>
+</html>

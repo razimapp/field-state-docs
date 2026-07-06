@@ -1,0 +1,64 @@
+<!doctype html>
+<!-- FIELDSTATE dream-app clickable concept. static pages, link navigation only. sample values. -->
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FEED — Feed Desk · Fieldstate concept</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="concept-banner">Concept prototype. link navigation only · sample values · no live models</div>
+
+<div class="ticker" aria-label="Decision ticker">
+  <a class="tick" href="match-room.html"><span class="sym">BAR-ATM</span><span class="fig">14 lev. moments</span><span class="up">▲</span></a>
+  <a class="tick" href="lab.html"><span class="sym">71'34 SWITCH</span><span class="fig">P(retain) .62</span><span class="up">▲ high conf</span></a>
+  <a class="tick" href="scout.html"><span class="sym">#8 DECISIONS</span><span class="fig">84th pct</span><span class="up">▲ 6wk</span></a>
+  <a class="tick" href="evidence.html"><span class="sym">MODEL v0.9</span><span class="fig">gate</span><span class="dn">NOT PASSED</span></a>
+  <a class="tick" href="feed.html"><span class="sym">FEED</span><span class="fig">options.ranked</span><span class="up">LIVE</span></a>
+</div>
+
+<div class="frame-top">
+  <div class="crest"></div>
+  <div class="fixture">FEED — decision intelligence feeds<small>partner console · entitlements &amp; releases · sample data</small></div>
+  <span class="crumbs"><b>FEED</b></span>
+  <div class="modes" style="margin-left:auto"><span class="mode on">Partner</span></div>
+</div>
+
+<div class="app-body no-panel">
+  <nav class="rail">
+    <div class="rail-tag">Rooms</div>
+    <a href="index.html"><span class="ic"></span>Command Centre<span class="kbd-hint">CC</span></a>
+    <a href="match-room.html"><span class="ic"></span>Match Room<span class="kbd-hint">MR</span></a>
+    <a href="moment.html"><span class="ic"></span>Moment Replay<span class="kbd-hint">MOM</span></a>
+    <a href="lab.html"><span class="ic"></span>Counterfactual Lab<span class="kbd-hint">LAB</span></a>
+    <a href="terminal.html"><span class="ic"></span>Terminal Desk<span class="kbd-hint">TRM</span></a>
+    <a href="scout.html"><span class="ic"></span>Scout Desk<span class="kbd-hint">SCT</span></a>
+    <a class="on" href="feed.html"><span class="ic"></span>Feed Desk<span class="kbd-hint">FEED</span></a>
+    <div class="rail-sep"></div>
+    <div class="rail-tag">Trust</div>
+    <a href="evidence.html"><span class="ic"></span>Evidence Centre<span class="kbd-hint">EVD</span></a>
+  </nav>
+
+  <div class="pad">
+    <table class="feed-table">
+      <tr><th>Feed</th><th>Contents</th><th>Model release</th><th>Gate</th><th>Status</th></tr>
+      <tr><td>moments.leverage</td><td>high-leverage decision moments, ranked</td><td>space-value v1.1</td><td><a href="evidence.html">passed ↗</a></td><td><span class="pill live">LIVE</span></td></tr>
+      <tr><td>options.ranked</td><td>per-action option sets with selection likelihoods</td><td>pass-selection v0.8</td><td><a href="evidence.html">passed ↗</a></td><td><span class="pill live">LIVE</span></td></tr>
+      <tr><td>branches.dist</td><td>counterfactual outcome distributions</td><td>pass-selection v0.9</td><td><a href="evidence.html">not passed ↗</a></td><td><span class="pill gated">GATED</span></td></tr>
+      <tr><td>decisions.player</td><td>player decision-quality indices</td><td>decision-index v0.3</td><td><a href="evidence.html">not passed ↗</a></td><td><span class="pill gated">GATED</span></td></tr>
+      <tr><td>evidence.releases</td><td>public evidence artifacts per release</td><td>—</td><td>—</td><td><span class="pill live">PUBLIC</span></td></tr>
+    </table>
+    <p class="ev-note">A gated feed cannot be enabled at any price. the gate column is not a
+    sales tier, it is the evaluation state. Partners see exactly what club analysts see —
+    every gate cell links to <a href="evidence.html">the evidence it must pass</a>. Every
+    response carries release id + provenance class per field.</p>
+  </div>
+</div>
+
+<div class="cmdbar">
+  <span class="ps">FS&gt;</span><span class="typed">FEED options.ranked SAMPLE</span><span class="caret"></span>
+  <span class="ghost">· pull a sample payload with provenance tags</span>
+  <span class="keys"><a class="kbd" href="evidence.html">EVD evidence</a><a class="kbd" href="index.html">CC</a></span>
+</div>
+</body>
+</html>
