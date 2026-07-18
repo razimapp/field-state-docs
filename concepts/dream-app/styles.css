@@ -218,3 +218,184 @@ a.profile-bar:hover{background:var(--turf-700)}
   .focus-strip{grid-template-columns:1fr}
 }
 :focus-visible{outline:2px solid var(--mint);outline-offset:2px}
+
+/* 2026 concept refinement: calm the shell and reveal depth progressively. */
+:root{
+  --surface:#0a1d14;
+  --surface-raised:#0d251a;
+  --surface-soft:#102b1f;
+  --content-max:1180px;
+}
+body{
+  min-height:100vh;
+  height:auto;
+  overflow:auto;
+  background:
+    radial-gradient(circle at 72% -20%,rgba(89,198,143,.08),transparent 34rem),
+    var(--turf-950);
+}
+.concept-banner{
+  padding:6px 14px;
+  border-bottom:1px solid rgba(185,140,255,.35);
+  background:#130e1d;
+  color:#cdb9ee;
+  letter-spacing:.08em;
+  text-transform:none;
+}
+.ticker{display:none}
+.frame-top{
+  position:sticky;
+  top:0;
+  z-index:20;
+  min-height:62px;
+  padding:12px clamp(14px,2vw,28px);
+  background:rgba(8,25,17,.94);
+  backdrop-filter:blur(16px);
+}
+.crest{width:22px;height:22px;border-radius:50%;box-shadow:0 0 0 5px rgba(89,198,143,.08)}
+.fixture{text-transform:none;letter-spacing:0;font-size:15px}
+.fixture small{margin-top:4px;letter-spacing:.02em}
+.crumbs{margin-left:auto}
+.modes{margin-left:0!important}
+.mode{padding:6px 9px;letter-spacing:.06em;text-transform:none}
+.app-body,.app-body.no-panel{
+  width:min(100%,var(--content-max));
+  margin:0 auto;
+  min-height:calc(100vh - 93px);
+  overflow:visible;
+  grid-template-columns:164px minmax(0,1fr) 280px;
+  border-inline:1px solid var(--line);
+}
+.app-body.no-panel{grid-template-columns:164px minmax(0,1fr)}
+.rail{
+  position:sticky;
+  top:62px;
+  align-self:start;
+  height:calc(100vh - 62px);
+  padding:22px 10px;
+  background:rgba(10,29,20,.72);
+}
+.rail a{padding:10px 11px;border-radius:7px;font-size:12px}
+.rail a .ic{width:7px;height:7px;border:0;border-radius:50%;background:currentColor;opacity:.55}
+.rail a.on{border-right:0;background:var(--surface-soft)}
+.rail .kbd-hint{display:none}
+.canvas,.pad,.cc-grid{padding:clamp(20px,3vw,38px);gap:18px;overflow:visible}
+.canvas{min-height:640px}
+.pitch{min-height:480px;border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.18)}
+.panel{padding:26px 18px;gap:14px;background:rgba(10,29,20,.76);overflow:visible}
+.panel h4{letter-spacing:.12em;text-transform:none}
+.stat{padding:13px;border-radius:10px}
+.stat .v{font-size:18px}
+.timeline,.cmdbar{width:min(100%,var(--content-max));margin:0 auto}
+.timeline{padding:16px 22px;background:var(--surface)}
+.cmdbar{padding:13px 18px;background:#06130d}
+.cmdbar .caret{animation:none;width:6px;height:12px}
+.cmdbar .ghost{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cc-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-content:start}
+.focus-strip{grid-template-columns:1fr}
+.focus-strip{display:none}
+.cc-wide{grid-column:1/-1;padding:18px}
+.card{padding:18px;border-radius:13px;background:var(--surface-raised)}
+.card h5{font-size:16px;margin-top:10px}
+.journeys{margin-top:18px}
+.quad{grid-template-columns:1fr;background:transparent;gap:14px;padding:clamp(20px,3vw,38px)}
+.q{min-height:auto;border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--surface-raised)}
+.ev-grid,.scout{grid-template-columns:1fr;gap:18px}
+.ev-grid>.ev-card:nth-child(2){order:-1}
+.scout>.ev-card:nth-child(2){order:-1}
+.ev-card{padding:clamp(18px,2.5vw,28px);border-radius:14px;background:var(--surface-raised)}
+.feed-table{font-size:12px}
+.feed-table th,.feed-table td{padding:13px 12px}
+
+.purpose{
+  position:relative;
+  padding:0 0 22px;
+  margin-bottom:4px;
+  max-width:760px;
+}
+.purpose::before{
+  content:attr(data-step);
+  display:block;
+  margin-bottom:10px;
+  color:var(--mint);
+  font:600 10px/1 var(--mono);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.purpose h1{
+  max-width:720px;
+  font:650 clamp(25px,4vw,44px)/1.05 var(--disp);
+  letter-spacing:-.035em;
+  text-wrap:balance;
+}
+.purpose p{
+  max-width:650px;
+  margin-top:13px;
+  color:var(--ink-dim);
+  font:400 clamp(14px,1.5vw,17px)/1.65 var(--disp);
+}
+.purpose .primary-action{
+  display:inline-flex;
+  margin-top:18px;
+  padding:10px 14px;
+  border-radius:8px;
+  background:var(--mint);
+  color:#062015;
+  font:700 11px/1 var(--mono);
+  letter-spacing:.04em;
+}
+.purpose .primary-action:hover{background:#75d4a5}
+.purpose.compact h1{font-size:clamp(23px,3vw,34px)}
+.purpose.compact p{font-size:14px}
+.cc-grid>.purpose{grid-column:1/-1}
+
+details.disclosure{
+  margin-top:18px;
+  border-top:1px solid var(--line);
+  color:var(--ink-dim);
+}
+details.disclosure>summary{
+  cursor:pointer;
+  list-style:none;
+  padding:15px 2px;
+  color:var(--ink-dim);
+  font:600 11px/1.3 var(--mono);
+  letter-spacing:.06em;
+}
+details.disclosure>summary::-webkit-details-marker{display:none}
+details.disclosure>summary::after{content:"+";float:right;color:var(--mint);font-size:16px}
+details.disclosure[open]>summary::after{content:"–"}
+details.disclosure[open]>summary{color:var(--rec)}
+.detail-body{padding:2px 0 18px}
+.detail-body p{color:var(--ink-dim);line-height:1.65}
+
+@media (max-width:980px){
+  .frame-top{position:relative;top:auto;flex-wrap:wrap;gap:10px}
+  .crumbs{display:none}
+  .modes{width:100%;overflow-x:auto}
+  .app-body,.app-body.no-panel{width:100%;display:block;border:0;min-height:0}
+  .rail{position:relative;top:auto;height:auto;display:flex;padding:8px 10px;border-right:0;border-bottom:1px solid var(--line)}
+  .rail a{flex:none;padding:10px 12px}
+  .canvas{min-height:0}
+  .pitch{min-height:420px}
+  .panel{border-top:1px solid var(--line)}
+  .cc-grid{grid-template-columns:1fr}
+  .card .foot{flex-wrap:wrap}
+  .card .foot .go{width:100%;margin:4px 0 0}
+  .timeline,.cmdbar{width:100%}
+}
+@media (max-width:620px){
+  .concept-banner{font-size:9px;line-height:1.35}
+  .fixture{font-size:13px}.fixture small{font-size:9px}
+  .clock{font-size:14px}
+  .canvas,.pad,.cc-grid,.quad{padding:20px 14px}
+  .pitch{min-height:330px}
+  .pitch .conf{max-width:70%;font-size:8px}
+  .purpose h1{font-size:28px}
+  .purpose[data-step="Analyst workspace"]{padding:20px 14px 0!important}
+  .source-row{grid-template-columns:1fr}
+  .bar-line,a.profile-bar{grid-template-columns:1fr 58px}
+  .bar-line>span:first-child,a.profile-bar>span:first-child{grid-column:1/-1}
+  .feed-table{display:block;overflow-x:auto;white-space:nowrap}
+  .cmdbar .ghost,.cmdbar .keys{display:none}
+}

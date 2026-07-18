@@ -40,8 +40,14 @@
   </nav>
 
   <div class="pad">
+    <section class="purpose" data-step="Trust centre">
+      <h1>Check whether a model deserves to be used.</h1>
+      <p>Start with the release decision. Open deeper metrics and provenance only when you need to audit the claim.</p>
+    </section>
     <div class="ev-grid">
-      <div class="ev-card">
+      <details class="ev-card disclosure">
+        <summary>View held-out performance</summary>
+        <div class="detail-body">
         <h5>Pass-selection ranking · held-out top-1 (sample layout)</h5>
         <div class="bar-line"><span>Chance</span><div class="trk"><i style="width:14%;background:#8fa89a"></i></div><span class="val">14%</span></div>
         <div class="bar-line"><span>Value heuristic</span><div class="trk"><i style="width:7%;background:#e8b04b"></i></div><span class="val">7%</span></div>
@@ -50,7 +56,8 @@
         <p class="ev-note">Numbers shown are the layout sample. In product, this chart renders only
         from the frozen evidence artifact of the pinned release. never live.
         <a href="lab.html">↩ return to the Lab this evidence backs</a></p>
-      </div>
+        </div>
+      </details>
       <div class="ev-card">
         <h5>Release board</h5>
         <div class="gate-flow">
@@ -67,7 +74,9 @@
         The <a href="lab.html">Lab</a> and the <a href="feed.html">feeds</a> run on the last
         release that passed. That sentence is the product's spine.</p>
       </div>
-      <div class="ev-card" style="grid-column:1/-1">
+      <details class="ev-card disclosure" style="grid-column:1/-1">
+        <summary>How every number is traced</summary>
+        <div class="detail-body">
         <h5>Provenance ledger</h5>
         <p style="font:400 13px/1.7 var(--disp);color:var(--ink-dim)">
           Every number in every room resolves to a row here: public identity data → recorded event/tracking data → transformation →
@@ -77,11 +86,15 @@
           and the UI reads them from the data contract. Arrived here from a
           <a href="feed.html">gated feed</a> or a <a href="lab.html">Lab estimate</a>?
           This page is the answer to "prove it."</p>
-      </div>
-      <div class="ev-card" style="grid-column:1/-1">
+        </div>
+      </details>
+      <details class="ev-card disclosure" style="grid-column:1/-1">
+        <summary>What public data can and cannot support</summary>
+        <div class="detail-body">
         <h5>Public data vs Fieldstate intelligence</h5>
         <p class="data-note">OpenFootball-style sources can help with teams, fixtures, squads and scorers. They do not by themselves provide pass-option quality, pressure, value, or neural scenario modelling. Those require event, 360, tracking, video, or licensed datasets plus validation gates.</p>
-      </div>
+        </div>
+      </details>
     </div>
   </div>
 </div>
