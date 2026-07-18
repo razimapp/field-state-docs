@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" =""="" =""><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fieldstate | Model, Data and Cloud Costs</title>
+  <link rel="stylesheet" href="fieldstate-docs-v2.css">
+<style id="vvvebjs-styles">:root {
+	--paper: #f7f7f4;
+}
+
+.doc > .section > .grid-3 > .card > .chip.fact {
+	background-color: rgba(234, 209, 209, 0.32);
+}
+
+body > .doc {
+	background-color: rgba(227, 215, 215, 0);
+}
+
+</style></head>
+<body>
+  <main class="doc">
+    <header class="top">
+      <div class="brand">
+        <strong>Fieldstate</strong>
+        <span>Model, Data and Cloud Cost Brief</span>
+      </div>
+      <nav class="nav">
+        <a href="investor-pack-v2.html">Investor Pack</a>
+        <a href="mvp-v2-scope.html">MVP Scope</a>
+        <a href="feature-stage-pack.html">Feature Stages</a>
+        <a href="manager-coach-analyst-capabilities.html">Capabilities</a>
+        <a href="model-data-cloud-costs.html" aria-current="page">Model/Data/Cloud</a>
+        <a href="model-evidence.html">Model Evidence</a>
+        <a href="legal-pointer.html">Legal Pointer</a>
+        <a href="engineering.html">Engineering</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Technical funding outlook</div>
+        <h1 style="font-size: 40px;">ML Models, development and cost breakdown</h1>
+        <p>
+          MVP can run lean because the first product surface uses event data, classical ML,
+          and cached examples. The larger funding requirement appears when Fieldstate moves into
+          licensed tracking data, neural sequence models, and continuous model operations.
+        </p>
+      </div>
+      <aside class="panel">
+        <h2>Current model evidence</h2>
+        <p><span class="metric">113,598</span> passes, <span class="metric">105</span> matches, <span class="metric">5</span> competitions.</p>
+        <p>Event-only logistic model: AUC <span class="metric">0.7952</span>, Brier <span class="metric">0.117</span>, ECE <span class="metric">0.0168</span>.</p>
+        <p><a href="model-evidence.html">Learn what AUC, Brier, and ECE mean.</a></p>
+        <p class="note">Tier F 360 features are enrichment-only because endpoint contamination can inflate uplift on incomplete passes.</p>
+      </aside>
+    </section>
+
+    <section class="section">
+      <h2>Model ladder</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Layer</th>
+              <th>Purpose</th>
+              <th>Compute profile</th>
+              <th>Funding implication</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Event-only baseline</strong></td>
+              <td>Pass completion, simple scenario probability, evidence gates.</td>
+              <td>CPU-friendly. Train/evaluate locally or on small cloud CPU.</td>
+              <td>Low cost. Mostly founder time and evaluation discipline.</td>
+            </tr>
+            <tr>
+              <td><strong>Tree/boosting challengers</strong></td>
+              <td>Case-by-case cohorts, nonlinear interactions, reliability by pass type.</td>
+              <td>CPU to modest GPU optional. Repeatable batch experiments.</td>
+              <td>Low to moderate. Worth funding after MVP wiring.</td>
+            </tr>
+            <tr>
+              <td><strong>Tracking-enriched models</strong></td>
+              <td>Defender pressure, receiver availability, lane quality, team shape.</td>
+              <td>More data engineering; GPU not always required.</td>
+              <td>Dataset licensing becomes the main cost and strategic dependency.</td>
+            </tr>
+            <tr>
+              <td><strong>Neural sequence/spatial models</strong></td>
+              <td>Learn temporal context, player movement, off-ball structure, and richer counterfactuals.</td>
+              <td>A100/H100-class GPU training and repeat experiments.</td>
+              <td>Needs dedicated investor budget, validation, and model operations.</td>
+            </tr>
+            <tr>
+              <td><strong>Production inference</strong></td>
+              <td>Serve probability, value, and scenario outputs reliably to users.</td>
+              <td>CPU for classical models; small GPU only if neural inference is live.</td>
+              <td>Can start lean, then scale with usage and model complexity.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Datasets to plan around</h2>
+      <div class="grid-3">
+        <div class="card" style="">
+          <span class="chip fact" style="color: rgb(0, 0, 0);">Open</span>
+          <h3>StatsBomb Open Data</h3>
+          <p>Useful for MVP evidence, replay examples, event features, and some 360 context. Not enough for full tracking-grade prediction.</p>
+        </div>
+        <div class="card" style="">
+          <span class="chip estimate">Research</span>
+          <h3>Metrica sample data</h3>
+          <p>Useful to test support for event plus tracking data. Sample scale is limited, so it is not a commercial model corpus by itself.</p>
+        </div>
+        <div class="card" style="">
+          <span class="chip future">Licensed</span>
+          <h3>Provider tracking/event feeds</h3>
+          <p>Needed for serious neural models and commercial accuracy claims. Pricing normally requires direct provider conversations.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Indicative cloud cost assumptions</h2>
+      <p class="lede">
+        Public GPU rates change and provider availability varies. Current public listings show why early classical ML is cheap,
+        while serious neural training should be investor-funded.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Need</th>
+              <th>Typical resource</th>
+              <th>Public rate examples checked July 2026</th>
+              <th>Practical meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Classical model training</strong></td>
+              <td>CPU workstation or low-cost cloud CPU</td>
+              <td>Hugging Face CPU endpoints list from about $0.03/hour to $0.54/hour for common CPU sizes.</td>
+              <td>Not the budget problem. Evaluation quality matters more than raw compute.</td>
+            </tr>
+            <tr>
+              <td><strong>Prototype GPU experiments</strong></td>
+              <td>A100/H100 single GPU</td>
+              <td>Hugging Face lists A100 80GB at $2.50/hour and H100 80GB at $4.50/hour. Lambda lists H100 options around $3.29/hour to $4.29/hour.</td>
+              <td>Good for short experiments, not continuous training without budget control.</td>
+            </tr>
+            <tr>
+              <td><strong>Multi-GPU neural training</strong></td>
+              <td>4 to 8 GPU nodes</td>
+              <td>Hugging Face lists 8x A100 at $20/hour and 8x H100 at $36/hour. Lambda lists per-GPU H100/B200 rates by instance size.</td>
+              <td>Costs rise quickly once repeated experiments, storage, and failed runs are included.</td>
+            </tr>
+            <tr>
+              <td><strong>Production serving</strong></td>
+              <td>CPU service first; GPU only for neural inference</td>
+              <td>Dedicated inference can start low, but model choice determines real cost.</td>
+              <td>MVP should avoid locking the business into GPU-serving costs too early.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">
+        Sources checked:
+        <a href="https://aws.amazon.com/ec2/pricing/on-demand/">AWS EC2 On-Demand pricing</a>,
+        <a href="https://cloud.google.com/compute/gpus-pricing">Google Cloud GPU pricing</a>,
+        <a href="https://huggingface.co/pricing">Hugging Face pricing</a>, and
+        <a href="https://lambda.ai/service/gpu-cloud">Lambda GPU cloud pricing</a>.
+        Licensed football data costs are excluded because providers usually quote privately.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Future advanced-model reference</h2>
+      <p class="lede">
+        This table is for investor planning only. MVP does not require this spend. These ranges describe
+        what later funding could unlock once the product surface, data route, and evaluation gates are proven.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Future stage</th>
+              <th>Dataset assumption</th>
+              <th>Model type</th>
+              <th>Indicative compute per run</th>
+              <th>Why it matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Feature-rich challenger</strong></td>
+              <td>Open event data plus engineered context features.</td>
+              <td>Random forest, gradient boosting, calibrated ensembles.</td>
+              <td><span class="metric">£50–£1k</span></td>
+              <td>Improves case-by-case reliability, cohort testing, and investor confidence without heavy GPU spend.</td>
+            </tr>
+            <tr>
+              <td><strong>Tracking-enriched model</strong></td>
+              <td>Licensed event plus tracking data for selected leagues or seasons.</td>
+              <td>Spatial model using defender pressure, passing lanes, receiver availability, and team shape.</td>
+              <td><span class="metric">£5k–£25k</span></td>
+              <td>Moves Fieldstate closer to real football context rather than event-only estimation.</td>
+            </tr>
+            <tr>
+              <td><strong>Neural sequence model</strong></td>
+              <td>Multi-season tracking with ball, player identities, possessions, and synchronized events.</td>
+              <td>Transformer, temporal GNN, or hybrid sequence/spatial model.</td>
+              <td><span class="metric">£25k–£100k+</span></td>
+              <td>Supports richer pass/carry prediction, counterfactual sensitivity, and tactical state understanding.</td>
+            </tr>
+            <tr>
+              <td><strong>Research campaign</strong></td>
+              <td>Multiple competitions, repeated training runs, ablations, validation, and monitoring.</td>
+              <td>Model family comparison with production candidate selection.</td>
+              <td><span class="metric">£250k–£1.5m+</span></td>
+              <td>Creates a serious defensible model moat, but only after the commercial product route is validated.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">
+        These ranges are planning references, not quotes. They exclude licensed data fees, legal fees, staff time,
+        failed experiments, long-term storage, and production support. Exact budgets should be re-priced when a provider,
+        dataset scope, and model target are chosen.
+      </p>
+    </section>
+
+    <section class="section callout">
+      <h2>Budget principle</h2>
+      <p>
+        MVP should prove the decision workflow with controlled evidence. Investors should fund neural training only after
+        the product surface, dataset route, evaluation gates, and commercial use case are clear.
+      </p>
+    </section>
+
+    <section class="section callout">
+      <h2>Recommended next read</h2>
+      <p><a href="model-evidence.html">Model Evidence</a> — review what the current evaluation metrics support.</p>
+    </section>
+
+    <footer class="footer">
+      Status: planning brief. Cost examples are directional and must be re-quoted before contract or budget approval.
+    </footer>
+  </main>
+
+
+</body></html>

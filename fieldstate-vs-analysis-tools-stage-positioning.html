@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fieldstate | Analysis Tools vs What-If Engine</title>
+  <link rel="stylesheet" href="fieldstate-docs-v2.css" />
+  <style>
+    .comparison-band{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}.side{border:1px solid var(--line);border-radius:18px;padding:22px;background:#fff}.side.fieldstate{background:linear-gradient(135deg,var(--turf),var(--turf-2));color:var(--chalk);border-color:rgba(242,247,240,.18)}.side.fieldstate p,.side.fieldstate li{color:rgba(242,247,240,.74)}.stage-rail{display:grid;gap:14px;margin-top:18px}.stage{display:grid;grid-template-columns:120px 1fr 1fr;gap:14px;border:1px solid var(--line);border-radius:16px;background:#fff;padding:16px}.stage b{font:700 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#215b3c}.stage h3{margin:0 0 6px}.stage p{margin:0;color:var(--muted)}.stage.future{border-style:dashed;border-color:rgba(185,140,255,.6)}.position-line{font-size:clamp(28px,4vw,46px);line-height:1.05;letter-spacing:-.045em;margin:0}.module-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.module{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff}.module.future{border-style:dashed;border-color:rgba(185,140,255,.55)}@media(max-width:900px){.comparison-band,.stage,.module-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <main class="doc">
+    <header class="top">
+      <div class="brand"><strong>Fieldstate</strong><span>Category Positioning</span></div>
+      <nav class="nav"><a href="investor-pack-v2.html">Investor Pack</a><a href="feature-stage-pack.html">Feature Stages</a><a href="manager-coach-analyst-capabilities.html">Capabilities</a><a href="mvp-v2-scope.html">MVP Scope</a><a href="model-evidence.html">Evidence</a></nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="eyebrow">What makes Fieldstate different</div>
+        <h1>Not just match analysis. What-if football intelligence.</h1>
+        <p>Most tools help users understand what happened. Fieldstate is being built to let users adjust a football decision and estimate how the next phase may change.</p>
+      </div>
+      <aside class="panel pitch-panel"><span class="chip future">Staged Ambition</span><h2>The pass room opens first</h2><p>MVP should focus on pass decisions. Penalties, corners, free kicks, tracking and neural simulation become later modules with their own data and gates.</p></aside>
+    </section>
+
+    <section class="section">
+      <h2>Category difference</h2>
+      <div class="comparison-band">
+        <div class="side"><span class="chip fact">Traditional Analysis</span><h3>What happened?</h3><ul><li>Watch, tag, search and clip.</li><li>Review match events and video.</li><li>Compare teams, players and patterns.</li><li>Useful, but mainly descriptive.</li></ul></div>
+        <div class="side fieldstate"><span class="chip future">Fieldstate</span><h3>What if the decision changed?</h3><ul><li>Edit the pass or action.</li><li>Compare actual vs alternative.</li><li>Estimate completion, value and risk.</li><li>Show outcome paths with evidence gates.</li></ul></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="position-line">Traditional tools explain the match played. Fieldstate tests the match that could have been played.</p>
+    </section>
+
+    <section class="section">
+      <h2>Staged capability path</h2>
+      <div class="stage-rail">
+        <div class="stage"><b>Stage 1</b><div><h3>Pass Decision MVP</h3><p>Select one pass, edit the endpoint, compare probability, value, risk and continuation.</p></div><div><h3>Investor meaning</h3><p>Proves the product loop without pretending to simulate all football.</p></div></div>
+        <div class="stage"><b>Stage 2</b><div><h3>Pass Analysis Product</h3><p>Rank pass moments, review players and teams, export analyst reports, show evidence gates.</p></div><div><h3>Investor meaning</h3><p>Becomes pilot-ready for analysts, clubs and coaching conversations.</p></div></div>
+        <div class="stage"><b>Stage 3</b><div><h3>Wider Decision Intelligence</h3><p>Add carries, turnovers, momentum, possession value and similar-moment search.</p></div><div><h3>Investor meaning</h3><p>Expands from pass tool into a decision-intelligence platform.</p></div></div>
+        <div class="stage future"><b>Stage 4</b><div><h3>Set-Piece Modules</h3><p>Penalties, corners and free kicks get dedicated data, labels and models.</p></div><div><h3>Investor meaning</h3><p>Discrete premium modules: coachable, repeatable and easy to understand.</p></div></div>
+        <div class="stage future"><b>Stage 5</b><div><h3>Full What-If Engine</h3><p>Tracking/video-informed movement, neural sequence models and richer scenario simulation.</p></div><div><h3>Investor meaning</h3><p>The full football decision operating system.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Future modules</h2>
+      <div class="module-grid"><div class="module"><span class="chip fact">MVP</span><h3>Passes</h3><p>Open first. Build this properly.</p></div><div class="module future"><span class="chip future">Future</span><h3>Penalties</h3><p>Taker/keeper tendency and outcome probability.</p></div><div class="module future"><span class="chip future">Future</span><h3>Corners</h3><p>Delivery zones, runs, marking and second-ball risk.</p></div><div class="module future"><span class="chip future">Future</span><h3>Free Kicks</h3><p>Shot/cross layouts, wall/keeper setup and outcome paths.</p></div></div>
+    </section>
+  </main>
+</body>
+</html>

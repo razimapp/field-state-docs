@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" =""="" =""><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fieldstate | Manager, Coach, Analyst and Player Capabilities</title>
+  <link rel="stylesheet" href="fieldstate-docs-v2.css">
+  <style>
+    .role-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+    .role-grid.four-personas{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .role-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
+    .role-card h3{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+    .role-card ul,.feature-list ul{margin:0;padding-left:18px;color:var(--muted)}
+    .role-card li,.feature-list li{margin:0 0 7px}
+    .stage-block{padding:38px 0;border-top:1px solid var(--line)}
+    .stage-head{display:grid;grid-template-columns:170px 1fr;gap:24px;align-items:start;margin-bottom:14px}
+    .stage-no{font:700 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#215b3c}
+    .stage-head h2{margin:0 0 8px;font-size:32px;letter-spacing:-.03em}
+    .stage-meta,.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+    .meta-card,.feature-list{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--paper-2)}
+    .feature-list{background:#fff}
+    .meta-card h3,.feature-list h3{margin:0 0 8px;font-size:16px}
+    .meta-card p{margin:0;color:var(--muted)}
+    .future-stage{border-top-style:dashed}
+    .capability-flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:20px}
+    .flow-node{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;min-height:118px}
+    .flow-node b{display:block;font:700 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#215b3c;margin-bottom:8px}
+    .flow-node.future{border-style:dashed;border-color:rgba(185,140,255,.65)}
+    .role-icon{display:inline-flex;width:22px;height:22px;border-radius:7px;align-items:center;justify-content:center;background:var(--paper-2);font:700 11px/1 var(--mono);color:#215b3c}
+    .persona-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+    .persona-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+    .portal-callout{border-left:4px solid var(--mint);background:#fff;padding:18px;border-radius:14px;box-shadow:var(--shadow)}
+    @media(max-width:1100px){.role-grid.four-personas,.persona-strip{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:950px){.role-grid,.role-grid.four-personas,.stage-head,.stage-meta,.feature-grid,.capability-flow,.persona-strip{grid-template-columns:1fr}}
+  </style>
+<style id="vvvebjs-styles"></style></head>
+<body>
+  <main class="doc">
+    <header class="top">
+      <div class="brand">
+        <strong>Fieldstate</strong>
+        <span>Capabilities by Stage</span>
+      </div>
+      <nav class="nav">
+        <a href="investor-pack-v2.html">Investor Pack</a>
+        <a href="mvp-v2-scope.html">MVP Scope</a>
+        <a href="feature-stage-pack.html">Feature Stages</a>
+        <a href="manager-coach-analyst-capabilities.html" aria-current="page">Capabilities</a>
+        <a href="model-data-cloud-costs.html">Model/Data/Cloud</a>
+        <a href="model-evidence.html">Model Evidence</a>
+        <a href="legal-pointer.html">Legal Pointer</a>
+        <a href="engineering.html">Engineering</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="eyebrow">For managers, coaches, analysts and players</div>
+        <h1 style="font-size: 40px;">What each user can do at each stage</h1>
+        <p>Fieldstate starts with pass-decision what-if analysis. Each later stage opens a larger capability: broader decision intelligence, set-piece modules, and eventually the full football what-if engine.</p>
+      </div>
+      <aside class="panel pitch-panel">
+        <span class="chip fact">MVP Discipline</span>
+        <h2>Passes first. Everything else staged.</h2>
+        <p>MVP should not pretend to solve penalties, corners, free kicks or neural movement. It should make pass decisions credible, useful and evidence-backed.</p>
+      </aside>
+    </section>
+
+    <section class="section">
+      <h2 style="">Target Audience</h2>
+      <div class="persona-strip">
+        <div class="persona-card"><h3>Manager</h3><p>Strategic priorities, football risk, match preparation, recruitment signals and what should change.</p></div>
+        <div class="persona-card"><h3>Coach</h3><p>Training-ground translation, behaviour change, player feedback and teachable clips.</p></div>
+        <div class="persona-card"><h3>Analyst</h3><p>Evidence, filtering, model gates, repeatability, reports and what the data supports.</p></div>
+        <div class="persona-card"><h3>Player Portal</h3><p>Self-improvement, reflection, assigned moments, coach notes and personal scenario practice.</p></div>
+      </div>
+      <p class="portal-callout" style="margin-top:16px"><strong>Player Portal turns coaching conversations into trackable reflection and improvement loops.</strong> It supports face-to-face coaching; it does not replace it.</p>
+    </section>
+
+    <section class="section">
+      <h2 style="">Capability path</h2>
+      <div class="capability-flow">
+        <div class="flow-node"><b>Stage 1</b><p>One pass decision: actual vs alternative.</p></div>
+        <div class="flow-node"><b>Stage 2</b><p>Ranked pass moments, reports and player follow-up.</p></div>
+        <div class="flow-node"><b>Stage 3</b><p>Momentum, pressure, carries, turnovers and profiles.</p></div>
+        <div class="flow-node future"><b>Stage 4</b><p>Penalties, corners, free kicks and set-piece modules.</p></div>
+        <div class="flow-node future"><b>Stage 5</b><p>Tracking/video/neural what-if football engine.</p></div>
+      </div>
+    </section>
+
+
+    <section class="stage-block ">
+      <div class="stage-head">
+        <div class="stage-no">Stage 1 · MVP feasible</div>
+        <div><h2>Pass Decision MVP</h2><p class="lede">Open one pass, adjust the target, and explain how the likely completion, value and risk changes.</p></div>
+      </div>
+      <div class="role-grid four-personas">
+        <div class="role-card"><h3><span class="role-icon">M</span>Manager</h3><ul><li>Review one key decision quickly.</li><li>Ask whether a better passing option existed.</li><li>Use the moment as a staff discussion starter.</li><li>See simple value, risk and probability language without technical detail.</li></ul></div><div class="role-card"><h3><span class="role-icon">C</span>Coach</h3><ul><li>Show the recorded pass and visible options.</li><li>Compare the actual pass with an edited pass target.</li><li>Explain timing, pressure and receiver availability.</li><li>Use the visual as a face-to-face coaching aid.</li></ul></div><div class="role-card"><h3><span class="role-icon">A</span>Analyst</h3><ul><li>Select real event-data pass moments.</li><li>Use 360 freeze-frame context where available.</li><li>Run original vs edited pass scenario.</li><li>Review completion probability, value proxy, turnover-risk proxy and evidence.</li></ul></div><div class="role-card"><h3><span class="role-icon">P</span>Player Portal</h3><ul><li>Review one assigned personal pass moment.</li><li>See a coach or analyst note.</li><li>Compare actual choice with an alternative.</li><li>Add a short reflection.</li><li>No messaging integrations at this stage.</li><li>No live tracking, 3D simulation or neural scenario model at this stage.</li></ul></div>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-list "><h3>UI Features</h3><ul><li>2D rectangular pitch preview.</li><li>Player markers as simple rectangles or dots.</li><li>Recorded pass arrow.</li><li>Visible passing options.</li><li>Actual vs edited pass comparison.</li><li>Probability, value and risk cards.</li><li>Reflection note field for assigned player moment.</li></ul></div>
+        <div class="feature-list "><h3>Football Features</h3><ul><li>Pass decision review.</li><li>Visible receiver-option analysis.</li><li>Completion probability.</li><li>Turnover-risk proxy.</li><li>Simple continuation branches.</li><li>Coach-led player reflection.</li></ul></div>
+      </div>
+      <div class="stage-meta">
+        <div class="meta-card"><h3>Data/model</h3><p>StatsBomb-style event data, 360 freeze frames where available, event-only pass-completion model, deterministic scenario logic and evidence-gated outputs.</p></div>
+        <div class="meta-card"><h3>Boundary</h3><p>Pass analysis only. No penalties, corners, free kicks, live tracking, 3D simulation, chat integration or neural scenario engine.</p></div>
+      </div>
+    </section>
+
+    <section class="stage-block ">
+      <div class="stage-head">
+        <div class="stage-no">Stage 2 · Pilot target</div>
+        <div><h2>Pilot-Ready Pass Analysis Product</h2><p class="lede">Turn the pass MVP into a repeatable workflow for matches, players, coaches and reports.</p></div>
+      </div>
+      <div class="role-grid four-personas">
+        <div class="role-card"><h3><span class="role-icon">M</span>Manager</h3><ul><li>Open a match and see ranked pass-decision moments.</li><li>Identify the five to ten decisions worth discussing with staff.</li><li>Export a clear review pack for a player, unit or team meeting.</li><li>Compare whether repeated decision patterns are helping or hurting the team.</li></ul></div><div class="role-card"><h3><span class="role-icon">C</span>Coach</h3><ul><li>Build coaching clips around pass choices.</li><li>Group moments by build-up, final-third entry, pressure escape, switch opportunity and turnover.</li><li>Use player-facing visuals for actual choice, available option, likely risk and likely value.</li><li>Track whether a player improves decision selection over time.</li></ul></div><div class="role-card"><h3><span class="role-icon">A</span>Analyst</h3><ul><li>Save moments and build reports.</li><li>Filter by period, pitch zone, pressure, pass length, receiver availability and possession context.</li><li>Compare players and teams on pass-decision profiles.</li><li>Use calibrated pass probability and evidence badges in scenario reports.</li></ul></div><div class="role-card"><h3><span class="role-icon">P</span>Player Portal</h3><ul><li>Open a personal dashboard.</li><li>Receive assigned clips from coach or analyst.</li><li>Read coach notes.</li><li>Reply with short reflection.</li><li>Track personal goals and progress history.</li><li>Use in-platform notes only; external messaging remains later.</li></ul></div>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-list "><h3>UI Features</h3><ul><li>Match selector.</li><li>Competition, team and player filters.</li><li>Ranked decision cards.</li><li>Saved moments library.</li><li>Coach view and player view toggle.</li><li>Exportable report.</li><li>Player dashboard with assigned clips, notes and reflections.</li></ul></div>
+        <div class="feature-list "><h3>Football Features</h3><ul><li>Ranked pass moments.</li><li>Pass and carry grouping.</li><li>Player pass-decision profile.</li><li>Repeated decision-pattern review.</li><li>Improvement tracking.</li><li>Coaching follow-up loop after face-to-face feedback.</li></ul></div>
+      </div>
+      <div class="stage-meta">
+        <div class="meta-card"><h3>Data/model</h3><p>Wider open-data match set, frozen model artifacts, held-out match evaluation, calibration reporting and product-ready scenario API.</p></div>
+        <div class="meta-card"><h3>Boundary</h3><p>Mainly pass and carry decision intelligence. Other event types remain roadmap modules. External chat integrations are not core MVP.</p></div>
+      </div>
+    </section>
+
+    <section class="stage-block ">
+      <div class="stage-head">
+        <div class="stage-no">Stage 3 · Funded data depth</div>
+        <div><h2>Data-Rich Decision Intelligence</h2><p class="lede">Move from pass moments into broader tactical decision patterns across players, teams and matches.</p></div>
+      </div>
+      <div class="role-grid four-personas">
+        <div class="role-card"><h3><span class="role-icon">M</span>Manager</h3><ul><li>See how team momentum changed across the match.</li><li>Identify the most dangerous action each team created per minute or phase.</li><li>Compare team decision quality across matches.</li><li>Understand whether tactical problems are isolated moments or repeatable patterns.</li></ul></div><div class="role-card"><h3><span class="role-icon">C</span>Coach</h3><ul><li>Analyse carries, turnovers, receiver availability, lane pressure and possession value.</li><li>Coach press escape, switches, final-third entries, counters and recycle decisions.</li><li>Build player-improvement plans from repeated decision moments.</li><li>Compare outcomes against the decisions available at the time.</li></ul></div><div class="role-card"><h3><span class="role-icon">A</span>Analyst</h3><ul><li>Run similar-moment search across matches.</li><li>Build player and team decision profiles.</li><li>Evaluate possession value, pressure, momentum and continuation quality.</li><li>Use richer cohorts by role, zone, pressure, pass type and game state.</li></ul></div><div class="role-card"><h3><span class="role-icon">P</span>Player Portal</h3><ul><li>Use similar-moment learning mode.</li><li>Review personalised decision trends.</li><li>Compare role-specific benchmarks.</li><li>See repeated habit detection.</li><li>Receive optional notifications through club-approved channels.</li></ul></div>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-list "><h3>UI Features</h3><ul><li>Momentum timeline.</li><li>Heatmap-style pitch zones.</li><li>Player profile cards.</li><li>Similar-moment search.</li><li>Team and player comparison filters.</li><li>Evidence-backed model labels.</li><li>Optional notification status for assigned player tasks.</li></ul></div>
+        <div class="feature-list "><h3>Football Features</h3><ul><li>Possession value.</li><li>Pitch momentum.</li><li>Lane pressure.</li><li>Carries and turnovers.</li><li>Receiver availability.</li><li>Role-specific decision cohorts.</li><li>Player learning trends.</li></ul></div>
+      </div>
+      <div class="stage-meta">
+        <div class="meta-card"><h3>Data/model</h3><p>Licensed event data, wider 360 or tracking-style data, team-shape and pressure features, calibrated challenger models and cohort reliability checks.</p></div>
+        <div class="meta-card"><h3>Boundary</h3><p>First serious decision-intelligence layer. It still should not claim full player movement simulation or unrestricted chat workflows.</p></div>
+      </div>
+    </section>
+
+    <section class="stage-block future-stage">
+      <div class="stage-head">
+        <div class="stage-no">Stage 4 · Specialist modules</div>
+        <div><h2>Set-Piece and Specialist Modules</h2><p class="lede">Add penalties, corners, free kicks and restarts as separate premium modules with their own data and gates.</p></div>
+      </div>
+      <div class="role-grid four-personas">
+        <div class="role-card"><h3><span class="role-icon">M</span>Manager</h3><ul><li>Understand set-piece strengths and weaknesses in simple football language.</li><li>See where marginal gains may exist.</li><li>Compare tendencies against opponents.</li><li>Prioritise specialist coaching work.</li></ul></div><div class="role-card"><h3><span class="role-icon">C</span>Coach</h3><ul><li>Test corner delivery zones and attacking runs.</li><li>Review defensive marks and second-ball risk.</li><li>Review free-kick shot versus cross decisions.</li><li>Use penalty taker and keeper tendency reports.</li><li>Build set-piece training plans from repeated situations.</li></ul></div><div class="role-card"><h3><span class="role-icon">A</span>Analyst</h3><ul><li>Create specialist datasets for penalties, corners, free kicks and restarts.</li><li>Evaluate outcome probabilities per set-piece type.</li><li>Separate delivery quality, movement, marking, rebound risk and final outcome.</li><li>Produce model cards for each set-piece module.</li></ul></div><div class="role-card"><h3><span class="role-icon">P</span>Player Portal</h3><ul><li>Receive set-piece rehearsal assignments.</li><li>Review penalty, free-kick or corner role notes.</li><li>Complete preparation checklists.</li><li>Add player response after training or match review.</li></ul></div>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-list "><h3>UI Features</h3><ul><li>Set-piece layout board.</li><li>Penalty panel.</li><li>Corner delivery map.</li><li>Free-kick wall and keeper layout.</li><li>Restart templates.</li><li>Specialist module reports.</li><li>Player preparation checklist.</li></ul></div>
+        <div class="feature-list "><h3>Football Features</h3><ul><li>Penalty probability.</li><li>Keeper and taker tendency.</li><li>Corner delivery outcomes.</li><li>Free-kick shot/cross evaluation.</li><li>Attacking runs.</li><li>Marking and second-ball risk.</li><li>Set-piece rehearsal feedback.</li></ul></div>
+      </div>
+      <div class="stage-meta">
+        <div class="meta-card"><h3>Data/model</h3><p>Dedicated set-piece event labels, setup context, freeze-frame or tracking detail, video-derived or licensed data where required and separate evaluation gates per module.</p></div>
+        <div class="meta-card"><h3>Boundary</h3><p>Each set-piece is its own product and model problem. These should not be bundled into MVP.</p></div>
+      </div>
+    </section>
+
+    <section class="stage-block future-stage">
+      <div class="stage-head">
+        <div class="stage-no">Stage 5 · Dream platform</div>
+        <div><h2>Full Football What-If Engine</h2><p class="lede">A football decision operating system powered by event, tracking, video and neural scenario models.</p></div>
+      </div>
+      <div class="role-grid four-personas">
+        <div class="role-card"><h3><span class="role-icon">M</span>Manager</h3><ul><li>Use Fieldstate as a football decision operating system.</li><li>Review team identity, tactical risk, player development, recruitment and match preparation from one platform.</li><li>Ask what should change, who improves us and where value is lost.</li><li>Build club-specific football intelligence over time.</li></ul></div><div class="role-card"><h3><span class="role-icon">C</span>Coach</h3><ul><li>Simulate multi-action tactical scenarios.</li><li>Adjust player positions, runs, pass choices and defensive shapes.</li><li>Compare likely consequences across several phases of play.</li><li>Build training sessions from the decisions that most change outcomes.</li></ul></div><div class="role-card"><h3><span class="role-icon">A</span>Analyst</h3><ul><li>Run tracking and video-informed scenario models.</li><li>Use spatial-temporal neural models where evidence gates pass.</li><li>Compare tactical branches with confidence bands.</li><li>Monitor model drift, data coverage and release gates.</li><li>Build club-specific intelligence from proprietary data.</li></ul></div><div class="role-card"><h3><span class="role-icon">P</span>Player Portal</h3><ul><li>Use a full personal scenario sandbox.</li><li>Try passes, runs and positioning choices.</li><li>Compare decision paths.</li><li>Receive confidence-labelled feedback.</li><li>Track long-term development history.</li><li>Use enterprise-configured integrations where the club approves them.</li></ul></div>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-list "><h3>UI Features</h3><ul><li>3D or game-style pitch view.</li><li>Tracking containers for player and ball streams.</li><li>Player movement paths.</li><li>Scenario timeline.</li><li>Team-shape editor.</li><li>Simulation controls.</li><li>Full Evidence Centre integration.</li><li>Player sandbox and long-term development record.</li></ul></div>
+        <div class="feature-list "><h3>Football Features</h3><ul><li>Tracking and video-informed movement.</li><li>Neural spatial/sequence models.</li><li>Multi-action scenario simulation.</li><li>Player positioning adjustments.</li><li>Team-shape what-if modelling.</li><li>Full tactical what-if engine.</li><li>Club-specific intelligence layer.</li></ul></div>
+      </div>
+      <div class="stage-meta">
+        <div class="meta-card"><h3>Data/model</h3><p>Licensed event, tracking and video-derived data, GPU-backed training, spatial-temporal sequence models, MLOps, monitoring, validation and domain expert review.</p></div>
+        <div class="meta-card"><h3>Boundary</h3><p>This is the full dream platform, not the first funded sprint. It requires serious data access, compute, engineering and validation.</p></div>
+      </div>
+    </section>
+
+
+    <section class="section">
+      <h2 style="">Investor framing</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Stage</th><th>Manager</th><th>Coach</th><th>Analyst</th><th>Player Portal</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1</strong></td><td>Understand one pass decision</td><td>Explain actual vs alternative pass</td><td>Run pass scenario with evidence</td><td>Reflect on assigned pass moment</td><td>MVP feasible</td></tr>
+            <tr><td><strong>2</strong></td><td>Review ranked pass moments</td><td>Build player/team pass reports</td><td>Filter, save, export, compare</td><td>Assigned clips, notes and progress</td><td>Pilot target</td></tr>
+            <tr><td><strong>3</strong></td><td>Understand momentum and patterns</td><td>Coach broader decisions</td><td>Model pressure, value, profiles</td><td>Personalised decision trends</td><td>Funded data stage</td></tr>
+            <tr><td><strong>4</strong></td><td>Target set-piece gains</td><td>Train penalties/corners/free kicks</td><td>Build module-specific models</td><td>Set-piece rehearsal feedback</td><td>Specialist modules</td></tr>
+            <tr><td><strong>5</strong></td><td>Operate full platform</td><td>Simulate tactical alternatives</td><td>Run neural/tracking what-if engine</td><td>Personal scenario sandbox</td><td>Dream product</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section callout">
+      <h2 style="">Recommended next read</h2>
+      <p><a href="model-data-cloud-costs.html">Model/Data/Cloud</a> — understand the data, compute and funding implications.</p>
+    </section>
+  </main>
+
+
+</body></html>

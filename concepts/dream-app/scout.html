@@ -43,7 +43,7 @@
   <div class="pad">
     <section class="purpose" data-step="Player decision profile">
       <h1>See how this midfielder makes choices.</h1>
-      <p>Use the profile to spot a decision-making strength or concern, then open the moments behind the percentile.</p>
+      <p>Use the profile to spot a decision-making strength or concern, open the moments behind the percentile, then assign one for player reflection.</p>
       <a class="primary-action" href="moment.html">Review supporting moments →</a>
     </section>
     <div class="scout">
@@ -60,7 +60,7 @@
           <div class="source-row"><b>Source</b><span>OpenFootball-style data can support teams, fixtures, squads and scorers, not advanced decision quality.</span></div>
         </div>
       </div>
-      <div class="ev-card">
+      <div class="ev-card" data-tour-id="player-decision-profile">
         <div class="player-head">
           <div class="shirt">8</div>
           <div><h5>Decision profile · percentile vs position peers</h5>
@@ -85,6 +85,16 @@
         <a class="stat hyp-card" style="margin-top:10px" href="evidence.html"><div class="k">Projected in your system</div><div class="v hyp">watchlist → model</div><div class="meta">HYP · projection stays dashed until decision-index v0.3 passes its gate · click for gate status</div><span class="go">EVD ⏎</span></a>
       </div>
       <div class="ev-card">
+        <h5>Player Portal follow-up</h5>
+        <p class="data-note">Player Portal turns coaching conversations into trackable reflection and improvement loops. It supports face-to-face coaching; it does not replace it.</p>
+        <div class="source-stack">
+          <div class="source-row"><b>Assigned moment</b><span>Coach or analyst selects one decision for the player to review.</span></div>
+          <div class="source-row"><b>Coach note</b><span>Plain-language instruction linked to the recorded moment and visible alternatives.</span></div>
+          <div class="source-row"><b>Player reflection</b><span>Short written response: what they saw, why they chose it, what they would try next.</span></div>
+          <div class="source-row"><b>Future integration</b><span>Slack, Teams, club app, email or WhatsApp Business only if approved by the club.</span></div>
+        </div>
+      </div>
+      <div class="ev-card">
         <h5>What data powers this page</h5>
         <p class="data-note">Public football datasets help identify the player and fixture. Fieldstate decision scores require event/360/tracking data plus model evidence. The UI should always tell the user which layer produced each number.</p>
         <div class="source-stack">
@@ -103,5 +113,6 @@
   <span class="ghost">· percentile bars link to their moment evidence</span>
   <span class="keys"><a class="kbd" href="moment.html">MOM evidence</a><a class="kbd" href="evidence.html">EVD</a><a class="kbd" href="index.html">CC</a></span>
 </div>
+<script src="tour.js" defer></script>
 </body>
 </html>

@@ -1,85 +1,213 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fieldstate | Engineering</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
+<!DOCTYPE html>
+<html lang="en" =""><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fieldstate | Engineering and Data Science</title>
+  <link rel="stylesheet" href="fieldstate-docs-v2.css">
+<style id="vvvebjs-styles"></style></head>
 <body>
-  <header class="topbar">
-    <div class="shell nav">
+  <main class="doc">
+    <header class="top">
       <div class="brand">
-        <img class="mark" src="assets/fieldstate-mark.png" alt="Fieldstate mark" />
-        <div class="brand-copy">
-          <img class="wordmark" src="assets/fieldstate-wordmark.png" alt="Fieldstate" />
-          <span>Engineering</span>
-        </div>
+        <strong>Fieldstate</strong>
+        <span>Engineering and Data Science Hub</span>
       </div>
-      <nav class="navlinks">
-        <a href="index.html">Overview</a>
-        <a href="comparison.html">Comparison</a>
-        <a href="use-cases.html">Use Cases</a>
-        <a href="market.html">Market</a>
-        <a href="product-paths.html">Product Paths</a>
-        <a href="selling.html">Selling</a>
-        <a class="active" href="engineering.html">Engineering</a>
+      <nav class="nav">
+        <a href="investor-pack-v2.html">Investor Pack</a>
+        <a href="mvp-v2-scope.html">MVP Scope</a>
+        <a href="feature-stage-pack.html">Feature Stages</a>
+        <a href="manager-coach-analyst-capabilities.html">Capabilities</a>
+        <a href="model-data-cloud-costs.html">Model/Data/Cloud</a>
+        <a href="model-evidence.html">Model Evidence</a>
+        <a href="legal-pointer.html">Legal Pointer</a>
+        <a href="engineering.html" aria-current="page">Engineering</a>
       </nav>
-    </div>
-  </header>
+    </header>
 
-  <main class="shell">
     <section class="hero">
-      <div class="eyebrow">How it works</div>
-      <h1>Build from the event, not from the headline score.</h1>
-      <p>
-        This is the technical outline a sales-minded founder can still explain clearly in a meeting.
-      </p>
-      <div class="subnav">
-        <a class="active" href="engineering.html">Overview</a>
-        <a href="engineering-models.html">Models</a>
-        <a href="engineering-data.html">Data</a>
-        <a href="engineering-roadmap.html">Roadmap</a>
+      <div>
+        <div class="eyebrow">Technical companion to the investor pack</div>
+        <h1 style="font-size: 40px;">Separate the product story from the engineering proof.</h1>
+        <p>
+          The investor pack explains why Fieldstate is commercially interesting. This hub explains how it is built,
+          what evidence exists, what is still research-only, and what comes next.
+          Technical leadership discipline is summarised in the investor pack; implementation detail lives here.
+        </p>
       </div>
+      <aside class="panel pitch-panel">
+        <span class="chip fact">Trust Contract</span>
+        <h2>Fact, estimate, hypothetical</h2>
+        <p>Recorded events are facts. Model outputs are estimates. Edited decisions are hypotheticals. The product should never visually or verbally mix those categories.</p>
+      </aside>
     </section>
 
     <section class="section">
-      <div class="grid-3">
-        <div class="card"><h3>Input</h3><p>Match state, action, location, time, players, and available event context.</p></div>
-        <div class="card"><h3>Model</h3><p>Use Python to estimate action value, plausibility, risk, and next-phase effects.</p></div>
-        <div class="card"><h3>Output</h3><p>Show a clear comparison of original versus alternative choices, with analyst-readable explanation.</p></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Architecture principle</h2>
+      <h2>Overview</h2>
       <p class="lede">
-        Fieldstate should keep the football logic grounded in data and code, while using Claude/Fable
-        for research, documentation, candidate factor discovery, and explanation.
+        Fieldstate is being built as a football decision engine. It starts with real event data, explains pass/carry decisions,
+        visualises actual chains of play, and adds modelled probability only when evidence gates are passed.
       </p>
       <div class="grid-3">
         <div class="card">
-          <h3>Rust/open-football</h3>
-          <p>Best for the product shell, simulation integration, APIs, and deterministic match state.</p>
+          <span class="chip fact">Current</span>
+          <h3>Working demo layer</h3>
+          <p>Real match moments, pass-chain replay, scenario editing, flat/perspective visuals, and evidence reports.</p>
         </div>
         <div class="card">
-          <h3>Python models</h3>
-          <p>Best for StatsBomb/Open Data ingestion, feature engineering, xT / VAEP-style logic, and evaluation.</p>
+          <span class="chip estimate">MVP</span>
+          <h3>Gated probability layer</h3>
+          <p>Use the approved event-only pass model in scenario output with provenance, calibration caveats, and safe copy.</p>
         </div>
         <div class="card">
-          <h3>Claude/Fable</h3>
-          <p>Best for deep research, document refinement, factor suggestions, and structured scenario explanations.</p>
+          <span class="chip future">Later</span>
+          <h3>Tracking/neural layer</h3>
+          <p>Add richer data, defender pressure, player movement, sequence models, and stronger counterfactual testing.</p>
         </div>
+      </div>
+      <p class="note"><a href="feature-stage-pack.html">See the visual feature stage pack.</a></p>
+    </section>
+
+    <section class="section">
+      <h2>Architecture</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Layer</th>
+              <th>Role</th>
+              <th>Current state</th>
+              <th>Detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Data ingestion</strong></td>
+              <td>Load events, match metadata, and available 360 context.</td>
+              <td>Open-data cache with multi-match support.</td>
+              <td><a href="engineering-data.html">Data notes</a></td>
+            </tr>
+            <tr>
+              <td><strong>Scenario model</strong></td>
+              <td>Edit pass/carry decisions and score plausible alternatives.</td>
+              <td>Working scenario output, branches, SVG and replay surfaces.</td>
+              <td><a href="mvp-v2-scope.html">MVP Scope</a></td>
+            </tr>
+            <tr>
+              <td><strong>Pass probability</strong></td>
+              <td>Estimate completion probability for recorded-style event context.</td>
+              <td>Event-only model passed current evidence gates.</td>
+              <td><a href="model-evidence.html">Model evidence</a></td>
+            </tr>
+            <tr>
+              <td><strong>Explanation layer</strong></td>
+              <td>Turn model output into analyst-readable language.</td>
+              <td>Allowed to explain structured output, not invent outcomes.</td>
+              <td><a href="engineering-models.html">Model notes</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Data science</h2>
+      <div class="grid-3">
+        <div class="card">
+          <span class="chip fact">Metric</span>
+          <h3>AUC</h3>
+          <p>Ranking/separation: can the model distinguish easier passes from harder passes?</p>
+        </div>
+        <div class="card">
+          <span class="chip estimate">Metric</span>
+          <h3>Brier</h3>
+          <p>Probability error: are the probability numbers themselves useful?</p>
+        </div>
+        <div class="card">
+          <span class="chip estimate">Metric</span>
+          <h3>ECE</h3>
+          <p>Calibration: when the model says 80%, does roughly 80% happen?</p>
+        </div>
+      </div>
+      <p class="note"><a href="model-evidence.html">Open the full AUC, Brier, and ECE explainer.</a></p>
+    </section>
+
+    <section class="section">
+      <h2>Model progress</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Model stage</th>
+              <th>Status</th>
+              <th>Evidence</th>
+              <th>Product decision</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Event-only logistic pass completion</strong></td>
+              <td>Current gate model</td>
+              <td>113,598 passes, 105 matches, 5 competitions. AUC 0.7952, Brier 0.117, ECE 0.0168.</td>
+              <td>Safe candidate for MVP scenario probability with caveats.</td>
+            </tr>
+            <tr>
+              <td><strong>360 lane-pressure enrichment</strong></td>
+              <td>Research-only</td>
+              <td>Promising uplift on 5,468 aligned passes, but incomplete-pass endpoint contamination can inflate signal.</td>
+              <td>Do not wire into edited-target probability until sensitivity tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>Tree/boosting challenger</strong></td>
+              <td>Next evidence branch</td>
+              <td>Not yet promoted. Should be evaluated by AUC, Brier, ECE, LOCO, and cohort calibration.</td>
+              <td>Can replace logistic only if it beats it on calibration and reliability, not just AUC.</td>
+            </tr>
+            <tr>
+              <td><strong>Tracking/neural models</strong></td>
+              <td>Future funded stage</td>
+              <td>Requires licensed tracking/event data, compute budget, and stronger validation.</td>
+              <td>Investor-funded roadmap, not MVP dependency.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Delivery discipline</h2>
+      <p class="lede">Engineering work is organised around reproducibility, controlled change and visible risk. The product roadmap lives in <a href="feature-stage-pack.html">Feature Stages</a>; this page explains how technical delivery is governed.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Control</th><th>Working rule</th><th>Investor relevance</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Architecture</strong></td><td>Keep data, modelling, evidence and presentation boundaries explicit; document consequential decisions before scaling them.</td><td>Reduces accidental coupling and makes later investment easier to diligence.</td></tr>
+            <tr><td><strong>Source control</strong></td><td>Version code, public documentation, model releases and evidence artifacts; review changes before promotion.</td><td>Creates traceability for what changed, why it changed and which claim it supports.</td></tr>
+            <tr><td><strong>Testing</strong></td><td>Protect the critical demo, data parsing, scenario and evidence paths with automated checks and repeatable acceptance tests.</td><td>Turns a founder-operated prototype into a handover-ready asset.</td></tr>
+            <tr><td><strong>Security and data handling</strong></td><td>Separate public and private material, minimise secrets, validate inputs and document dataset permissions.</td><td>Reduces disclosure, rights and operational risk before pilots or external access.</td></tr>
+            <tr><td><strong>Technical debt</strong></td><td>Maintain a prioritised debt register; address debt when it threatens correctness, delivery speed, security or the next funded stage.</td><td>Makes maintenance cost visible instead of hiding it inside feature estimates.</td></tr>
+            <tr><td><strong>Roadmap decisions</strong></td><td>Advance models and infrastructure only when the current stage has a measurable outcome, evidence gate and explicit continuation decision.</td><td>Protects capital from speculative complexity and premature scale.</td></tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
     <section class="section callout">
-      <h2>Guardrail</h2>
-      <p class="lede">
-        Fable can propose overlooked factors and explain the model output, but it should not invent the
-        counterfactual result. The outcome path should come from event data, statistical logic, and validation.
+      <h2>Current technical priority</h2>
+      <p>
+        Complete the bounded <a href="mvp-v2-scope.html">MVP Scope</a>: stabilise the selected walkthrough, keep model output evidence-gated,
+        strengthen the critical tests, and document security, handover and technical debt before expanding capability.
       </p>
     </section>
+
+    <section class="section callout">
+      <h2>Recommended next read</h2>
+      <p><a href="investor-pack-v2.html">Return to the Investor Pack</a> for the commercial overview and funding logic.</p>
+    </section>
+
+    <footer class="footer">
+      This hub is public-safe technical documentation. It avoids private legal strategy and unsupported accuracy claims.
+    </footer>
   </main>
-</body>
-</html>
+
+
+</body></html>

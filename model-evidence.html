@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fieldstate | Model Evidence</title>
+  <link rel="stylesheet" href="fieldstate-docs-v2.css" />
+</head>
+<body>
+  <main class="doc">
+    <header class="top">
+      <div class="brand"><strong>Fieldstate</strong><span>Model Evidence</span></div>
+      <nav class="nav">
+        <a href="investor-pack-v2.html">Investor Pack</a>
+        <a href="mvp-v2-scope.html">MVP Scope</a>
+        <a href="feature-stage-pack.html">Feature Stages</a>
+        <a href="manager-coach-analyst-capabilities.html">Capabilities</a>
+        <a href="model-data-cloud-costs.html">Model/Data/Cloud</a>
+        <a href="model-evidence.html" aria-current="page">Model Evidence</a>
+        <a href="legal-pointer.html">Legal Pointer</a>
+        <a href="engineering.html">Engineering</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Data science translation</div>
+        <h1>How to read Fieldstate's current model evidence.</h1>
+        <p>The current pass-completion model is an event-only probability model. It provides useful early signal with broad held-out testing and calibration checks; it is not a finished neural football engine.</p>
+      </div>
+      <aside class="panel">
+        <span class="chip estimate">Current evidence</span>
+        <h2>Evaluated, bounded, traceable</h2>
+        <p><span class="metric">113,598</span> passes · <span class="metric">105</span> matches · <span class="metric">5</span> competitions.</p>
+        <p>AUC <span class="metric">0.7952</span> · Brier <span class="metric">0.1170</span> · ECE <span class="metric">0.0168</span>.</p>
+        <p class="note">Safe interpretation: credible signal for a bounded MVP use case, not universal football prediction accuracy.</p>
+      </aside>
+    </section>
+
+    <section class="section">
+      <h2>The three checks</h2>
+      <div class="grid-3">
+        <div class="card"><span class="chip estimate">AUC</span><h3>Can the model separate easier from harder passes?</h3><p>AUC measures ranking power. A value of 0.5 means no useful separation; the current event-only model scores 0.7952 on the evaluated corpus.</p></div>
+        <div class="card"><span class="chip estimate">Brier</span><h3>How wrong are the probability numbers?</h3><p>Brier score measures probability error. Lower is better. The current score is 0.1170, improving on the tested simple baselines.</p></div>
+        <div class="card"><span class="chip estimate">ECE</span><h3>Do predicted probabilities match observed outcomes?</h3><p>Expected Calibration Error checks whether stated probabilities align with results. Lower is better. The current score is 0.0168.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Evidence table</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Model or baseline</th><th>AUC</th><th>Brier</th><th>ECE</th><th>Interpretation</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Always-complete baseline</strong></td><td>0.5000</td><td>0.1482</td><td>0.0000</td><td>Reflects the base rate but cannot distinguish easy from hard passes.</td></tr>
+            <tr><td><strong>Length-only logistic model</strong></td><td>0.6022</td><td>0.1368</td><td>0.0499</td><td>Pass length helps, but does not provide enough decision context alone.</td></tr>
+            <tr><td><strong>Full event-only logistic model</strong></td><td>0.7952</td><td>0.1170</td><td>0.0168</td><td>Strongest current event-only evidence and the bounded product candidate.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Product gate</h2>
+      <div class="grid-2">
+        <div class="card"><span class="chip fact">May support</span><h3>Bounded scenario probability</h3><p>The approved event-only release may support a clearly labelled estimate for scenarios sufficiently close to its evaluated input context.</p></div>
+        <div class="card"><span class="chip future">Does not yet support</span><h3>Tracking-grade or neural claims</h3><p>Current evidence does not prove universal decision quality, edited-target 360 probability, club-wide automation or neural scenario accuracy.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Evidence lifecycle</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Step</th><th>Control</th><th>Reason</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Freeze</strong></td><td>Pin dataset scope, feature definition, model version and evaluation artifact.</td><td>Prevents public numbers from drifting with ad hoc reruns.</td></tr>
+            <tr><td><strong>Evaluate</strong></td><td>Use held-out testing, calibration checks and relevant cohort review.</td><td>Tests reliability beyond the training sample.</td></tr>
+            <tr><td><strong>Gate</strong></td><td>Promote only outputs that meet the pre-defined product threshold and claim boundary.</td><td>Keeps research results out of user-facing claims.</td></tr>
+            <tr><td><strong>Trace</strong></td><td>Version the evidence artifact with the code and public explanation.</td><td>Makes every displayed number reviewable.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section callout">
+      <h2>Bottom line</h2>
+      <p>The current model evidence supports careful continued product development. Richer 360, tracking and neural work remains a later research and funding decision until its own evidence is clean.</p>
+    </section>
+
+    <section class="section callout">
+      <h2>Recommended next read</h2>
+      <p><a href="legal-pointer.html">Legal Pointer</a> — understand the public-safe rights, data and commercial boundary.</p>
+    </section>
+
+    <footer class="footer">Status: public technical explainer. This is not a model card, production guarantee or legal claim.</footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,112 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj << /Type /Catalog /Pages 2 0 R >> endobj
+2 0 obj << /Type /Pages /Kids [7 0 R 9 0 R] /Count 2 >> endobj
+3 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >> endobj
+4 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >> endobj
+5 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Courier /Encoding /WinAnsiEncoding >> endobj
+6 0 obj << /Length 4531 >> stream
+BT /F2 19.0 Tf 54.0 784.0 Td (Option C - Full IP Assignment) Tj ET
+BT /F1 9.5 Tf 54.0 754.0 Td (This is a discussion draft, not a legal agreement or legal advice. It describes the) Tj ET
+BT /F1 9.5 Tf 54.0 741.0 Td (highest-control route: investor or company acquires Fieldstate IP after full payment and) Tj ET
+BT /F1 9.5 Tf 54.0 728.0 Td (agreed protections.) Tj ET
+BT /F1 9.5 Tf 54.0 712.0 Td (Not legal advice. Subject to counsel review.) Tj ET
+BT /F2 13.0 Tf 54.0 690.0 Td (Plain-English summary) Tj ET
+BT /F1 9.5 Tf 54.0 670.0 Td (If the investor wants full IP ownership and low or no founder equity for Razim, the) Tj ET
+BT /F1 9.5 Tf 54.0 657.0 Td (structure should be priced as an asset transfer, not as a normal MVP sprint. Retainer) Tj ET
+BT /F1 9.5 Tf 54.0 644.0 Td (pays for delivery time. Assignment price pays for ownership. IP assignment happens only) Tj ET
+BT /F1 9.5 Tf 54.0 631.0 Td (after full payment or agreed milestone escrow release.) Tj ET
+BT /F2 13.0 Tf 54.0 609.0 Td (Commercial purpose) Tj ET
+BT /F1 9.5 Tf 54.0 589.0 Td (This route is best when the investor wants acquisition/work-for-hire style ownership) Tj ET
+BT /F1 9.5 Tf 54.0 576.0 Td (rather than a founder-led venture. It gives the investor maximum control, but it) Tj ET
+BT /F1 9.5 Tf 54.0 563.0 Td (requires materially higher cash terms and careful transfer mechanics.) Tj ET
+BT /F2 13.0 Tf 54.0 541.0 Td (What investor gets) Tj ET
+BT /F1 9.5 Tf 64.0 521.0 Td (- Full ownership of the defined Fieldstate project IP after payment/assignment) Tj ET
+BT /F1 9.5 Tf 64.0 508.0 Td (trigger.) Tj ET
+BT /F1 9.5 Tf 64.0 495.0 Td (- Ability to continue the product through their own company/team after transfer.) Tj ET
+BT /F1 9.5 Tf 64.0 482.0 Td (- Defined handover materials, source, documentation, and evidence artifacts.) Tj ET
+BT /F1 9.5 Tf 64.0 469.0 Td (- Optional continued delivery by Razim under a separate retainer.) Tj ET
+BT /F2 13.0 Tf 54.0 447.0 Td (What Razim keeps/protects) Tj ET
+BT /F1 9.5 Tf 64.0 427.0 Td (- Ownership until assignment trigger occurs.) Tj ET
+BT /F1 9.5 Tf 64.0 414.0 Td (- Payment before transfer.) Tj ET
+BT /F1 9.5 Tf 64.0 401.0 Td (- Background tooling and generic methods carve-out.) Tj ET
+BT /F1 9.5 Tf 64.0 388.0 Td (- No broad non-compete beyond the assigned Fieldstate scope.) Tj ET
+BT /F1 9.5 Tf 64.0 375.0 Td (- Optional reduced equity/warrants if Razim remains involved or cash price is) Tj ET
+BT /F1 9.5 Tf 64.0 362.0 Td (discounted.) Tj ET
+BT /F2 13.0 Tf 54.0 340.0 Td (Indicative cost breakdown) Tj ET
+BT /F2 9.5 Tf 54.0 320.0 Td (Table:) Tj ET
+BT /F2 8.2 Tf 62.0 307.0 Td (* Item | Indicative range | Notes) Tj ET
+BT /F3 8.2 Tf 62.0 297.0 Td (  Assignment price | GBP 300k-750k+ | Current build plus MVP v2 path; final price depends on) Tj ET
+BT /F3 8.2 Tf 62.0 287.0 Td (scope and rights.) Tj ET
+BT /F3 8.2 Tf 62.0 277.0 Td (  Founder/operator retainer | GBP 12k-25k/month | If Razim remains delivery lead during or after) Tj ET
+BT /F3 8.2 Tf 62.0 267.0 Td (assignment.) Tj ET
+BT /F3 8.2 Tf 62.0 257.0 Td (  Escrow/deposit | Negotiated | Protects both sides before final transfer.) Tj ET
+BT /F3 8.2 Tf 62.0 247.0 Td (  Optional equity/warrants | 0%-10% | Only if cash price, ongoing role, or future upside justify) Tj ET
+BT /F3 8.2 Tf 62.0 237.0 Td (it.) Tj ET
+BT /F3 8.2 Tf 62.0 227.0 Td (  Advanced model/data programme | Separately budgeted | Licensed data, GPU training, validation,) Tj ET
+BT /F3 8.2 Tf 62.0 217.0 Td (and production ML excluded unless added.) Tj ET
+BT /F3 8.2 Tf 62.0 207.0 Td (  Legal/tax/accounting | Separately budgeted | Required for assignment, warranties, carve-outs,) Tj ET
+BT /F3 8.2 Tf 62.0 197.0 Td (and transfer mechanics.) Tj ET
+BT /F2 13.0 Tf 54.0 177.0 Td (IP mechanics) Tj ET
+BT /F1 9.5 Tf 64.0 157.0 Td (- Razim owns Fieldstate IP until the assignment trigger.) Tj ET
+BT /F1 9.5 Tf 64.0 144.0 Td (- Assignment trigger should be full payment, escrow release, or milestone payment) Tj ET
+BT /F1 9.5 Tf 64.0 131.0 Td (completion.) Tj ET
+BT /F1 9.5 Tf 64.0 118.0 Td (- Assignment should be to a company vehicle where possible, not to an individual) Tj ET
+BT /F1 9.5 Tf 64.0 105.0 Td (person.) Tj ET
+BT /F1 9.5 Tf 64.0 92.0 Td (- Assignment scope must define what transfers and what does not transfer.) Tj ET
+BT /F1 9.5 Tf 64.0 79.0 Td (- Background IP, generic tooling, personal know-how, and reusable evaluation) Tj ET
+BT /F1 7.2 Tf 54.0 28 Td (Discussion draft only. Not legal advice. Subject to counsel review.) Tj ET
+BT /F1 7.2 Tf 495.0 28 Td (Page 1 of 2) Tj ET
+endstream
+endobj
+7 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 6 0 R >> endobj
+8 0 obj << /Length 2560 >> stream
+BT /F1 9.5 Tf 64.0 788.0 Td (patterns should be carved out.) Tj ET
+BT /F1 9.5 Tf 64.0 775.0 Td (- If payment fails, transfer does not occur and investor receives only any) Tj ET
+BT /F1 9.5 Tf 64.0 762.0 Td (expressly paid-for limited rights.) Tj ET
+BT /F2 13.0 Tf 54.0 740.0 Td (Investor protection) Tj ET
+BT /F1 9.5 Tf 64.0 720.0 Td (- Assignment documents can be pre-agreed and held pending payment.) Tj ET
+BT /F1 9.5 Tf 64.0 707.0 Td (- Milestone escrow can release rights in stages.) Tj ET
+BT /F1 9.5 Tf 64.0 694.0 Td (- Handover checklist can define source, documentation, evidence artifacts, and) Tj ET
+BT /F1 9.5 Tf 64.0 681.0 Td (operational instructions.) Tj ET
+BT /F1 9.5 Tf 64.0 668.0 Td (- Warranties can be limited to Razim's actual knowledge and authored work.) Tj ET
+BT /F1 9.5 Tf 64.0 655.0 Td (- Post-transfer support can be provided under a separate services retainer.) Tj ET
+BT /F2 13.0 Tf 54.0 633.0 Td (Razim protection) Tj ET
+BT /F1 9.5 Tf 64.0 613.0 Td (- No full assignment at sprint-tier pricing.) Tj ET
+BT /F1 9.5 Tf 64.0 600.0 Td (- No assignment before full payment or escrow release.) Tj ET
+BT /F1 9.5 Tf 64.0 587.0 Td (- No assignment to an individual if a company vehicle is intended.) Tj ET
+BT /F1 9.5 Tf 64.0 574.0 Td (- No broad non-compete or restriction beyond the defined assigned project.) Tj ET
+BT /F1 9.5 Tf 64.0 561.0 Td (- Background tooling and generic methods licence-back/carve-out.) Tj ET
+BT /F1 9.5 Tf 64.0 548.0 Td (- Counsel approval before any IP assignment signature.) Tj ET
+BT /F2 13.0 Tf 54.0 526.0 Td (Open issues for counsel) Tj ET
+BT /F1 9.5 Tf 64.0 506.0 Td (- Exact assignment scope and excluded background IP.) Tj ET
+BT /F1 9.5 Tf 64.0 493.0 Td (- Escrow mechanics and staged release of rights.) Tj ET
+BT /F1 9.5 Tf 64.0 480.0 Td (- Warranty scope and limitation of liability.) Tj ET
+BT /F1 9.5 Tf 64.0 467.0 Td (- Treatment of third-party/open-data dependencies.) Tj ET
+BT /F1 9.5 Tf 64.0 454.0 Td (- Ongoing support obligation, if any.) Tj ET
+BT /F1 9.5 Tf 64.0 441.0 Td (- Whether any royalty, revenue share, or option to participate remains after) Tj ET
+BT /F1 9.5 Tf 64.0 428.0 Td (assignment.) Tj ET
+BT /F2 13.0 Tf 54.0 406.0 Td (Counsel review note) Tj ET
+BT /F1 9.5 Tf 54.0 386.0 Td (This draft is for commercial discussion only. Full IP assignment should not be signed) Tj ET
+BT /F1 9.5 Tf 54.0 373.0 Td (without specialist legal review.) Tj ET
+BT /F1 7.2 Tf 54.0 28 Td (Discussion draft only. Not legal advice. Subject to counsel review.) Tj ET
+BT /F1 7.2 Tf 495.0 28 Td (Page 2 of 2) Tj ET
+endstream
+endobj
+9 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 8 0 R >> endobj
+xref
+0 10
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000127 00000 n 
+0000000224 00000 n 
+0000000326 00000 n 
+0000000421 00000 n 
+0000005003 00000 n 
+0000005149 00000 n 
+0000007760 00000 n 
+trailer << /Size 10 /Root 1 0 R >>
+startxref
+7906
+%%EOF

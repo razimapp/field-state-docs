@@ -572,3 +572,40 @@ a.match-card:hover{transform:translateY(-2px);border-color:var(--line-strong)}
   .recommend-list a{grid-template-columns:1fr auto}.recommend-list span{grid-column:1/-1}.recommend-list small{grid-column:1}.recommend-list b{grid-column:2;grid-row:2/4}
   .home-footer{align-items:flex-start;flex-direction:column}.home-footer>p{margin:0}.home-footer>div{width:100%}
 }
+
+/* Guided product tour: progressive enhancement for static concept pages. */
+.concept-banner{position:relative;padding-right:155px}
+.tour-start{
+  position:absolute;right:10px;top:50%;transform:translateY(-50%);appearance:none;
+  border:1px solid rgba(205,185,238,.48);border-radius:999px;padding:5px 9px;
+  background:rgba(185,140,255,.1);color:#e3d7f5;cursor:pointer;
+  font:650 9px/1 var(--mono);letter-spacing:.04em
+}
+.tour-start:hover{border-color:var(--hyp);background:rgba(185,140,255,.2)}
+.tour-overlay{position:fixed;inset:0;z-index:1000;background:rgba(1,8,4,.78)}
+.tour-highlight{
+  position:relative!important;z-index:1001!important;border-radius:10px;
+  outline:3px solid var(--mint)!important;outline-offset:5px;
+  box-shadow:0 0 0 9px rgba(89,198,143,.14),0 22px 70px rgba(0,0,0,.46)!important
+}
+.tour-dialog{
+  position:fixed;z-index:1002;width:min(360px,calc(100vw - 32px));padding:19px;
+  border:1px solid rgba(89,198,143,.5);border-radius:13px;
+  background:#0c2418;color:var(--ink);box-shadow:0 24px 80px rgba(0,0,0,.55)
+}
+.tour-count{margin-bottom:10px;color:var(--mint);font:700 9px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.tour-dialog h2{font:650 20px/1.15 var(--disp);letter-spacing:-.02em}
+.tour-dialog p{margin-top:9px;color:var(--ink-dim);font:400 13px/1.55 var(--disp)}
+.tour-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:17px}
+.tour-actions button{appearance:none;border-radius:7px;padding:9px 12px;cursor:pointer;font:700 10px/1 var(--mono)}
+.tour-skip{border:0;background:transparent;color:var(--ink-dim)}
+.tour-skip:hover{color:var(--rec)}
+.tour-next{border:1px solid var(--mint);background:var(--mint);color:#062015}
+.tour-next:hover{background:#75d4a5}
+@media (max-width:620px){
+  .concept-banner{padding-right:14px;padding-bottom:36px}
+  .tour-start{right:50%;top:auto;bottom:7px;transform:translateX(50%)}
+}
+@media (prefers-reduced-motion:reduce){
+  .tour-start,.tour-dialog{transition:none}
+}

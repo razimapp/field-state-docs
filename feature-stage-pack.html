@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fieldstate | Feature Stages</title>
+  <link rel="stylesheet" href="fieldstate-docs-v2.css" />
+  <style>
+    .stage-map{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:22px 0}.stage-node{min-height:150px;padding:16px;border:1px solid var(--line);border-radius:18px;background:#fff}.stage-node strong{display:block;margin-bottom:8px}.stage-node span{color:var(--muted);font-size:12px}.stage-node.current{background:var(--turf);color:var(--chalk)}.stage-node.current span{color:rgba(242,247,240,.72)}.stage-node.future{border-style:dashed;border-color:rgba(185,140,255,.7)}.stage-detail{display:grid;grid-template-columns:150px 1fr 1fr;gap:14px;padding:28px 0;border-top:1px solid var(--line)}.stage-detail.future{border-top-style:dashed}.stage-tag{font:700 11px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#215b3c}.stage-detail.future .stage-tag{color:#6c42ad}@media(max-width:950px){.stage-map,.stage-detail{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <main class="doc">
+    <header class="top">
+      <div class="brand"><strong>Fieldstate</strong><span>Feature Stages</span></div>
+      <nav class="nav">
+        <a href="investor-pack-v2.html">Investor Pack</a>
+        <a href="mvp-v2-scope.html">MVP Scope</a>
+        <a href="feature-stage-pack.html" aria-current="page">Feature Stages</a>
+        <a href="manager-coach-analyst-capabilities.html">Capabilities</a>
+        <a href="model-data-cloud-costs.html">Model/Data/Cloud</a>
+        <a href="model-evidence.html">Model Evidence</a>
+        <a href="legal-pointer.html">Legal Pointer</a>
+        <a href="engineering.html">Engineering</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Five-stage capability roadmap</div>
+        <h1>From pass decision MVP to the full football what-if engine.</h1>
+        <p>This document shows how product capability expands after each stage earns the right to proceed. It does not define the first sprint contract, budget or commercial route.</p>
+      </div>
+      <aside class="panel pitch-panel">
+        <span class="chip future">Roadmap discipline</span>
+        <h2>Capability follows evidence</h2>
+        <p>Each stage has a user outcome, a data requirement and a gate. Future stages remain future until those requirements are funded and validated.</p>
+      </aside>
+    </section>
+
+    <section class="section">
+      <h2>Stage map</h2>
+      <div class="stage-map">
+        <div class="stage-node current"><strong>1. Pass Decision MVP</strong><span>One recorded pass decision, one controlled alternative and evidence-backed explanation.</span></div>
+        <div class="stage-node"><strong>2. Pilot-Ready Pass Analysis</strong><span>Repeatable match and player workflows, saved moments, reports and pilot onboarding.</span></div>
+        <div class="stage-node"><strong>3. Data-Rich Decision Intelligence</strong><span>Broader decision types, pressure, momentum, possession value and longitudinal profiles.</span></div>
+        <div class="stage-node future"><strong>4. Set-Piece Modules</strong><span>Specialist penalty, corner and free-kick review with module-specific evidence.</span></div>
+        <div class="stage-node future"><strong>5. Full Football What-If Engine</strong><span>Tracking/video layers and richer spatial or sequence scenario modelling.</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>How capability grows</h2>
+
+      <div class="stage-detail">
+        <div class="stage-tag">Stage 1 · Current foundation</div>
+        <div><h3>Pass Decision MVP</h3><p>Review a recorded pass, identify visible options, edit one target and explain the estimated trade-off with clear provenance.</p></div>
+        <div><h3>Gate to advance</h3><p>The workflow is reliable, understandable and evidence-backed; unsupported outputs remain excluded.</p></div>
+      </div>
+
+      <div class="stage-detail">
+        <div class="stage-tag">Stage 2 · Pilot target</div>
+        <div><h3>Pilot-Ready Pass Analysis Product</h3><p>Add ranked moments, saved reviews, player and team reports, repeatable analyst workflows and controlled pilot onboarding.</p></div>
+        <div><h3>Gate to advance</h3><p>Pilot users can repeat the workflow, understand the outputs and identify decisions worth acting on.</p></div>
+      </div>
+
+      <div class="stage-detail">
+        <div class="stage-tag">Stage 3 · Funded data depth</div>
+        <div><h3>Data-Rich Decision Intelligence</h3><p>Expand beyond pass selection into carries, turnovers, pressure, chance creation, momentum, possession value and player trends.</p></div>
+        <div><h3>Gate to advance</h3><p>Approved datasets provide sufficient coverage, and each added model clears its own held-out and calibration checks.</p></div>
+      </div>
+
+      <div class="stage-detail future">
+        <div class="stage-tag">Stage 4 · Specialist modules</div>
+        <div><h3>Set-Piece Modules</h3><p>Create distinct workflows for penalties, corners and free kicks, including role preparation, rehearsal and review.</p></div>
+        <div><h3>Gate to advance</h3><p>Each module has appropriate labels, evidence and football validation rather than reusing open-play assumptions.</p></div>
+      </div>
+
+      <div class="stage-detail future">
+        <div class="stage-tag">Stage 5 · Dream product</div>
+        <div><h3>Full Football What-If Engine</h3><p>Combine licensed tracking or video context with richer spatial and sequence models for broader scenario exploration.</p></div>
+        <div><h3>Gate to advance</h3><p>Data rights, model validation, security, compute, monitoring and user value justify production investment.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Stage boundaries</h2>
+      <div class="grid-3">
+        <div class="card"><h3>Do not pull the future into the MVP</h3><p>The first stage proves one decision workflow. It does not absorb set pieces, full tracking, every persona workflow or neural simulation.</p></div>
+        <div class="card"><h3>Do not promote models by novelty</h3><p>A later model enters the product only when its coverage, reliability and calibration justify the user-facing claim.</p></div>
+        <div class="card"><h3>Do not scale before repeatability</h3><p>Infrastructure, team and operational complexity should follow demonstrated workflow value and a clear stage need.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What changes between stages</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Dimension</th><th>Stage 1</th><th>Stage 2</th><th>Stage 3</th><th>Stages 4–5</th></tr></thead>
+          <tbody>
+            <tr><td><strong>User workflow</strong></td><td>One pass moment</td><td>Repeatable pass review</td><td>Broader team/player intelligence</td><td>Specialist modules and scenario platform</td></tr>
+            <tr><td><strong>Data</strong></td><td>Approved event and available 360 samples</td><td>Broader supported event corpus</td><td>Licensed or richer event/tracking coverage</td><td>Module-specific and continuous spatial inputs</td></tr>
+            <tr><td><strong>Models</strong></td><td>Transparent gated baselines</td><td>Reliable product candidates</td><td>Multiple validated decision models</td><td>Specialist and spatial/sequence challengers</td></tr>
+            <tr><td><strong>Operations</strong></td><td>Controlled demo</td><td>Pilot workflow</td><td>Managed product service</td><td>Scaled platform and monitoring</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section callout">
+      <h2>Roadmap rule</h2>
+      <p>Every stage should have a measurable user outcome, an explicit evidence gate and a documented decision to continue, revise or stop.</p>
+    </section>
+
+    <section class="section callout">
+      <h2>Recommended next read</h2>
+      <p><a href="manager-coach-analyst-capabilities.html">Capabilities</a> — see what managers, coaches, analysts and players can do at each stage.</p>
+    </section>
+
+    <footer class="footer">Status: public capability roadmap. Timing, budget and contractual scope are defined separately.</footer>
+  </main>
+</body>
+</html>

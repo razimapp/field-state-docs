@@ -1,0 +1,956 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Football What-If Simulation MVP | 30 working day feasibility sprint</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    :root {
+      --ink: #0d1b2a;
+      --muted: #5b6777;
+      --line: #d8e1ea;
+      --soft: #f5f8fb;
+      --green: #13a36b;
+      --blue: #16324f;
+    }
+
+    body {
+      margin: 0;
+      background: #e9eef3;
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.42;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .toolbar a,
+    .toolbar button {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--blue);
+      font: inherit;
+      font-weight: 700;
+      padding: 9px 14px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 16px auto;
+      background: #fff;
+      padding: 12mm;
+      box-shadow: 0 18px 50px rgba(13, 27, 42, 0.15);
+      page-break-after: always;
+    }
+
+    .page.compact {
+      padding-top: 12mm;
+    }
+
+    .page.terms-page {
+      padding-top: 8mm;
+    }
+
+    .page.no-header .hero {
+      padding-top: 0;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .compact-header {
+      display: none;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .compact-header h1 {
+      font-size: 34px;
+      margin-bottom: 7px;
+    }
+
+    .compact-header p {
+      max-width: 78ch;
+      margin-bottom: 0;
+    }
+
+    .terms-page h1 {
+      font-size: 34px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand .mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .brand .wordmark {
+      width: 150px;
+      height: auto;
+      display: block;
+    }
+
+    .doc-label {
+      color: var(--muted);
+      font-size: 12px;
+      text-align: right;
+    }
+
+    .hero {
+      padding: 22px 0 18px;
+    }
+
+    .hero.split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      align-items: start;
+      padding-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 38px;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    h2 {
+      margin: 22px 0 10px;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .compact h2 {
+      margin: 12px 0 7px;
+      font-size: 18px;
+    }
+
+    h3 {
+      margin: 0 0 6px;
+      font-size: 14px;
+    }
+
+    p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+
+    .compact p {
+      margin-bottom: 7px;
+      font-size: 12.8px;
+    }
+
+    .compact ul {
+      font-size: 12.2px;
+    }
+
+    .lede {
+      max-width: 86ch;
+      font-size: 15px;
+      color: #314155;
+    }
+
+    .name-note {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 9px 12px;
+      border-radius: 12px;
+      background: var(--soft);
+      color: #314155;
+      font-size: 12.5px;
+      border: 1px solid var(--line);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      background: #fff;
+    }
+
+    .compact .card {
+      padding: 9px;
+      border-radius: 12px;
+    }
+
+    .mt-10 {
+      margin-top: 10px;
+    }
+
+    .card p:last-child { margin-bottom: 0; }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 7px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #e8f7f0;
+      color: #0b6b43;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .tag.blue {
+      background: #edf3f8;
+      color: var(--blue);
+    }
+
+    ul {
+      margin: 7px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    li { margin: 4px 0; }
+
+    .principles {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: #314155;
+      font-size: 12.5px;
+    }
+
+    .statement {
+      margin: 12px 0;
+      padding: 13px;
+      border: 1px solid #d6eadf;
+      border-radius: 14px;
+      background: #f4fbf7;
+      color: #234739;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font-size: 12.5px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 9px 10px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .compact th,
+    .compact td {
+      padding: 7px 9px;
+      font-size: 12px;
+    }
+
+    th {
+      background: var(--soft);
+      color: var(--blue);
+      font-size: 12px;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    .criteria th:first-child,
+    .criteria td:first-child {
+      width: 34%;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .week {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 11px;
+      background: linear-gradient(180deg, #fff 0%, #f9fbfd 100%);
+    }
+
+    .week strong {
+      display: block;
+      color: var(--blue);
+      margin-bottom: 5px;
+      font-size: 13px;
+    }
+
+    .callout {
+      margin-top: 14px;
+      padding: 13px;
+      border-radius: 14px;
+      border: 1px solid #d6eadf;
+      background: #f4fbf7;
+    }
+
+    .callout p {
+      color: #234739;
+      margin-bottom: 0;
+    }
+
+    .footer {
+      margin-top: 18px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    @media print {
+      body { background: #fff; }
+      .toolbar { display: none; }
+      .page {
+        width: 210mm;
+        height: 297mm;
+        min-height: auto;
+        margin: 0;
+        padding: 8mm 11mm;
+        box-shadow: none;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        page-break-after: always;
+      }
+
+      main { flex: 1; }
+
+      h1 { font-size: 32px; }
+      h2 { margin: 13px 0 7px; font-size: 17px; }
+      p { font-size: 12.4px; }
+      ul { font-size: 12px; }
+
+      .hero { padding: 8px 0 8px; }
+      .page.no-header .hero { padding-top: 0; }
+      .compact .hero { padding: 0 0 6px; }
+      .compact h1 { font-size: 28px; }
+      .compact h2 { margin: 8px 0 5px; font-size: 16px; }
+      .terms-page { padding-top: 5mm; }
+      .terms-page h1 { font-size: 27px; }
+      .terms-page .lede { font-size: 12.5px; }
+
+      .grid-2,
+      .grid-3 { gap: 8px; }
+
+      .card { padding: 8px; }
+      .compact .card { padding: 7px; }
+      .callout { margin-top: 8px; padding: 8px; }
+      .footer { margin-top: auto; padding-top: 8px; }
+
+      th,
+      td { padding: 5px 7px; }
+
+      .compact th,
+      .compact td { padding: 4px 6px; }
+
+      .timeline { gap: 7px; margin-top: 7px; }
+      .week { padding: 7px; }
+      .week strong { margin-bottom: 3px; }
+
+      .page:last-child { page-break-after: auto; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar no-print">
+    <button onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
+  <section class="page">
+    <header class="header">
+      <div class="brand">
+        <img class="mark" src="assets/fieldstate-mark.png" alt="Fieldstate mark" />
+        <img class="wordmark" src="assets/fieldstate-wordmark.png" alt="Fieldstate" />
+      </div>
+      <div class="doc-label">
+        Customer view<br />MVP decision-intelligence product
+      </div>
+    </header>
+
+    <main>
+      <div class="hero split">
+        <div>
+          <h1>Fieldstate helps football people compare decisions.</h1>
+          <p class="lede">
+            The MVP answers one practical question: if this player made a different decision here,
+            what might the next phase of play look like?
+          </p>
+          <div class="statement">
+            Fieldstate turns real match moments into clear what-if decision analysis.
+          </div>
+        </div>
+        <div class="card">
+          <span class="tag blue">Brand principle</span>
+          <h3>Calm, practical, credible</h3>
+          <p>
+            The product should help analysts and coaches discuss decisions without pretending to
+            predict a perfect alternate reality.
+          </p>
+        </div>
+      </div>
+
+      <h2>What customers can do</h2>
+      <div class="grid-3">
+        <div class="card">
+          <span class="tag">1</span>
+          <h3>Pick a real event</h3>
+          <p>Select a pass or carry from a real match and see the original context.</p>
+        </div>
+        <div class="card">
+          <span class="tag blue">2</span>
+          <h3>Edit the action</h3>
+          <p>Change the pass target or carry endpoint to test a plausible alternative.</p>
+        </div>
+        <div class="card">
+          <span class="tag">3</span>
+          <h3>Compare the trade-off</h3>
+          <p>Review possession value, chance creation, turnover risk, plausibility, and explanation.</p>
+        </div>
+      </div>
+
+      <h2>Why it matters</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>For analysts</h3>
+          <ul>
+            <li>Review key decisions faster</li>
+            <li>Compare safe and progressive options</li>
+            <li>Turn match data into scenario analysis</li>
+            <li>Support coaching clips with clear evidence</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>For coaches and academies</h3>
+          <ul>
+            <li>Show players why one option may be better</li>
+            <li>Explain risk and reward in simple terms</li>
+            <li>Build a library of decision scenarios</li>
+            <li>Spot recurring decision-making patterns</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p>
+          The MVP does not replay the whole match or guarantee what would have happened. It helps
+          football people understand the trade-off between one decision and another.
+        </p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>Fieldstate customer MVP view</span>
+      <span>Page 1 of 5</span>
+    </footer>
+  </section>
+
+  <section class="page compact terms-page">
+    <main>
+      <div class="hero">
+        <h1>Pre-MVP Working Terms</h1>
+        <p class="lede">
+          This is a controlled feasibility sprint. It should test whether the concept is technically
+          useful before anyone treats it as a commercial product, assigned IP, or agreed company structure.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Status of the sprint</h3>
+          <p>This 30 working day feasibility sprint is not a commitment to deliver a commercial-grade product.</p>
+          <p>This feasibility sprint does not create exclusivity, employment, contractor status, partnership, share ownership, or an obligation for either party to continue unless later agreed in writing.</p>
+        </div>
+        <div class="card">
+          <h3>Role</h3>
+          <p>Razim is contributing as a prospective technical co-founder / founding technical lead, not as a contractor, employee, or outsourced developer.</p>
+        </div>
+        <div class="card">
+          <h3>IP during sprint</h3>
+          <p>All code, models, architecture, documentation, prompts, workflows, and technical assets created during the sprint remain owned by their creator unless assigned under a separate written founder/shareholder agreement.</p>
+        </div>
+        <div class="card">
+          <h3>Source code access</h3>
+          <p>Source code remains in a private repository controlled by the technical founder during the feasibility sprint. Demos, screenshots, documentation, and recorded walkthroughs may be shared for review only with prior written approval from both founding parties.</p>
+        </div>
+      </div>
+
+      <h2>Founder and investor guardrails</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Investor communication</h3>
+          <p>No party may represent that product IP, equity, company ownership, commercial rights, or technical ownership has been assigned or agreed without written agreement from all founding parties.</p>
+          <p>The MVP, demo, screenshots, technical documentation, model outputs, walkthroughs, and related materials may not be shared with investors, customers, clubs, partners, or any other third parties without prior written approval from both founding parties.</p>
+        </div>
+        <div class="card">
+          <h3>Post-MVP decision gate</h3>
+          <p>If the MVP is technically viable or receives investor/customer interest, the parties will pause and agree founder terms, equity, vesting, IP assignment, company structure, and decision rights before further development, fundraising, commercial use, or third-party access.</p>
+        </div>
+      </div>
+
+      <h2>30 working day success criteria</h2>
+      <table class="criteria">
+        <thead>
+          <tr>
+            <th>Success area</th>
+            <th>30 working day feasibility sprint target</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Technical feasibility</td><td>Load real StatsBomb events and generate one editable pass/carry scenario</td></tr>
+          <tr><td>Simulation output</td><td>Produce at least 2-3 plausible next-phase branches</td></tr>
+          <tr><td>Visualisation</td><td>Show original versus alternative event path on a 2D pitch</td></tr>
+          <tr><td>Valuation</td><td>Show basic xT / VAEP-style change or possession-value proxy</td></tr>
+          <tr><td>Explanation</td><td>Generate analyst-readable explanation from structured model output</td></tr>
+          <tr><td>Validation</td><td>Have at least one football analyst or domain person review plausibility</td></tr>
+          <tr><td>Investor readiness</td><td>Produce a demo walkthrough and short feasibility report</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Not Yet Proven</h2>
+      <div class="callout">
+        <p>
+          This sprint does not yet prove commercial accuracy, club-grade tactical realism, live-match
+          reliability, recruitment-grade player modelling, or production-grade probability calibration.
+          Those require deeper validation, richer data, and domain review.
+        </p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>Pre-MVP working terms and success criteria</span>
+      <span>Page 2 of 5</span>
+    </footer>
+  </section>
+
+
+  <section class="page compact terms-page">
+    <main>
+      <div class="hero">
+        <h1>Sprint Operating Assumptions</h1>
+        <p class="lede">
+          These assumptions keep the feasibility sprint practical, transparent, and bounded while the
+          product, data, and commercial opportunity are still being tested.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Definition of done</h3>
+          <p>
+            The 30 working day feasibility sprint is complete when a working demo can load a real match
+            event sequence, allow one pass or carry edit, generate 2-3 plausible next-phase branches,
+            visualise original versus alternative paths, provide a basic possession-value comparison,
+            and produce a short feasibility report.
+          </p>
+          <p>
+            Further polish, additional features, or investor-specific changes are outside the agreed
+            sprint unless agreed in writing.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Time commitment</h3>
+          <p>
+            The sprint assumes reasonable founder-led availability from Razim alongside existing
+            commitments. It does not imply full-time employment, fixed working hours, or availability
+            on demand unless separately agreed.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Business/domain contribution</h3>
+          <p>
+            The business partner is expected to support the sprint by clarifying the product brief,
+            providing football/domain context where available, identifying potential analyst reviewers,
+            managing investor communication transparently, and sharing any relevant customer or investor
+            feedback with Razim.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Investor transparency</h3>
+          <p>
+            Before any investor-facing use of the MVP or proposal, both founding parties will be
+            informed of the names, backgrounds, organisations, and expected role of any investors or
+            third parties being approached.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Review only</h3>
+          <p>
+            “Review only” means discussion and feedback. It does not grant commercial rights, usage
+            rights, copying rights, source-code access, sublicensing rights, or permission to use the
+            materials in fundraising or sales materials beyond the approved context.
+          </p>
+        </div>
+        <div class="card">
+          <h3>No implied assignment</h3>
+          <p>
+            No rights in the MVP, code, models, documentation, brand, or related materials are
+            transferred by implication. Any transfer, licence, or assignment must be separately agreed
+            in writing.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Brand and naming</h3>
+          <p>
+            The Fieldstate name, logo concepts, proposal materials, and brand direction remain part of
+            the feasibility workstream and do not create trademark, company, or ownership rights for
+            either party unless later agreed in writing.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Data terms</h3>
+          <p>
+            Any use of StatsBomb Open Data will follow the applicable open-data terms, including required
+            attribution. No paid, restricted, scraped, or third-party proprietary football data will be
+            used unless the rights and costs are agreed in writing.
+          </p>
+        </div>
+      </div>
+
+      <h2>Costs and post-sprint outcomes</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Expenses approval</h3>
+          <p>
+            Any third-party cost, API spend, cloud spend, contractor cost, paid data cost, or software
+            subscription above an agreed threshold must be approved in writing before being incurred.
+          </p>
+        </div>
+        <div class="card">
+          <h3>After the sprint</h3>
+          <p>
+            After the sprint, the parties may choose to stop the project, continue exploration, form a
+            company, seek investment, or run a customer or analyst pilot. None of these outcomes is
+            automatic.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>Sprint operating assumptions</span>
+      <span>Page 3 of 5</span>
+    </footer>
+  </section>
+
+  <section class="page no-header">
+    <main>
+      <div class="hero">
+        <h1>Football What-If Simulation MVP</h1>
+        <p class="lede">
+          A first-pass MVP to test whether a football event can be adjusted and followed by a plausible
+          alternative next phase of play.
+        </p>
+        <div class="name-note">
+          Working principle: use AI to accelerate research, explanation, and documentation, but keep the
+          football outcome grounded in data, code, and validation.
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <span class="tag">Objective</span>
+          <h3>Show what could happen next</h3>
+          <p>
+            The MVP lets a person select one event from a real football match, adjust a pass or carry,
+            and compare the original decision against a plausible alternative.
+          </p>
+        </div>
+        <div class="card">
+          <span class="tag blue">Scope</span>
+          <h3>Keep the first version narrow</h3>
+          <p>
+            The first version should simulate the next phase, not claim to replay the whole match or
+            predict a perfect alternate reality.
+          </p>
+        </div>
+      </div>
+
+      <h2>MVP Scope</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Included in the first pass</h3>
+          <ul>
+            <li>StatsBomb Open Data loading, with source attribution</li>
+            <li>Real match and event selection</li>
+            <li>Pass or carry edit flow</li>
+            <li>Original versus counterfactual comparison</li>
+            <li>Basic next-phase simulation</li>
+            <li>2D pitch visualisation</li>
+            <li>Action-value output using xT / VAEP-style logic</li>
+            <li>Claude/Fable explanation layer for analyst-readable summaries</li>
+            <li>Short feasibility report</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Excluded from the first pass</h3>
+          <ul>
+            <li>Full-match alternate reality simulation</li>
+            <li>Paid data integration</li>
+            <li>Elite-club-grade player-style modelling</li>
+            <li>Full tracking-data realism</li>
+            <li>Large multi-user SaaS platform</li>
+            <li>Transformer training from day one</li>
+            <li>Fable-generated football outcomes treated as truth</li>
+            <li>Commercial accuracy claims</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>Build Principles</h2>
+      <ul class="principles">
+        <li><strong>Model first:</strong> metrics come from event data, xT / VAEP-style logic, and tested code.</li>
+        <li><strong>Fable second:</strong> Fable suggests factors, refines documents, and explains model output.</li>
+        <li><strong>Python first:</strong> data loading, model features, and feasibility should move quickly before heavier product infrastructure.</li>
+        <li><strong>Cost control:</strong> prompt caching keeps the stable project context reusable across research and explanation calls.</li>
+      </ul>
+
+      <h2>30 working day feasibility sprint plan</h2>
+      <div class="timeline">
+        <div class="week">
+          <strong>Week 1</strong>
+          <p>Load data, expose a small Python API, show matches, and select events.</p>
+        </div>
+        <div class="week">
+          <strong>Week 2</strong>
+          <p>Add xT / possession-value proxies, plausibility checks, and pass/carry edits.</p>
+        </div>
+        <div class="week">
+          <strong>Week 3</strong>
+          <p>Build baseline branch comparison and structured scenario outputs.</p>
+        </div>
+        <div class="week">
+          <strong>Week 4-6</strong>
+          <p>Add Fable explanations, polish visualisation, test plausibility, and prepare the demo.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p>
+          Success for the first pass means the output is understandable, plausible, and useful enough
+          to justify deeper data access and model investment. If the core scope is completed before the
+          30 working day feasibility sprint ends, remaining time will be used to improve the demo, add
+          additional scenario factors, refine model outputs, strengthen the visual experience, and iterate
+          based on investor or analyst feedback. Any material change to the MVP scope, timeline, use case,
+          investor deliverables, third-party access, or technical approach must be agreed in writing by both parties.
+        </p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>Football What-If Simulation MVP</span>
+      <span>Page 4 of 5</span>
+    </footer>
+  </section>
+
+  <section class="page compact">
+    <header class="compact-header">
+      <div>
+        <h1>Initial Cost and Resource View</h1>
+        <p class="lede">
+          The first MVP can be built by one technical founder using AI-assisted development, open data,
+          and a deliberately narrow scope.
+        </p>
+      </div>
+      <div class="doc-label">
+        Page 5<br />Cost and resources
+      </div>
+    </header>
+
+    <main>
+      <h2>Initial MVP Estimate</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Area</th>
+            <th>Initial MVP View</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sprint period</td>
+            <td>30 working day feasibility sprint</td>
+          </tr>
+          <tr>
+            <td>Builder</td>
+            <td>1 technical founder using AI-assisted development. Python first for modelling and feasibility; web or Rust/open-football components can be added only if required after feasibility is proven.</td>
+          </tr>
+          <tr>
+            <td>Open data</td>
+            <td>£0 for the first pass using StatsBomb Open Data, with attribution per StatsBomb terms</td>
+          </tr>
+          <tr>
+            <td>Anthropic / Fable / API support</td>
+            <td>Indicative range: £500-£2,000 for research, document refinement, factor discovery, and explanation support. Prompt caching should reduce repeated context cost and latency.</td>
+          </tr>
+          <tr>
+            <td>Cloud and dev tools</td>
+            <td>Indicative range: £100-£500 for MVP development</td>
+          </tr>
+          <tr>
+            <td>Paid football data</td>
+            <td>£0 initially. Paid data should be considered after the first demo.</td>
+          </tr>
+          <tr>
+            <td>Contractor reserve</td>
+            <td>Optional only if blocked. Indicative reserve: £0-£3,000.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Use of Anthropic Fable</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Where Fable belongs</h3>
+          <p>
+            Fable is best used for deep research, document refinement, candidate factor generation,
+            evaluation design, and analyst-readable explanations of model output.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Where Fable does not belong</h3>
+          <p>
+            Fable should not be the core football simulation model. The outcome path should come from
+            event data, deterministic code, statistical models, and validation, not generic AI guesses.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-2 mt-10">
+        <div class="card">
+          <h3>Prompt caching</h3>
+          <p>
+            Cache the stable project brief, modelling assumptions, schemas, and tone rules. Send only
+            the current event, document section, or research question as the changing input.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Output discipline</h3>
+          <p>
+            Use structured JSON for scenario explanations, factor libraries, and document refinements
+            so the product can parse, review, and audit AI output.
+          </p>
+        </div>
+      </div>
+
+      <h2>Additional Resource Plan</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Blocker or Expansion Need</th>
+            <th>Optional Resource</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Data processing or model quality becomes the blocker</td>
+            <td>Data / ML engineer, especially for StatsBomb ingestion, xT / VAEP features, and validation</td>
+          </tr>
+          <tr>
+            <td>Visual demo polish becomes the blocker</td>
+            <td>Frontend engineer</td>
+          </tr>
+          <tr>
+            <td>Scenario realism needs external validation</td>
+            <td>Football analyst to review plausibility, factor assumptions, and explanation quality</td>
+          </tr>
+          <tr>
+            <td>Paid data sourcing becomes urgent</td>
+            <td>Data vendor consultant</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Cost Growth After MVP</h2>
+      <div class="grid-3">
+        <div class="card">
+          <span class="tag">Pilot</span>
+          <h3>Improve the demo</h3>
+          <p>Better UI, more model testing, and stronger scenario output.</p>
+        </div>
+        <div class="card">
+          <span class="tag blue">Data upgrade</span>
+          <h3>Add licensed data</h3>
+          <p>Paid event or tracking data may be needed for commercial realism.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Commercial build</span>
+          <h3>Turn it into a product</h3>
+          <p>User accounts, deployment, reporting, and customer workflows.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p>
+          Main risk: confusing a polished explanation with validated football truth. Open data is enough
+          to prove feasibility, but serious commercial realism will likely require licensed event/tracking
+          data and analyst validation.
+        </p>
+      </div>
+
+    </main>
+
+    <footer class="footer">
+      <span>Recommendation: start with the 30 working day feasibility sprint, then decide on paid data and extra resources.</span>
+      <span>Page 5 of 5</span>
+    </footer>
+  </section>
+</body>
+</html>
