@@ -10,7 +10,7 @@
 *{box-sizing:border-box;margin:0}
 html{color-scheme:dark}
 body{background:var(--turf-950);color:var(--ink);font:400 14px/1.5 var(--disp);
-  min-height:100vh;display:flex;flex-direction:column}
+  height:100vh;min-height:680px;display:flex;flex-direction:column;overflow:hidden}
 a{color:inherit;text-decoration:none}
 
 .concept-banner{background:var(--hyp);color:#1c0f33;font:600 10px/1 var(--mono);
@@ -44,7 +44,7 @@ a.tick:hover{background:var(--turf-800)}
 .crumbs b{color:var(--rec);font-weight:600}
 
 /* shell grid */
-.app-body{flex:1;display:grid;grid-template-columns:186px 1fr 300px;min-height:0}
+.app-body{flex:1;display:grid;grid-template-columns:186px minmax(0,1fr) 300px;min-height:0;overflow:hidden}
 .app-body.no-panel{grid-template-columns:186px 1fr}
 .rail{background:var(--turf-800);border-right:1px solid var(--line);padding:14px 0}
 .rail a{display:flex;gap:10px;align-items:center;padding:10px 18px;color:var(--ink-dim);font:500 13px/1 var(--disp)}
@@ -66,7 +66,7 @@ a.tick:hover{background:var(--turf-800)}
 .chip.hyp::before{border-radius:50%}
 
 /* pitch canvas */
-.canvas{position:relative;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.canvas{position:relative;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0;min-height:0;overflow:auto}
 .pitch{position:relative;border-radius:10px;overflow:hidden;flex:1;min-height:340px;
   background:repeating-linear-gradient(90deg,rgba(255,255,255,.022) 0 60px,rgba(0,0,0,.05) 60px 120px),
              linear-gradient(180deg,var(--turf-700),var(--turf-800));
@@ -122,7 +122,7 @@ a.kbd,.kbd{font:500 9px/1 var(--mono);border:1px solid var(--line-strong);border
 a.kbd:hover{color:var(--rec);border-color:var(--rec)}
 
 /* cards & grids */
-.cc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;padding:20px;align-content:start}
+.cc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;padding:20px;align-content:start;min-height:0;overflow:auto}
 .card{display:block;background:var(--turf-800);border:1px solid var(--line);border-radius:10px;padding:15px}
 a.card:hover{border-color:var(--line-strong);background:var(--turf-700)}
 .card .lv{font:600 10px/1 var(--mono);letter-spacing:.14em;color:var(--est);text-transform:uppercase}
@@ -134,6 +134,15 @@ a.card:hover{border-color:var(--line-strong);background:var(--turf-700)}
   border:1px solid var(--line);border-radius:10px;padding:15px}
 .cc-wide .pulse{width:10px;height:10px;border-radius:50%;background:var(--mint);flex:none}
 .cc-wide p{font:400 13px/1.5 var(--disp);color:var(--ink-dim)}
+.focus-strip{grid-column:1/-1;display:grid;grid-template-columns:1.15fr .85fr;gap:13px}
+.focus-card{background:var(--turf-900);border:1px solid var(--line);border-radius:12px;padding:16px}
+.focus-card h5{font:700 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px}
+.focus-card p,.focus-card li{font:400 12.5px/1.65 var(--disp);color:var(--ink-dim)}
+.focus-card ul{padding-left:17px}
+.data-note{border-left:3px solid var(--mint);padding-left:12px;color:var(--ink-dim);font:400 12.5px/1.65 var(--disp)}
+.source-stack{display:grid;gap:7px;margin-top:10px}
+.source-row{display:grid;grid-template-columns:118px 1fr;gap:10px;font:500 11px/1.45 var(--mono);color:var(--ink-faint);border-top:1px dotted var(--line);padding-top:7px}
+.source-row b{color:var(--rec);font-weight:600}
 
 /* quad terminal grid */
 .quad{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);flex:1}
@@ -154,7 +163,7 @@ a.trow:hover b{color:var(--mint)}
 .sparkpitch svg{position:absolute;inset:0;width:100%;height:100%}
 
 /* evidence & scout & feed */
-.pad{padding:20px;align-content:start}
+.pad{padding:20px;align-content:start;min-height:0;overflow:auto}
 .ev-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:13px}
 .ev-card{background:var(--turf-800);border:1px solid var(--line);border-radius:10px;padding:17px}
 .ev-card h5{font:700 11.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:13px}
@@ -199,11 +208,13 @@ a.profile-bar:hover{background:var(--turf-700)}
 .journeys .fs{font:600 11px var(--mono);color:var(--rec)}
 
 @media (max-width:980px){
+  body{height:auto;overflow:auto}
   .app-body,.app-body.no-panel{grid-template-columns:1fr}
   .rail{display:flex;overflow-x:auto;padding:6px}
   .rail .rail-sep,.rail .rail-tag{display:none}
   .cc-grid,.ev-grid,.scout,.quad{grid-template-columns:1fr}
   .panel{border-left:none;border-top:1px solid var(--line)}
   .cmdbar .keys{display:none}
+  .focus-strip{grid-template-columns:1fr}
 }
 :focus-visible{outline:2px solid var(--mint);outline-offset:2px}

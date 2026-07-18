@@ -44,6 +44,19 @@
       <div class="ev-card">
         <div class="player-head">
           <div class="shirt">8</div>
+          <div><h5>Player identity card</h5>
+            <p>REC · public/open football data layer · sample identity fields</p></div>
+        </div>
+        <div class="source-stack">
+          <div class="source-row"><b>Name</b><span>Pedri González · sample display</span></div>
+          <div class="source-row"><b>Team</b><span>Barcelona · fixture/squad context from public football data where available</span></div>
+          <div class="source-row"><b>Position</b><span>Central midfield · normalised by Fieldstate</span></div>
+          <div class="source-row"><b>Source</b><span>OpenFootball-style data can support teams, fixtures, squads and scorers, not advanced decision quality.</span></div>
+        </div>
+      </div>
+      <div class="ev-card">
+        <div class="player-head">
+          <div class="shirt">8</div>
           <div><h5>Decision profile · percentile vs position peers</h5>
             <p>EST · modelled from selection-likelihood + value divergence · illustrative</p></div>
         </div>
@@ -64,6 +77,16 @@
           Execution, teammate movement and choice are scored separately.</p>
         <div class="stat" style="margin-top:10px"><div class="k">Choice vs execution gap</div><div class="v est">+27 pct pts</div><div class="meta">EST · chooses far better than results show · sample</div></div>
         <a class="stat hyp-card" style="margin-top:10px" href="evidence.html"><div class="k">Projected in your system</div><div class="v hyp">watchlist → model</div><div class="meta">HYP · projection stays dashed until decision-index v0.3 passes its gate · click for gate status</div><span class="go">EVD ⏎</span></a>
+      </div>
+      <div class="ev-card">
+        <h5>What data powers this page</h5>
+        <p class="data-note">Public football datasets help identify the player and fixture. Fieldstate decision scores require event/360/tracking data plus model evidence. The UI should always tell the user which layer produced each number.</p>
+        <div class="source-stack">
+          <div class="source-row"><b>Public</b><span>club, fixture, squad, scorer metadata.</span></div>
+          <div class="source-row"><b>Recorded</b><span>passes, carries, outcomes, freeze-frame options.</span></div>
+          <div class="source-row"><b>Estimated</b><span>probability, pressure, value, decision percentile.</span></div>
+          <div class="source-row"><b>Future</b><span>tracking/video-derived movement and neural scenario modelling.</span></div>
+        </div>
       </div>
     </div>
   </div>

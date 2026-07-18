@@ -41,20 +41,24 @@
   </nav>
 
   <div class="cc-grid">
-    <div class="journeys">
-      <h5>Four walkable journeys (this prototype is fully linked)</h5>
-      <ol>
-        <li><b>Analyst loop:</b> card below → <a href="moment.html">Moment Replay</a> → "Open in Lab" →
-          <a href="lab.html">Counterfactual Lab</a> → "running on v0.8" → <a href="evidence.html">Evidence Centre</a>.
-          Keyboard path: <span class="fs">MOM 71'34 → LAB → EVD</span></li>
-        <li><b>Terminal loop:</b> <a href="terminal.html">Terminal Desk</a> → any quad panel's OPEN → its room → cmdbar shows the code you could have typed.</li>
-        <li><b>Scout loop:</b> <a href="scout.html">Scout Desk</a> → click any percentile bar → the moments that produced it.</li>
-        <li><b>Partner loop:</b> <a href="feed.html">Feed Desk</a> → a GATED feed → <a href="evidence.html">the gate it must pass</a>. Trust is one click from the price list.</li>
-      </ol>
+    <div class="focus-strip">
+      <div class="focus-card">
+        <h5>What the user does first</h5>
+        <p>Start with one ranked decision moment, open the recorded replay, then move into the Lab only if the analyst wants to test an alternative.</p>
+        <div class="source-stack">
+          <div class="source-row"><b>1. Review</b><span><a href="moment.html">Moment Replay</a> shows what actually happened.</span></div>
+          <div class="source-row"><b>2. Test</b><span><a href="lab.html">Counterfactual Lab</a> shows the edited decision as dashed hypothetical output.</span></div>
+          <div class="source-row"><b>3. Prove</b><span><a href="evidence.html">Evidence Centre</a> explains which model release supports the number.</span></div>
+        </div>
+      </div>
+      <div class="focus-card">
+        <h5>Data spine</h5>
+        <p class="data-note">OpenFootball-style public data can support teams, fixtures, squads and scorers. Rich decision metrics need event, 360, tracking or licensed data, so every sample stat stays labelled.</p>
+      </div>
     </div>
 
     <div class="cc-wide"><span class="pulse"></span>
-      <p><b style="color:var(--rec)">Saturday vs Atlético processed.</b> 14 high-leverage decision moments queued for review, ranked by how much the game state could have swung. <span class="chip est">Estimate</span></p>
+      <p><b style="color:var(--rec)">Saturday vs Atlético processed.</b> Review the three moments below. More detail sits inside each room, not on this dashboard. <span class="chip est">Estimate</span></p>
     </div>
 
     <a class="card" href="moment.html">
@@ -66,7 +70,7 @@
     <a class="card" href="match-room.html">
       <div class="lv">Leverage 0.71 · sample</div>
       <h5>34' — press trigger missed</h5>
-      <p>Their pivot received back-to-goal, unpressed, three times in four minutes.</p>
+      <p>Their pivot received back-to-goal, unpressed. Open the match room for sequence context.</p>
       <div class="foot"><span class="chip rec">Recorded</span><span class="chip est">Pattern</span><span class="go">OPEN MR ⏎</span></div>
     </a>
     <a class="card" href="moment.html">
