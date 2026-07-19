@@ -609,3 +609,14 @@ a.match-card:hover{transform:translateY(-2px);border-color:var(--line-strong)}
 @media (prefers-reduced-motion:reduce){
   .tour-start,.tour-dialog{transition:none}
 }
+
+body::after{
+  content:"© 2026 Razim Wasti. All rights reserved. Fieldstate concept materials, documentation and mockups are provided for evaluation only. No copying, redistribution or commercial use without written permission.";
+  display:block;
+  width:min(100% - 48px,1240px);
+  margin:0 auto;
+  padding:24px 0 38px;
+  border-top:1px solid var(--line);
+  color:var(--ink-faint);
+  font:500 9px/1.55 var(--mono);
+}

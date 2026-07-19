@@ -364,6 +364,18 @@ tr:last-child td {
   color: var(--text);
 }
 
+body::after {
+  content: "© 2026 Razim Wasti. All rights reserved. Fieldstate concept materials, documentation and mockups are provided for evaluation only. No copying, redistribution or commercial use without written permission.";
+  display: block;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 18px 22px 34px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
 @media (max-width: 900px) {
   .hero-grid,
   .grid-3,

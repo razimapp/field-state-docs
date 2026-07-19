@@ -6,6 +6,16 @@ this repository in `field-state-private/` and must never be committed here — a
 `.gitignore` guard exists, but the rule is behavioral: never `git add -A` without
 reading the status list.
 
+## Copyright and permitted use
+
+Copyright © 2026 Razim Wasti. All rights reserved.
+
+The Fieldstate documentation, concept pages, mockups, commercial drafts, technical
+notes, and exports in this repository are provided for evaluation and discussion
+only. No copying, redistribution, republication, modification, sublicensing, sale,
+commercial use, or derivative use is permitted without prior written permission.
+See `LICENSE.md`.
+
 ## Markdown-first
 
 **`docs-src/*.md` files are the canonical sources. HTML pages are presentation

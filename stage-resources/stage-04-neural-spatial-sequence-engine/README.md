@@ -4,6 +4,8 @@
 
 Tracking-enriched sequence models, spatial-temporal prediction, GPU training, and stronger simulation logic.
 
+This stage is where Fieldstate can explore neural pass-receiver prediction, player graph models, video-derived player/ball positions, and tracking-backed simulation.
+
 ## What Belongs Here
 
 - Public links and references relevant to this stage.
@@ -27,6 +29,13 @@ Tracking-enriched sequence models, spatial-temporal prediction, GPU training, an
 - Label anything future-facing as future funded work.
 - Do not store copied proprietary code, paid data, private legal strategy, or confidential investor comments.
 - Convert inspiration into Fieldstate-specific requirements before implementation.
+
+## Current Reference Themes
+
+- Broadcast/video-derived player and ball detection.
+- Perspective transformation into tactical pitch coordinates.
+- Graph-based pass-receiver prediction.
+- Tracking and computer-vision pipelines that require stronger data, compute, and validation.
 
 ## Suggested Reference Note Format
 

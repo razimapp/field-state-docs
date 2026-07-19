@@ -4,6 +4,8 @@
 
 Licensed data, tracking/freeze-frame enrichment, momentum, pressure, and player/team decision profiles.
 
+This stage is where Fieldstate moves beyond isolated pass completion into possession-path value: whether a pass choice increases attacking momentum toward a shot, goal, or high-value chance.
+
 ## What Belongs Here
 
 - Public links and references relevant to this stage.
@@ -27,6 +29,12 @@ Licensed data, tracking/freeze-frame enrichment, momentum, pressure, and player/
 - Label anything future-facing as future funded work.
 - Do not store copied proprietary code, paid data, private legal strategy, or confidential investor comments.
 - Convert inspiration into Fieldstate-specific requirements before implementation.
+
+## Current Reference Themes
+
+- Possession-path features for shot/goal outcome modelling.
+- Passing-zone probability outputs and probability distributions.
+- Momentum labels that remain evidence-gated, not exact future-sequence claims.
 
 ## Suggested Reference Note Format
 
