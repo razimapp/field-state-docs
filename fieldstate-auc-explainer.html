@@ -1,0 +1,703 @@
+<title>Fieldstate: The Pass-Judgement Test</title>
+<style>
+  :root {
+    --turf: #0A1B13;
+    --turf-2: #0D2318;
+    --panel: #0F281B;
+    --panel-2: #133020;
+    --line: rgba(255,255,255,0.15);
+    --line-soft: rgba(255,255,255,0.07);
+    --text: #F1F5EF;
+    --text-dim: #9FB6A5;
+    --text-faint: #5C7266;
+    --green: #3FBF6B;
+    --green-bright: #58D683;
+    --green-wash: rgba(63,191,107,0.14);
+    --amber: #E0A63D;
+    --amber-wash: rgba(224,166,61,0.14);
+    --red: #E0584B;
+    --red-wash: rgba(224,88,75,0.13);
+    --gray: #5B6C61;
+
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    background: var(--turf);
+    color: var(--text);
+    font-family: var(--font);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-image:
+      repeating-linear-gradient(180deg, rgba(255,255,255,0.014) 0px, rgba(255,255,255,0.014) 46px, transparent 46px, transparent 92px);
+  }
+
+  h1, h2, h3, p { margin: 0; }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: clamp(20px, 5vw, 56px) clamp(16px, 4vw, 28px) 64px;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--green-bright);
+    margin: 0 0 12px;
+  }
+
+  section { margin-bottom: clamp(28px, 5vw, 44px); }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line-soft);
+    border-radius: 10px;
+    padding: clamp(18px, 3.5vw, 30px);
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--line-soft);
+    margin: clamp(28px, 5vw, 44px) 0;
+  }
+
+  /* ---------- hero ---------- */
+
+  .hero h1 {
+    font-size: clamp(1.9rem, 4.6vw, 2.9rem);
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    line-height: 1.08;
+    text-wrap: balance;
+    margin-bottom: 14px;
+  }
+
+  .hero .sub {
+    font-size: 1.02rem;
+    color: var(--text-dim);
+    max-width: 52ch;
+    line-height: 1.5;
+    margin-bottom: clamp(22px, 4vw, 30px);
+  }
+
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line-soft);
+    border: 1px solid var(--line-soft);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  @media (max-width: 620px) {
+    .stat-strip { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .stat-tile {
+    background: var(--panel);
+    padding: 14px 16px;
+  }
+
+  .stat-num {
+    font-size: clamp(1.2rem, 2.6vw, 1.55rem);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+
+  .stat-tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-top: 4px;
+  }
+
+  /* ---------- section heads ---------- */
+
+  .head { margin-bottom: 16px; }
+  .head h2 {
+    font-size: clamp(1.25rem, 2.6vw, 1.55rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  .head .desc { font-size: 0.92rem; color: var(--text-dim); max-width: 58ch; line-height: 1.5; }
+
+  /* ---------- pitch ---------- */
+
+  .pitch-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  svg.pitch { width: 100%; max-width: 620px; display: block; }
+  .pitch-line { stroke: rgba(255,255,255,0.55); stroke-width: 1.3; fill: none; }
+  .pitch-caption {
+    font-size: 0.76rem;
+    color: var(--text-faint);
+    text-align: center;
+  }
+
+  .badge {
+    font-size: 8.5px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+  }
+  .badge-bg { rx: 3; }
+
+  /* ---------- duel widget ---------- */
+
+  .duel {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .duel-card {
+    border-radius: 8px;
+    padding: 14px 16px;
+    border: 1px solid var(--line-soft);
+    text-align: center;
+  }
+  .duel-card.win { background: var(--green-wash); border-color: rgba(63,191,107,0.35); }
+  .duel-card.lose { background: var(--red-wash); border-color: rgba(224,88,75,0.3); }
+
+  .duel-tag {
+    font-size: 0.64rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 6px;
+  }
+  .duel-score {
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+  }
+  .duel-card.win .duel-score { color: var(--green-bright); }
+  .duel-card.lose .duel-score { color: var(--red); }
+
+  .duel-sub {
+    font-size: 0.64rem;
+    color: var(--text-faint);
+    margin-top: 3px;
+  }
+
+  .duel-vs {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-faint);
+    letter-spacing: 0.06em;
+  }
+
+  .call-result {
+    text-align: center;
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin: 12px 0 20px;
+    min-height: 1.2em;
+  }
+  .call-result.hit { color: var(--green-bright); }
+  .call-result.miss { color: var(--red); }
+  .call-result.push { color: var(--text-dim); }
+
+  .test-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .test-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+  .test-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--text-faint); }
+  .test-label.live { color: var(--green-bright); }
+  .test-label.live .test-dot { background: var(--green-bright); animation: pulse 1.1s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  .tally { font-size: 0.82rem; color: var(--text-dim); font-variant-numeric: tabular-nums; }
+
+  .progress-track {
+    height: 6px;
+    background: var(--panel-2);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 22px;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--green), var(--green-bright));
+    width: 0%;
+  }
+
+  .auc-big {
+    text-align: center;
+    padding: 6px 0 18px;
+  }
+  .auc-big .num {
+    font-size: clamp(2.6rem, 7vw, 3.8rem);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+    color: var(--green-bright);
+    line-height: 1;
+  }
+  .auc-big .cap { font-size: 0.78rem; color: var(--text-faint); margin-top: 8px; }
+
+  .explain {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: var(--text);
+    max-width: 62ch;
+    margin: 0 auto 18px;
+  }
+  .explain b { color: var(--green-bright); }
+
+  .controls { display: flex; justify-content: center; margin-bottom: 6px; }
+
+  button.replay {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    background: var(--green);
+    color: #06170C;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: filter 0.12s;
+  }
+  button.replay:hover { filter: brightness(1.1); }
+  button.replay:focus-visible { outline: 2px solid var(--green-bright); outline-offset: 2px; }
+
+  .footnote {
+    font-size: 0.76rem;
+    color: var(--text-faint);
+    text-align: center;
+    margin-top: 14px;
+    line-height: 1.5;
+  }
+
+  /* ---------- comparison bars ---------- */
+
+  .compare-row { margin-bottom: 16px; }
+  .compare-row:last-child { margin-bottom: 0; }
+
+  .compare-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+  }
+  .compare-name { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+  .compare-val { font-size: 0.95rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+
+  .compare-track {
+    height: 14px;
+    background: var(--panel-2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .compare-fill { height: 100%; width: 0%; border-radius: 4px; transition: width 1.1s cubic-bezier(.2,.8,.2,1); }
+  .compare-row.random .compare-fill { background: var(--gray); }
+  .compare-row.random .compare-val { color: var(--text-dim); }
+  .compare-row.length .compare-fill { background: var(--amber); }
+  .compare-row.length .compare-val { color: var(--amber); }
+  .compare-row.model .compare-fill { background: linear-gradient(90deg, var(--green), var(--green-bright)); }
+  .compare-row.model .compare-val { color: var(--green-bright); }
+
+  .calib-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line-soft);
+  }
+  @media (max-width: 560px) { .calib-row { grid-template-columns: 1fr; } }
+
+  .calib-tile { background: var(--panel-2); border-radius: 8px; padding: 14px 16px; }
+  .calib-num { font-size: 1.2rem; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--text); }
+  .calib-name { font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin: 2px 0 6px; }
+  .calib-desc { font-size: 0.8rem; color: var(--text-dim); line-height: 1.4; }
+
+  /* ---------- failure reasons ---------- */
+
+  .fail-row { display: grid; grid-template-columns: 160px 1fr 92px; align-items: center; gap: 12px; margin-bottom: 10px; }
+  @media (max-width: 560px) { .fail-row { grid-template-columns: 100px 1fr 78px; } }
+  .fail-name { font-size: 0.85rem; color: var(--text); }
+  .fail-track { height: 10px; background: var(--panel-2); border-radius: 3px; overflow: hidden; }
+  .fail-fill { height: 100%; width: 0%; background: var(--amber); border-radius: 3px; transition: width 1s cubic-bezier(.2,.8,.2,1); }
+  .fail-row.top .fail-fill { background: linear-gradient(90deg, var(--red), var(--amber)); }
+  .fail-num { font-size: 0.82rem; color: var(--text-dim); text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* ---------- claims ---------- */
+
+  .claims { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 620px) { .claims { grid-template-columns: 1fr; } }
+
+  .claim-col { border-radius: 8px; padding: 16px 18px; }
+  .claim-col.safe { background: var(--green-wash); border: 1px solid rgba(63,191,107,0.3); }
+  .claim-col.unsafe { background: rgba(255,255,255,0.03); border: 1px solid var(--line-soft); }
+
+  .claim-head { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+  .claim-col.safe .claim-head { color: var(--green-bright); }
+  .claim-col.unsafe .claim-head { color: var(--text-faint); }
+
+  .claim-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .claim-list li { font-size: 0.86rem; line-height: 1.45; display: flex; gap: 8px; color: var(--text); }
+  .claim-list li .mark { flex-shrink: 0; font-weight: 800; }
+  .claim-col.safe .mark { color: var(--green-bright); }
+  .claim-col.unsafe .mark { color: var(--text-faint); }
+  .claim-col.unsafe li { color: var(--text-dim); }
+
+  /* ---------- closing quote ---------- */
+
+  .quote {
+    border-left: 3px solid var(--green);
+    padding: 4px 0 4px 20px;
+  }
+  .quote p {
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: -0.005em;
+    text-wrap: balance;
+  }
+  .quote .who {
+    margin-top: 12px;
+    font-size: 0.76rem;
+    color: var(--text-faint);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .compare-fill, .fail-fill, .progress-fill { transition: none !important; }
+    .test-label.live .test-dot { animation: none; }
+  }
+</style>
+
+<div class="page">
+
+  <section class="hero">
+    <p class="eyebrow">Fieldstate &middot; Event-Data Model &middot; 5 Competitions</p>
+    <h1>Can the model tell a safer pass from a riskier one?</h1>
+    <p class="sub">113,598 passes across 105 matches. The real AUC summarises roughly 1.91bn completed-vs-failed pass pairings.</p>
+    <div class="stat-strip">
+      <div class="stat-tile"><div class="stat-num">105</div><div class="stat-tag">Matches</div></div>
+      <div class="stat-tile"><div class="stat-num">5</div><div class="stat-tag">Competitions</div></div>
+      <div class="stat-tile"><div class="stat-num">113,598</div><div class="stat-tag">Passes tested</div></div>
+      <div class="stat-tile"><div class="stat-num">81.91%</div><div class="stat-tag">Completion rate</div></div>
+      <div class="stat-tile"><div class="stat-num">1.91bn</div><div class="stat-tag">Real pass-pair tests</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <div class="head">
+        <p class="eyebrow" style="margin-bottom:6px;">A pass-judgement test</p>
+        <h2>Two passes. One call.</h2>
+      </div>
+      <div class="pitch-wrap">
+        <svg class="pitch" viewBox="0 0 420 272" aria-label="Illustrative pitch diagram with a completed pass and a failed pass">
+          <defs>
+            <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#58D683"></path>
+            </marker>
+            <marker id="arrowRed" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#E0584B"></path>
+            </marker>
+          </defs>
+          <rect x="1" y="1" width="418" height="270" rx="6" fill="#0D2718"></rect>
+          <rect x="1" y="1" width="34.8" height="270" fill="rgba(255,255,255,0.018)"></rect>
+          <rect x="70.6" y="1" width="34.8" height="270" fill="rgba(255,255,255,0.018)"></rect>
+          <rect x="140.2" y="1" width="34.8" height="270" fill="rgba(255,255,255,0.018)"></rect>
+          <rect x="209.8" y="1" width="34.8" height="270" fill="rgba(255,255,255,0.018)"></rect>
+          <rect x="279.4" y="1" width="34.8" height="270" fill="rgba(255,255,255,0.018)"></rect>
+          <rect x="349" y="1" width="34.8" height="270" fill="rgba(255,255,255,0.018)"></rect>
+
+          <rect class="pitch-line" x="1" y="1" width="418" height="270" rx="6"></rect>
+          <line class="pitch-line" x1="210" y1="1" x2="210" y2="271"></line>
+          <circle class="pitch-line" cx="210" cy="136" r="38"></circle>
+          <circle cx="210" cy="136" r="1.6" fill="rgba(255,255,255,0.55)"></circle>
+
+          <path class="pitch-line" d="M1,66 h56 v140 h-56"></path>
+          <path class="pitch-line" d="M1,102 h22 v68 h-22"></path>
+          <path class="pitch-line" d="M419,66 h-56 v140 h56"></path>
+          <path class="pitch-line" d="M419,102 h-22 v68 h22"></path>
+
+          <path d="M110,180 Q168,132 226,96" fill="none" stroke="#58D683" stroke-width="2.4" marker-end="url(#arrowGreen)"></path>
+          <circle cx="110" cy="180" r="3.5" fill="#58D683"></circle>
+          <rect x="212" y="56" width="108" height="34" rx="5" fill="rgba(63,191,107,0.9)"></rect>
+          <text x="266" y="73" text-anchor="middle" class="badge" font-size="13" fill="#06170C">86%</text>
+          <text x="266" y="85" text-anchor="middle" class="badge" font-size="6.5" letter-spacing="0.03em" fill="rgba(6,23,12,0.72)">PREDICTED &middot; COMPLETED</text>
+
+          <path d="M150,210 Q210,236 268,222" fill="none" stroke="#E0584B" stroke-width="2.4" stroke-dasharray="5 4" marker-end="url(#arrowRed)"></path>
+          <circle cx="150" cy="210" r="3.5" fill="#E0584B"></circle>
+          <rect x="203" y="232" width="104" height="34" rx="5" fill="rgba(224,88,75,0.92)"></rect>
+          <text x="255" y="249" text-anchor="middle" class="badge" font-size="13" fill="#160705">42%</text>
+          <text x="255" y="261" text-anchor="middle" class="badge" font-size="6.5" letter-spacing="0.03em" fill="rgba(22,7,5,0.72)">PREDICTED &middot; FAILED</text>
+        </svg>
+        <p class="pitch-caption">Score = the model&rsquo;s predicted chance the pass reaches a teammate. Illustrative example, not the measured AUC value.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <div class="head">
+        <h2>AUC 0.7952: how often the model ranks the safer pass higher</h2>
+        <p class="desc">Line the model up against one completed pass and one failed pass. AUC is the share of those pairings where the completed pass receives the higher score. Across the real corpus, that represents about 1.91bn possible completed-vs-failed pass pairings; Fieldstate ranks the completed pass higher <b style="color:var(--green-bright)">about 79.5% of the time</b>.</p>
+      </div>
+
+      <div class="test-status">
+        <span class="test-label" id="testLabel"><span class="test-dot"></span><span id="testLabelText">READY</span></span>
+        <span class="tally" id="tally">0 / 2,500 sample calls</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+      <div class="duel">
+        <div class="duel-card win">
+          <div class="duel-tag">Actually completed</div>
+          <div class="duel-score" id="posScore">&hellip;</div>
+          <div class="duel-sub">model's predicted score</div>
+        </div>
+        <div class="duel-vs">VS</div>
+        <div class="duel-card lose">
+          <div class="duel-tag">Actually failed</div>
+          <div class="duel-score" id="negScore">&hellip;</div>
+          <div class="duel-sub">model's predicted score</div>
+        </div>
+      </div>
+      <div class="call-result" id="callResult">&nbsp;</div>
+
+      <div class="auc-big">
+        <div class="num" id="aucNum">0.0000</div>
+        <div class="cap">running sample AUC: correct sample calls &divide; sample match-ups</div>
+      </div>
+
+      <p class="explain">That is not a claim about which pass was <i>best</i>. It is evidence the model can read real football signals around pass difficulty from event data, rather than just noise.</p>
+
+      <div class="controls"><button class="replay" id="replayBtn">&#9654; Run the test again</button></div>
+
+      <p class="footnote">Illustrative simulation only: 50 example completed passes × 50 example failed passes = 2,500 sample match-ups. The real AUC of 0.7952 is measured across 113,598 passes, equivalent to about 1.91bn possible completed-vs-failed pass pairings.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <div class="head">
+        <h2>Better than guessing. Better than a tape measure.</h2>
+        <p class="desc">AUC: how often the model ranks the completed pass above the failed one.</p>
+      </div>
+
+      <div class="compare-row random">
+        <div class="compare-top"><span class="compare-name">Random guess</span><span class="compare-val">0.500</span></div>
+        <div class="compare-track"><div class="compare-fill" data-target="50"></div></div>
+      </div>
+      <div class="compare-row length">
+        <div class="compare-top"><span class="compare-name">Pass length only</span><span class="compare-val">0.602</span></div>
+        <div class="compare-track"><div class="compare-fill" data-target="60.22"></div></div>
+      </div>
+      <div class="compare-row model">
+        <div class="compare-top"><span class="compare-name">Fieldstate event model</span><span class="compare-val">0.795</span></div>
+        <div class="compare-track"><div class="compare-fill" data-target="79.52"></div></div>
+      </div>
+
+      <div class="calib-row">
+        <div class="calib-tile">
+          <div class="calib-num">0.1170</div>
+          <div class="calib-name">Brier score</div>
+          <div class="calib-desc">Lower Brier means the probability scores are closer to actual pass outcomes.</div>
+        </div>
+        <div class="calib-tile">
+          <div class="calib-num">0.0168</div>
+          <div class="calib-name">ECE</div>
+          <div class="calib-desc">When the model says 70%, it completes at roughly 70%.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <div class="head">
+        <h2>Why passes fail</h2>
+        <p class="desc">20,551 failed passes, 18.09% of everything tested, broken down by recorded reason.</p>
+        <p class="desc" style="margin-top:8px">Failed passes are not all the same football problem: some are cut out, some are misplaced, some run out of play, and some fail because the receiving run or timing breaks down. The current event data records the outcome label, not every tactical cause.</p>
+      </div>
+
+      <div class="fail-row top"><div class="fail-name">Incomplete</div><div class="fail-track"><div class="fail-fill" data-target="86.2"></div></div><div class="fail-num">17,710 &middot; 86.2%</div></div>
+      <div class="fail-row"><div class="fail-name">Out of play</div><div class="fail-track"><div class="fail-fill" data-target="9.2"></div></div><div class="fail-num">1,883 &middot; 9.2%</div></div>
+      <div class="fail-row"><div class="fail-name">Unknown</div><div class="fail-track"><div class="fail-fill" data-target="2.7"></div></div><div class="fail-num">547 &middot; 2.7%</div></div>
+      <div class="fail-row"><div class="fail-name">Pass offside</div><div class="fail-track"><div class="fail-fill" data-target="1.7"></div></div><div class="fail-num">343 &middot; 1.7%</div></div>
+      <div class="fail-row"><div class="fail-name">Injury clearance</div><div class="fail-track"><div class="fail-fill" data-target="0.3"></div></div><div class="fail-num">68 &middot; 0.3%</div></div>
+
+      <p class="footnote" style="margin-top:16px; text-align:left;">&ldquo;Incomplete&rdquo; is a broad event-data label. It may cover things like a misplaced ball, an interception, or a miscontrol. The data doesn&rsquo;t yet separate which.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="head">
+      <h2>What this evidence supports, and what it doesn&rsquo;t</h2>
+    </div>
+    <div class="claims">
+      <div class="claim-col safe">
+        <div class="claim-head">Safe to say</div>
+        <ul class="claim-list">
+          <li><span class="mark">&#10003;</span>A real, measurable pass-completion signal read from event data, not noise</li>
+          <li><span class="mark">&#10003;</span>Materially sharper than guessing, and sharper than judging passes on length alone</li>
+          <li><span class="mark">&#10003;</span>Calibrated enough to show a bounded pass-completion estimate for a specified pass</li>
+          <li><span class="mark">&#10003;</span>Enough evidence to fund the next stage: richer data, more features, what-if possession modelling</li>
+        </ul>
+      </div>
+      <div class="claim-col unsafe">
+        <div class="claim-head">Not yet safe to say</div>
+        <ul class="claim-list">
+          <li><span class="mark">&#10005;</span>Which pass was the &ldquo;best&rdquo; one</li>
+          <li><span class="mark">&#10005;</span>What a player intended</li>
+          <li><span class="mark">&#10005;</span>What definitely happens next in the match</li>
+          <li><span class="mark">&#10005;</span>The exact reason a pass labelled &ldquo;Incomplete&rdquo; broke down</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="quote">
+    <p>Why this matters: Fieldstate has ranking power. It usually scores passes that reach a teammate above passes that break down. That is enough to start comparing recorded vs. edited pass choices with evidence, not guesswork.</p>
+    <p class="who">Fieldstate &middot; Pass Model Evaluation</p>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var positives = [52,73,45,75,53,62,69,83,51,77,71,84,60,94,75,81,55,69,59,49,49,45,58,55,53,100,76,64,40,72,63,51,61,54,76,74,52,39,36,57,57,72,60,49,56,72,51,44,44,65];
+  var negatives = [65,46,40,39,31,23,55,13,57,49,41,53,65,42,17,36,52,55,62,13,28,63,42,26,51,38,42,29,57,27,52,30,47,84,3,54,37,77,32,52,61,51,34,52,49,41,59,29,33,34];
+
+  var pairs = [];
+  for (var i = 0; i < positives.length; i++) {
+    for (var j = 0; j < negatives.length; j++) pairs.push([positives[i], negatives[j]]);
+  }
+
+  function mulberry32(seed) {
+    return function () {
+      seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+      var t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  var shuffleRand = mulberry32(4242);
+  for (var s = pairs.length - 1; s > 0; s--) {
+    var r = Math.floor(shuffleRand() * (s + 1));
+    var tmp = pairs[s]; pairs[s] = pairs[r]; pairs[r] = tmp;
+  }
+
+  var total = pairs.length;
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var CHUNK = reduceMotion ? total : 16;
+
+  var posScoreEl = document.getElementById("posScore");
+  var negScoreEl = document.getElementById("negScore");
+  var callResultEl = document.getElementById("callResult");
+  var tallyEl = document.getElementById("tally");
+  var progressEl = document.getElementById("progressFill");
+  var aucEl = document.getElementById("aucNum");
+  var testLabel = document.getElementById("testLabel");
+  var testLabelText = document.getElementById("testLabelText");
+  var replayBtn = document.getElementById("replayBtn");
+
+  var rafId = null;
+
+  function fmt(n) { return n.toLocaleString("en-US"); }
+
+  function run() {
+    if (rafId) cancelAnimationFrame(rafId);
+    var processed = 0, correct = 0;
+    testLabel.classList.add("live");
+    testLabelText.textContent = "RUNNING TEST";
+
+    function step() {
+      var end = Math.min(total, processed + CHUNK);
+      for (var k = processed; k < end; k++) {
+        var pos = pairs[k][0], neg = pairs[k][1];
+        if (pos > neg) correct += 1;
+        else if (pos === neg) correct += 0.5;
+      }
+      processed = end;
+
+      var lastPair = pairs[processed - 1];
+      posScoreEl.textContent = lastPair[0] + "%";
+      negScoreEl.textContent = lastPair[1] + "%";
+      tallyEl.textContent = fmt(Math.round(correct)) + " / " + fmt(total) + " sample calls";
+      progressEl.style.width = ((processed / total) * 100).toFixed(1) + "%";
+      aucEl.textContent = (correct / processed).toFixed(4);
+
+      if (lastPair[0] > lastPair[1]) {
+        callResultEl.textContent = "✓ Correct call: the completed pass scored higher";
+        callResultEl.className = "call-result hit";
+      } else if (lastPair[0] < lastPair[1]) {
+        callResultEl.textContent = "✕ Missed call: the failed pass scored higher this time";
+        callResultEl.className = "call-result miss";
+      } else {
+        callResultEl.textContent = "= Tie: equal scores, counts as half a correct call";
+        callResultEl.className = "call-result push";
+      }
+
+      if (processed < total) {
+        rafId = requestAnimationFrame(step);
+      } else {
+        testLabel.classList.remove("live");
+        testLabelText.textContent = "COMPLETE";
+        aucEl.textContent = (correct / total).toFixed(4);
+        callResultEl.textContent = "Across this " + fmt(total) + "-pair sample: " + fmt(Math.round(correct)) + " correct sample calls, " + (correct / total * 100).toFixed(2) + "%";
+        callResultEl.className = "call-result hit";
+      }
+    }
+    rafId = requestAnimationFrame(step);
+  }
+
+  replayBtn.addEventListener("click", run);
+  run();
+
+  // grow-in bars once visible
+  var bars = document.querySelectorAll(".compare-fill, .fail-fill");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.style.width = entry.target.getAttribute("data-target") + "%";
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    bars.forEach(function (b) { io.observe(b); });
+  } else {
+    bars.forEach(function (b) { b.style.width = b.getAttribute("data-target") + "%"; });
+  }
+})();
+</script>
